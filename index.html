@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Alicia LE BRUN — Data Dashboard CV</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Police moderne -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+        --bg: #140716;
+        --bg-alt: #1d0b23;
+        --primary: #ec4899;             /* rose vif */
+        --primary-soft: rgba(236,72,153,0.24);
+        --accent: #f9a8d4;              /* rose pastel */
+        --text: #fdf2f8;                /* rose très clair */
+        --muted: #f9a8d4;               /* rose doux pour le texte secondaire */
+        --card: rgba(30, 7, 41, 0.92);  /* carte violette/rose foncé */
+        --border: rgba(248, 187, 208, 0.35);
+        --radius-xl: 24px;
+        --radius-lg: 18px;
+        --shadow-soft: 0 24px 60px rgba(0,0,0,0.55);
+        --glass: rgba(24, 6, 34, 0.88);
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        background:
+        radial-gradient(circle at top left, #f973c6 0, transparent 45%),
+        radial-gradient(circle at top right, #fb7185 0, transparent 40%),
+        radial-gradient(circle at bottom, #4c1d95 0, #020617 60%);
+        color: var(--text);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        padding: 24px;
+    }
+
+    .layout {
+        display: grid;
+        grid-template-columns: 320px minmax(0, 1fr);
+        gap: 24px;
+        max-width: 1240px;
+        width: 100%;
+    }
+
+    /* SIDEBAR */
+
+    .sidebar {
+        background: var(--glass);
+        border-radius: var(--radius-xl);
+        padding: 24px 22px;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        position: sticky;
+        top: 24px;
+        align-self: flex-start;
+        backdrop-filter: blur(22px);
+    }
+
+    .profile-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .avatar {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 20%, #ffe4f7, #4c1d95);
+        border: 2px solid var(--primary);
+        box-shadow: 0 0 0 4px var(--primary-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 22px;
+        color: #2e0232;
+    }
+
+    .identity-main {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .identity-main h1 {
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+    }
+
+    .chip-role {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--accent);
+    }
+
+    .version-badge {
+        align-self: flex-start;
+        font-size: 11px;
+        padding: 4px 9px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: radial-gradient(circle at 0 0, rgba(251,207,232,0.35), transparent 60%);
+        color: var(--muted);
+    }
+
+    .version-badge span {
+        color: #fbcfe8;
+        font-weight: 600;
+    }
+
+    .section-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: #fecdd3;
+        margin-bottom: 6px;
+    }
+
+    .summary {
+        font-size: 13px;
+        line-height: 1.5;
+        color: #ffe4f7;
+    }
+
+    .summary strong {
+        color: #f9a8d4;
+        font-weight: 600;
+    }
+
+    .kpi-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .kpi-card {
+        border-radius: var(--radius-lg);
+        padding: 10px 10px 9px;
+        background: radial-gradient(circle at 0 0, rgba(236,72,153,0.22), var(--card));
+        border: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .kpi-label {
+        font-size: 11px;
+        color: #fed7e2;
+    }
+
+    .kpi-value {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .kpi-sub {
+        font-size: 11px;
+        color: var(--accent);
+    }
+
+    .pill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .pill {
+        font-size: 11px;
+        padding: 4px 9px;
+        border-radius: 999px;
+        border: 1px solid rgba(248,187,208,0.6);
+        background: rgba(76,29,149,0.8);
+        color: #ffe4f7;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+    }
+
+    .nav-link {
+        flex: 1 1 45%;
+        font-size: 11px;
+        padding: 6px 8px;
+        border-radius: 999px;
+        background: rgba(76,29,149,0.9);
+        border: 1px solid rgba(248,187,208,0.7);
+        text-align: center;
+        text-decoration: none;
+        color: #ffe4f7;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+
+    .nav-link:hover {
+        border-color: #f9a8d4;
+        color: #fdf2f8;
+        transform: translateY(-1px) scale(1.01);
+    }
+
+    .contact-block {
+        margin-top: 2px;
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        color: #ffe4f7;
+    }
+
+    .contact-block a {
+        color: #fbcfe8;
+        text-decoration: none;
+        font-size: 12px;
+    }
+
+    .contact-block a:hover {
+        text-decoration: underline;
+    }
+
+    /* MAIN */
+
+    .main {
+        background: rgba(24, 6, 34, 0.9);
+        border-radius: var(--radius-xl);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow-soft);
+        padding: 22px 24px 24px;
+        backdrop-filter: blur(22px);
+        display: flex;
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .main-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: center;
+        margin-bottom: 6px;
+    }
+
+    .main-title-block h2 {
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .main-title-block p {
+        font-size: 12px;
+        color: #fed7e2;
+    }
+
+    .tagline-highlight {
+        color: #f9a8d4;
+        font-weight: 600;
+    }
+
+    .status-badge {
+        font-size: 11px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(251,113,133,0.25);
+        border: 1px solid rgba(251,113,133,0.8);
+        color: #ffe4e6;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .grid-2 {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        gap: 18px;
+    }
+
+    .card {
+        background: radial-gradient(circle at 0 0, rgba(251,207,232,0.16), var(--card));
+        border-radius: var(--radius-lg);
+        padding: 14px 14px 13px;
+        border: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 8px;
+    }
+
+    .card-title {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: #fecdd3;
+    }
+
+    .card-subtitle {
+        font-size: 11px;
+        color: #f9a8d4;
+    }
+
+    .chip-small {
+        font-size: 10px;
+        padding: 3px 7px;
+        border-radius: 999px;
+        border: 1px solid rgba(248,187,208,0.7);
+        color: #ffe4f7;
+        white-space: nowrap;
+        background: rgba(76,29,149,0.7);
+    }
+
+    .kpi-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .kpi-mini {
+        flex: 1 1 30%;
+        background: rgba(49, 12, 72, 0.9);
+        border-radius: 14px;
+        padding: 8px 10px;
+        border: 1px solid rgba(248,187,208,0.6);
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .kpi-mini-label {
+        font-size: 11px;
+        color: #fecdd3;
+    }
+
+    .kpi-mini-value {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    .progress-bar {
+        margin-top: 4px;
+        height: 4px;
+        border-radius: 999px;
+        background: rgba(30,7,41,1);
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #ec4899, #f973c6);
+        width: 0;
+        transition: width 0.8s ease-out;
+    }
+
+    canvas {
+        width: 100% !important;
+        height: 220px !important;
+    }
+
+    .timeline {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 2px;
+    }
+
+    .timeline-item {
+        display: grid;
+        grid-template-columns: 90px minmax(0, 1fr);
+        gap: 10px;
+        font-size: 12px;
+        align-items: flex-start;  
+    }
+
+    .timeline-date {
+        color: #fecdd3;
+        line-height: 1.2;
+        padding-top: 2px; 
+    }
+
+    .timeline-content-title {
+        font-weight: 500;
+        font-size: 13px;
+    }
+
+    .timeline-content-meta {
+        font-size: 11px;
+        color: #f9a8d4;
+    }
+
+    .timeline-content-text {
+        font-size: 12px;
+        color: #ffe4f7;
+    }
+
+    .company-logo {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      border-radius: 6px;
+      filter: brightness(1.1) contrast(1.1);
+    }
+
+    .with-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;     /* empêche l'étirement */
+      max-width: fit-content; /* ceinture + bretelles */
+    }
+
+
+    .credoc-logo,
+    .efrei-logo {
+      width: 48px;   
+      height: 48px;
+      border-radius: 6px;
+    }
+
+    .essca-logo {
+      width: 32px;   
+      height: 32px;
+      border-radius: 6px;
+      transform: translateY(-6px); 
+    }
+
+    .cm-logo {
+      width: 50px;   
+      height: 50px;
+      border-radius: 100px;
+    }
+
+    .pill-tech-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 4px;
+    }
+
+    .cloud-wrapper {
+      position: relative;
+      margin-top: 10px;
+    }
+
+    /* GROS NUAGE GLOW */
+    .cloud-bubble {
+      position: relative;
+      padding: 22px 26px 24px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(248, 187, 208, 0.45), transparent 60%),
+        radial-gradient(circle at 80% 100%, rgba(129, 140, 248, 0.4), transparent 55%),
+        linear-gradient(145deg, #1e0934, #2d0f4a);
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.65),
+        0 0 25px rgba(236, 72, 153, 0.35);
+      border: 1px solid rgba(248, 187, 208, 0.65);
+      overflow: visible;
+    }
+
+    /* bosses du nuage */
+    .cloud-bubble::before,
+    .cloud-bubble::after {
+      content: "";
+      position: absolute;
+      background: radial-gradient(circle at 50% 30%, #3b0764, #1e0634);
+      border-radius: 999px;
+      z-index: -1;
+    }
+
+    /* bosse de gauche */
+    .cloud-bubble::before {
+      width: 140px;
+      height: 80px;
+      top: -26px;
+      left: 10%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    /* bosse de droite */
+    .cloud-bubble::after {
+      width: 170px;
+      height: 90px;
+      top: -30px;
+      right: 8%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+
+    .cloud-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .cloud-main-icon {
+      font-size: 20px;
+    }
+
+    .cloud-main-text {
+      font-size: 13px;
+      color: #ffe4f7;
+      font-weight: 500;
+    }
+
+    .cloud-categories {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 10px;
+    }
+
+    .cloud-category-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fce7f3;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .cloud-badges {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+      gap: 14px;
+    }
+
+    .cloud-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: #fee2f5;
+    }
+
+    .cloud-badge-circle {
+      width: 60px;
+      height: 60px;
+      border-radius: 999px;
+      background:
+        radial-gradient(circle at 30% 0%, rgba(248, 187, 208, 0.9), rgba(236, 72, 153, 0.6)),
+        #1e0930;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.6),
+        0 0 18px rgba(244, 114, 182, 0.55);
+      border: 1px solid rgba(248, 187, 208, 0.8);
+      font-size: 22px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    }
+
+    .cloud-badge-circle:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.7),
+        0 0 22px rgba(251, 113, 133, 0.8);
+      border-color: #fecdd3;
+    }
+
+    .cloud-badge-circle img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
+      filter: drop-shadow(0 0 2px rgba(255,255,255,0.4));
+    } 
+
+
+    .cloud-badge-label {
+      text-align: center;
+      line-height: 1.25;
+    }
+
+
+
+    .check {
+      color: #ffb7df;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+
+    .pill-tech {
+        font-size: 10px;
+        padding: 3px 8px;
+        border-radius: 999px;
+        background: rgba(76,29,149,0.9);
+        border: 1px solid rgba(248,187,208,0.7);
+        color: #ffe4f7;
+    }
+
+    .project-list {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        font-size: 12px;
+    }
+
+    .project-item {
+        padding: 8px 9px;
+        border-radius: 14px;
+        border: 1px solid rgba(248,187,208,0.6);
+        background: rgba(49,12,72,0.95);
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .project-title-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        align-items: baseline;
+    }
+
+    .project-title {
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .project-tag {
+        font-size: 10px;
+        padding: 3px 7px;
+        border-radius: 999px;
+        background: rgba(236,72,153,0.25);
+        border: 1px solid rgba(236,72,153,0.9);
+        color: #fdf2f8;
+        white-space: nowrap;
+    }
+
+    .project-desc {
+        color: #ffe4f7;
+        font-size: 12px;
+    }
+
+    .project-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 2px;
+    }
+
+    .project-meta span {
+        font-size: 10px;
+        color: #fecdd3;
+    }
+
+    .footer-note {
+        margin-top: 4px;
+        font-size: 11px;
+        color: #fecdd3;
+        text-align: right;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 960px) {
+        body {
+        padding: 16px;
+        }
+        .layout {
+        grid-template-columns: minmax(0, 1fr);
+        }
+        .sidebar {
+        position: static;
+        order: -1;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .main {
+        padding: 16px;
+        }
+        .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+        }
+        .profile-header {
+        align-items: flex-start;
+        }
+    }
+
+    .project-desc-list {
+        margin-top: 4px;
+        margin-bottom: 0;
+        padding-left: 18px;   /* décale les puces */
+    }
+
+    .project-desc-list li {
+        margin-bottom: 2px;
+    }
+
+
+    /* Colonne gauche = pile verticale */
+    .left-col {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    /* Pour s'assurer que Cloud Explorer s’aligne bien */
+    .right-col {
+        display: flex;
+    }
+
+
+
+    /* --- CERTIFICATIONS SECTION --- */
+
+    .certif-section {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .certif-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+
+    .certif-item {
+        background: rgba(49, 12, 72, 0.92);
+        border-radius: 18px;
+        border: 1px solid var(--border);
+        padding: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        box-shadow: 0 0 0 2px rgba(248,187,208,0.15);
+    }
+
+    .certif-img {
+        width: 100%;
+        border-radius: 14px;
+        border: 1px solid rgba(248,187,208,0.4);
+        object-fit: cover;
+    }
+
+    .certif-info {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .certif-name {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text);
+    }
+
+    .certif-date {
+            font-size: 11px;
+            color: var(--accent);
+    }
+
+    .cv-download-content {
+      padding: 18px 20px 25px;
+    }
+
+    .cv-download-text {
+      margin-bottom: 18px;
+      color: #e5d4ff;
+      font-size: 14px;
+    }
+
+    .cv-download-btn {
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: 30px;
+      text-decoration: none;
+      color: #fff;
+      display: inline-block;
+
+      background: radial-gradient(circle at 0% 0%, 
+        rgba(255, 138, 197, 0.35), 
+        rgba(120, 60, 170, 0.9));
+
+      border: 1px solid rgba(255, 138, 197, 0.55);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+
+      transition: 0.15s ease;
+    }
+
+    .cv-download-btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255, 160, 210, 0.9);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+    }
+
+
+    
+
+    </style>
+
+<link rel="icon" type="image/png" href="img/logo.png  " />
+
+</head>
+<body>
+  <div class="layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="profile-header">
+        <div class="avatar">
+          ALB
+        </div>
+        <div class="identity-main">
+          <h1>Alicia LE BRUN</h1>
+          <div class="chip-role">Étudiante en école d’ingénieur (M2)</div>
+        </div>
+      </div>
+
+      <div class="version-badge">
+        Profil <span>Alicia_Data v2.0</span> · Dernière mise à jour : 2025
+      </div>
+
+      <div>
+        <div class="section-label">Résumé</div>
+        <p class="summary">
+          Étudiante à <strong>EFREI Paris</strong> en majeure
+          <strong>Data Engineering</strong>, à la recherche d’un
+          <strong>stage de fin d’études (Mars–Septembre 2026)</strong> en
+          <strong>Data Engineering & Data Science</strong>. J’aime concevoir
+          des solutions de bout en bout : collecte, traitement, modèles ML / NLP
+          et déploiement (MLOps).
+        </p>
+      </div>   
+
+      <div>
+        <div class="section-label">Mots-clés</div>
+        <div class="pill-list">
+          <span class="pill">Python</span>
+          <span class="pill">Data Engineering</span>
+          <span class="pill">ML & NLP</span>
+          <span class="pill">Streamlit & Dash</span>
+          <span class="pill">Docker · MLflow</span>
+          <span class="pill">Azure AI-900</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-label">KPIs Profil</div>
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">Niveau</div>
+            <div class="kpi-value">M2</div>
+            <div class="kpi-sub">Data Engineering</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Stages réalisés</div>
+            <div class="kpi-value">3</div>
+            <div class="kpi-sub">Data · Banque · Retail</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Projets académiques</div>
+            <div class="kpi-value">10+</div>
+            <div class="kpi-sub">ML, IoT, Web, MLOps</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Langues</div>
+            <div class="kpi-value">FR / EN / ES</div>
+            <div class="kpi-sub">TOEIC 915 · Voltaire 789</div>
+          </div>
+        </div>
+      </div>
+
+
+      <div>
+        <div class="section-label">Centres d’intérêt</div>
+        <div class="pill-list">
+          <span class="pill">Psychologie 🧠</span>
+          <span class="pill">Animaux 🐾</span>
+          <span class="pill">Musique 🎶</span>
+          <span class="pill">Danse 💃</span>
+          <span class="pill">Lecture 📖</span>
+          <span class="pill">Jeux vidéos 🎮</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main class="main">
+      <header class="main-header">
+        <div class="main-title-block">
+          <h2 id="overview">Data Dashboard CV</h2>
+          <p>
+            Candidate pour un
+            <span class="tagline-highlight">stage de fin d’études (Mars–Septembre 2026)</span>
+            en <strong>Data Engineering & Data Science</strong>.
+          </p>
+        </div>
+        <div class="status-badge">
+          🎯 Recherche stage de fin d’études
+        </div>
+      </header>
+
+        <!-- EXPERIENCE + TIMELINE CHART -->
+        <!-- Timeline d'expériences -->
+      <section class="grid-2">
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Timeline</div>
+              <div class="card-subtitle">Évolution du profil professionel</div>
+            </div>
+            <div class="chip-small">Logs d'événements</div>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">Nov. 2024 – Avr. 2025</div>
+              <div>
+                <div class="timeline-content-title with-logo">
+                  Stage M1 · Data Management — CREDOC
+                  <img src="img/logos/Parcours/credoc.png" alt="CREDOC logo" class="company-logo credoc-logo"/>
+                </div>
+                <div class="timeline-content-meta">Développement d’un Data Lake & plateforme interne</div>
+                <div class="timeline-content-text">
+                  Centralisation et structuration des données d’enquêtes, création d’une
+                  plateforme interne avec Streamlit pour mettre à disposition les données
+                  (navigation, recherche, exports) et scripts Python d’automatisation
+                  du nettoyage et traitement des données.
+                </div>
+                <div class="pill-tech-row">
+                  <span class="pill-tech">Python</span>
+                  <span class="pill-tech">Pandas</span>
+                  <span class="pill-tech">Streamlit</span>
+                  <span class="pill-tech">Data Lake</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">Août 2023 - Décembre 2023</div>
+              <div>
+                <div class="timeline-content-title with-logo">
+                  Semestre à l'étranger L3 - ESSCA Budapest
+                  <img src="img/logos/Parcours/essca.png" alt="ESSCA logo" class="company-logo essca-logo"/>
+                </div>
+                <div class="timeline-content-meta">Erasmus</div>
+                <div class="pill-tech-row">
+                  <span class="pill-tech">Immersion linguistique et culturelle</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">Décembre 2022</div>
+              <div>
+                <div class="timeline-content-title with-logo">
+                  Stage commercial L2 — Darty
+                  <img src="img/logos/Parcours/darty.png" alt="DARTY logo" class="company-logo"/>
+                </div>
+                <div class="timeline-content-meta">Vendeuse en rayon</div>
+                <div class="timeline-content-text">
+                  Conseil client, mise en rayon et suivi des ventes, arrangement des rayons selon les périodes. 
+                  Période de rush (Black Friday, Noêl, Jour de l'An).
+                </div>
+                <div class="pill-tech-row">
+                  <span class="pill-tech">Vente</span>
+                  <span class="pill-tech">Relation client</span>
+                  <span class="pill-tech">Gestion de la pression</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">Juin 2022</div>
+              <div>
+                <div class="timeline-content-title with-logo">
+                  Stage d’exécution L1 — Crédit Mutuel
+                  <img src="img/logos/Parcours/credit-mutuel.png" alt="CREDIT MUTUEL logo" class="company-logo cm-logo"/>
+                </div>
+                <div class="timeline-content-meta">Découverte environnement bancaire</div>
+                <div class="timeline-content-text">
+                  Gestion de l’accueil, des demandes clients, du courrier et des archives.
+                  Première immersion dans le monde bancaire et le contact client.
+                </div>
+                <div class="pill-tech-row">
+                  <span class="pill-tech">Relation client</span>
+                  <span class="pill-tech">Autonomie</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-date">Depuis 2021</div>
+              <div>
+                <div class="timeline-content-title with-logo">
+                  EFREI Paris — Majeure Data Engineering
+                  <img src="img/logos/Parcours/efrei.png" alt="EFREI logo" class="company-logo efrei-logo"/>
+                </div>
+                <div class="timeline-content-meta">Parcours ingénieur</div>
+                <div class="timeline-content-text">
+                  Python, C, SQL / NoSQL, PySpark, Kafka, Airflow, GCP (BigQuery, Parquet),
+                  FastAPI, Flask, Git, Linux, Docker, ML (Scikit-learn, PyTorch, BERT),
+                  dataviz (Streamlit, Dash, Power BI, Seaborn, Matplotlib).
+                </div>
+                <div class="pill-tech-row">
+                  <span class="pill-tech">Data Engineering</span>
+                  <span class="pill-tech">Machine Learning</span>
+                  <span class="pill-tech">Cloud & MLOps</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <div>
+              <div class="card-title">Projets académiques</div>
+              <div class="card-subtitle">Mise en pratique data / ML / IoT / Web</div>
+            </div>
+            <div class="chip-small">EFREI Paris</div>
+          </div>
+
+        <div class="project-list">
+          <div class="project-item">
+            <div class="project-title-row">
+              <div class="project-title">Projet ML in Production</div>
+              <div class="project-tag">MLOps · NLP</div>
+            </div>
+            <div class="project-desc">
+              Développement d’une application web complète (frontend React + backend FastAPI)
+              embarquant un modèle NLP de classification des sentiments. Mise en place
+              d’une pipeline MLOps avec CI/CD, MLflow, DVC et déploiement Docker sur le cloud.
+            </div>
+            <div class="project-meta">
+              <span>⚙️ Python · FastAPI · React</span>
+              <span>🧰 MLflow · DVC · Docker · GitHub Actions</span>
+              <span>🧠 NLP · Sentiment Analysis</span>
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-title-row">
+              <div class="project-title">BOAT</div>
+              <div class="project-tag">Computer Vision · Sécurité</div>
+            </div>
+            <div class="project-desc">
+              Création d’une webapp permettant aux propriétaires de bateaux de détecter les vols
+              et d’être notifiés en temps réel à partir d’images issues de caméras portuaires,
+              en utilisant YOLO pour la détection visuelle.
+            </div>
+            <div class="project-meta">
+              <span>⚙️ Python · YOLO</span>
+              <span>🌐 Node.js</span>
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-title-row">
+              <div class="project-title">Kitty Tracker</div>
+              <div class="project-tag">IoT · Vue</div>
+            </div>
+            <div class="project-desc">
+              Conception d’un boîtier accroché à un harnais pour chats, permettant aux
+              propriétaires de suivre en direct les déplacements de leur animal via
+              une application dédiée.
+            </div>
+            <div class="project-meta">
+              <span>⚙️ Python · Électronique</span>
+              <span>🖥️ Front Vue.js</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ENGAGEMENT / VOLONTARIAT -->
+      <section class="card" id="engagement">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Service civique & associations</div>
+            <div class="card-subtitle">Engagement terrain & responsabilités</div>
+          </div>
+          <div class="chip-small">VOLONTARIAT</div>
+        </div>
+
+        <div class="project-list">
+          <div class="project-item">
+            <div class="project-title-row">
+              <div class="project-title">Service civique — Quarks Football (91)</div>
+              <div class="project-tag">Oct. 2024 –> Juil. 2025</div>
+            </div>
+            <div class="project-desc">
+                Implication dans le développement du club de football américain, soutien
+                à l’organisation des événements et à la vie de l’association sportive.
+                Plus précisément :
+                <ul class="project-desc-list">
+                <li>Création et maintenance du site web <strong>(WordPress)</strong> -> 
+                <a href="https://quarks-football.fr/" target="_blank" class="pill">
+                🌐 Voir le site
+                </a></li>
+                <li>Prise de <strong>photos</strong> durant les matchs et entraînements</li>
+                <li>Tenue du compte <strong>Instagram</strong> de la section Flag Football ->
+                <a href="https://www.instagram.com/quarksflagfootball/" target="_blank" class="pill">
+                📱 Voir la page
+                </a></li>
+                <li>Encaissements / service à la <strong>buvette</strong></li>
+                </ul>
+            </div>
+            <div class="project-meta">
+              <span>🌐 WordPress</span>
+              <span>🎨 Création de contenu</span>
+              <span>📱 Gestion de réseaux sociaux</span>
+              <span>🎯 Gestion d’événements</span>
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-title-row">
+              <div class="project-title">Bénévolat — Hopeland : refuge pour chiens (Thessaloniki, Grèce)</div>
+              <div class="project-tag">Sept. 2025</div>
+            </div>
+            <div class="project-desc">
+            4 semaines -  Prise en charge des chiens (nourrissage / soins / sorties / surveillance ...) et aide au quotidien dans le refuge (nettoyages quotidiens complets de la maison et des terrains).
+            </div>
+            <div class="project-meta">
+              <span>🐕 Sensibilisation animale</span>
+              <span>🎯 Gestion du stress</span>
+              <span>🌎 Immersion linguistique</span>
+              <span>✨ Autonomie & responsabilité</span>
+              <span>👥 Vie en communauté</span>
+            </div>
+          </div>
+            
+
+          <div class="project-item">
+            <div class="project-title-row">
+              <div class="project-title">Bénévolat — Secours Populaire (91)</div>
+              <div class="project-tag">2019 –> 2021</div>
+            </div>
+            <div class="project-desc">
+              Aide à la collecte, tri, rangement et distribution des denrées alimentaires aux plus démunis.
+            </div>
+            <div class="project-meta">
+              <span>🫂 Contact humain & empathie</span>
+            </div>
+          </div>
+
+          <div class="project-item">
+            <div class="project-title-row">
+              <div class="project-title">Associations étudiantes (EFREI)</div>
+              <div class="project-tag">Durant ma scolarité</div>
+            </div>
+            <div class="project-desc">
+                <ul class="project-desc-list">
+                <li><strong>Vice-Présidente</strong> de Make Me Up (association de maquillage)</li>
+                <li><strong>Trésorière</strong> de Millésime (oenologie) & Efrei Chefs (cuisine)</li>
+                <li><strong>Responsable Design & Communication</strong> pour le BDE, Efrei Chefs et Millésime</li>
+                </ul>
+            </div>
+            <div class="project-meta">
+              <span>🧩 Organisation d’événements</span>
+              <span>🎨 Communication & design</span>
+              <span>🤝 Travail en équipe</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid-2 cloud-soft-block">
+        <div class="left-col">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Soft skills</div>
+                <div class="card-subtitle">Compétences comportementales évaluées</div>
+              </div>
+              <div class="chip-small">Auto-évaluation</div>
+            </div>
+
+            <div class="kpi-row">
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Adaptabilité</div>
+                <div class="kpi-mini-value">★★★★☆</div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-progress="75"></div>
+                </div>
+              </div>
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Communication</div>
+                <div class="kpi-mini-value">★★★★☆</div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-progress="80"></div>
+                </div>
+              </div>
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Curiosité intellectuelle</div>
+                <div class="kpi-mini-value">★★★★★</div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-progress="100"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="kpi-row">
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Empathie</div>
+                <div class="kpi-mini-value">★★★★★</div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-progress="95"></div>
+                </div>
+              </div>
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Gestion de la pression</div>
+                <div class="kpi-mini-value">★★★★☆</div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-progress="80"></div>
+                </div>
+              </div>
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Motivation</div>
+                <div class="kpi-mini-value">★★★★★</div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-progress="85"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="kpi-row">
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Ponctualité</div>
+                <div class="kpi-mini-value">★★★★★</div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-progress="95"></div>
+                </div>
+              </div>
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Rédaction</div>
+                <div class="kpi-mini-value">★★★★★</div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-progress="90"></div>
+                </div>
+              </div>
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Rigueur</div>
+                <div class="kpi-mini-value">★★★★★</div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-progress="90"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card certif-section">
+            <div class="card-header">
+                <div>
+                <div class="card-title">Certifications</div>
+                <div class="card-subtitle">Compétences vérifiées</div>
+                </div>
+                <div class="chip-small">2025</div>
+            </div>
+
+            <div class="certif-grid">
+
+                <!-- CERTIF 1 -->
+                <div class="certif-item">
+                <div class="certif-info">
+                    <div class="certif-name">Formation Premiers Secours Citoyen (PSC)</div>
+                    <div class="certif-date">Mai 2025</div>
+                    <a href="img/Certifs/PSC-LE-BRUN-Alicia.pdf" target="_blank" class="pill">
+                      📄 Voir la certification
+                    </a>
+                </div>
+                </div>
+
+                <!-- CERTIF 2 -->
+                <div class="certif-item">
+                <div class="certif-info">
+                    <div class="certif-name">Microsoft Azure AI-900 (AI Fundamentals)</div>
+                    <div class="certif-date">Juin 2025</div>
+                    <a href="img/Certifs/AzureAI-900.pdf" target="_blank" class="pill">
+                      📄 Voir la certification
+                    </a>            
+                </div>
+                </div>
+            </div>
+          </div> 
+
+          <div class="card" id="cv-download">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Curriculum Vitae</div>
+                <div class="card-subtitle">Version PDF téléchargeable</div>
+              </div>
+              <div class="chip-small">PDF</div>
+            </div>
+
+            <div class="cv-download-content">
+              <p class="cv-download-text">
+                Retrouvez une version imprimable de mon CV (PDF).<br>
+                Mise en page pour candidatures classiques.
+              </p>
+
+              <a href="CV - Alicia LE BRUN (18).pdf" 
+                class="pill cv-download-btn" 
+                target="_blank">
+                📄 Télécharger mon CV (PDF)
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="right-col">
+          <div class="card" id="cloud-explorer">
+            <div class="card-header">
+              <div>
+                <div class="card-title">Cloud Explorer</div>
+                <div class="card-subtitle">Services Cloud étudiés</div>
+              </div>
+              <div class="chip-small">Cloud & MLOps</div>
+            </div>
+              <div class="cloud-categories">
+
+                <div class="cloud-category">
+                  <div class="cloud-category-title">☁️ CLOUD PLATFORMS (services)</div>
+                  <div class="cloud-badges">
+                    <div class="cloud-badge"><div class="cloud-badge-circle"><img src="img/logos/Cloud/AzureAI.png" alt="Azure AI"></div><div class="cloud-badge-label">Azure AI Services</div></div>
+                    <div class="cloud-badge"><div class="cloud-badge-circle"><img src="img/logos/Cloud/AzureBlobStorage.png" alt="Azure Blob Storage"></div><div class="cloud-badge-label">Azure Blob Storage</div></div>
+                    <div class="cloud-badge"><div class="cloud-badge-circle"><img src="img/logos/Cloud/AzureML.png" alt="Azure ML"></div><div class="cloud-badge-label">Azure ML Studio</div></div>
+                    <div class="cloud-badge"><div class="cloud-badge-circle"><img src="img/logos/Cloud/BigQuery.png" alt="BigQuery"></div><div class="cloud-badge-label">BigQuery</div></div>
+                    <div class="cloud-badge"><div class="cloud-badge-circle"><img src="img/logos/Cloud/AWS S3.png" alt="AWS S3"></div><div class="cloud-badge-label">AWS S3</div></div>
+                  </div>
+                </div>
+
+                <div class="cloud-category">
+                  <div class="cloud-category-title">⚙️ DATA ENGINEERING & PIPELINES CLOUD</div>
+                  <div class="cloud-badges">
+                    <div class="cloud-badge"><div class="cloud-badge-circle"><img src="img/logos/Cloud/ApacheAirflow.png" alt="Apache Airflow"></div><div class="cloud-badge-label">Apache Airflow</div></div>
+                    <div class="cloud-badge"><div class="cloud-badge-circle"><img src="img/logos/Cloud/Kafka.png" alt="Kafka"></div><div class="cloud-badge-label">Apache Kafka</div></div>
+                    <div class="cloud-badge"><div class="cloud-badge-circle"><img src="img/logos/Cloud/Spark.png" alt="Spark"></div><div class="cloud-badge-label">Apache Spark</div></div>
+                    <div class="cloud-badge"><div class="cloud-badge-circle"><img src="img/logos/Cloud/MLflow.png" alt="MLflow"></div><div class="cloud-badge-label">MLflow</div></div>
+                    <div class="cloud-badge"><div class="cloud-badge-circle"><img src="img/logos/Cloud/Docker.png" alt="Docker"></div><div class="cloud-badge-label">Docker</div></div>
+                    <div class="cloud-badge"><div class="cloud-badge-circle"><img src="img/logos/Cloud/GithubActions.png" alt="Github Actions"></div><div class="cloud-badge-label">GitHub Actions (CI/CD → cloud)</div></div>
+                    <div class="cloud-badge"><div class="cloud-badge-circle"><img src="img/logos/Cloud/Kubernetes.png" alt="Kubernetes"></div><div class="cloud-badge-label">Kubernetes</div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+      <!-- CONTACT / FOOTER -->
+      <section class="card" id="contact">
+        <div class="card-header">
+          <div>
+            <div class="card-title">Contact & next step</div>
+            <div class="card-subtitle">Data Engineering & Data Science · Stage de fin d’études</div>
+          </div>
+          <div class="chip-small">Disponible Mars –> Sept. 2026</div>
+        </div>
+        <p style="font-size: 13px; color: var(--muted); margin-bottom: 10px;">
+          Intéressé·e par mon profil pour un stage de fin d’études en
+          <strong>Data Engineering / Data Science</strong> ?
+          Je serais ravie d’échanger sur vos besoins, vos enjeux data et la manière
+          dont je peux y contribuer.
+        </p>
+        <div class="contact-block" style="margin-top: 10px;">
+          <div>📧 <a href="mailto:alicia.le-brun@efrei.net">alicia.le-brun@efrei.net</a></div>
+          <div>📱 +33 7 66 52 89 79</div>
+          <div>🔗 <a href="https://www.linkedin.com/in/alicia-le-brun-457315218/" target="_blank" rel="noreferrer">LinkedIn</a></div>
+        </div>
+        <div class="footer-note">
+          CV interactif — Novembre 2025
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Animate KPI progress bars
+    document.querySelectorAll('.progress-fill').forEach(bar => {
+      const value = bar.getAttribute('data-progress');
+      requestAnimationFrame(() => {
+        bar.style.width = value + '%';
+      });
+    });
+
+    // Skills chart (Bar) — basé sur ton CV
+    const skillsCtx = document.getElementById('skillsChart').getContext('2d');
+    new Chart(skillsCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Python', 'SQL / NoSQL', 'Data Eng (Spark, Kafka)', 'ML / DL', 'Dataviz', 'Cloud & MLOps'],
+        datasets: [{
+          label: 'Niveau (0–100)',
+          data: [90, 80, 75, 78, 82, 74],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: '#e5e7eb',
+              font: { size: 11 }
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: {
+              color: '#9ca3af',
+              font: { size: 11 }
+            },
+            grid: {
+              display: false
+            }
+          },
+          y: {
+            ticks: {
+              color: '#9ca3af',
+              font: { size: 11 }
+            },
+            grid: {
+              color: 'rgba(148,163,184,0.25)'
+            },
+            suggestedMin: 50,
+            suggestedMax: 100
+          }
+        }
+      }
+    });
+
+    // Timeline chart (Line)
+    const timelineCtx = document.getElementById('timelineChart').getContext('2d');
+    new Chart(timelineCtx, {
+      type: 'line',
+      data: {
+        labels: ['2019', '2021', '2022', '2024', '2025'],
+        datasets: [{
+          label: 'Intensité des projets / responsabilités',
+          data: [20, 40, 55, 80, 90],
+          tension: 0.35,
+          fill: true,
+          borderWidth: 2
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            labels: {
+              color: '#e5e7eb',
+              font: { size: 11 }
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: {
+              color: '#9ca3af',
+              font: { size: 11 }
+            },
+            grid: {
+              color: 'rgba(30,64,175,0.2)'
+            }
+          },
+          y: {
+            ticks: {
+              color: '#9ca3af',
+              font: { size: 11 }
+            },
+            grid: {
+              color: 'rgba(30,64,175,0.2)'
+            },
+            suggestedMin: 0,
+            suggestedMax: 100
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
