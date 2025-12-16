@@ -418,6 +418,37 @@
         color: #ffe4f7;
     }
 
+
+    .tech-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .tech-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .tech-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #fbcfe8;
+    }
+
+    .tech-subgroup {
+      margin-bottom: 8px;
+    }
+
+    .tech-subtitle {
+      font-size: 11px;
+      color: #f9a8d4;
+      margin-bottom: 4px;
+    }
+
+
     .company-logo {
       width: 30px;
       height: 30px;
@@ -825,6 +856,7 @@
 </head>
 <body>
   <div class="layout">
+
     <!-- SIDEBAR -->
     <aside class="sidebar">
       <div class="profile-header">
@@ -854,13 +886,85 @@
       </div>   
 
       <div>
-        <div class="section-label">Mots-clés</div>
-        <div class="pill-list">
-          <span class="pill">Data engineering</span>
-          <span class="pill">Développement & DevOps</span>
-          <span class="pill">MLOps</span>
-          <span class="pill">Dataviz & Analytics</span>
-          <span class="pill">Pipelines Data</span>
+        <div class="section-label">Compétences techniques</div>
+
+        <div class="tech-stack">
+          <div class="tech-group">
+            <div class="tech-title"><br>Langages</div>
+
+            <div class="tech-subgroup">
+              <div class="tech-subtitle">Programmation</div>
+              <div class="pill-list">
+                <span class="pill">Python</span>
+                <span class="pill">C</span>
+                <span class="pill">Java</span>
+              </div>
+            </div>
+
+            <div class="tech-subgroup">
+              <div class="tech-subtitle">Web & Mobile</div>
+              <div class="pill-list">
+                <span class="pill">HTML</span>
+                <span class="pill">CSS</span>
+                <span class="pill">JavaScript</span>
+                <span class="pill">SwiftUI</span>
+              </div>
+            </div>
+
+            <div class="tech-subgroup">
+              <div class="tech-subtitle">Données</div>
+              <div class="pill-list">
+                <span class="pill">SQL</span>
+                <span class="pill">NoSQL</span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="tech-group">
+            <div class="tech-title">Systèmes & environnements</div>
+            <div class="pill-list">
+              <span class="pill">Linux</span>
+              <span class="pill">Git</span>
+            </div>
+          </div>
+
+          <div class="tech-group">
+            <div class="tech-title">Dataviz & Analytics</div>
+            <div class="pill-list">
+              <span class="pill">Streamlit</span>
+              <span class="pill">Dash</span>
+              <span class="pill">Power BI</span>
+              <span class="pill">Matplotlib</span>
+              <span class="pill">Seaborn</span>
+            </div>
+          </div>
+
+          <div class="tech-group">
+            <div class="tech-title">Data Engineering</div>
+            <div class="pill-list">
+              <span class="pill">Spark · PySpark</span>
+              <span class="pill">Kafka</span>
+              <span class="pill">Airflow</span>
+            </div>
+          </div>
+
+          <div class="tech-group">
+            <div class="tech-title">Cloud · MLOps · DevOps</div>
+            <div class="pill-list">
+              <span class="pill">Docker</span>
+              <span class="pill">MLflow</span>
+              <span class="pill">GitHub Actions</span>
+              <span class="pill">Azure</span>
+              <span class="pill">Kubernetes</span>
+            </div>
+          </div>
+
+
+
+
+
+
         </div>
       </div>
 
