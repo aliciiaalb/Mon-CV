@@ -10234,6 +10234,132 @@
 .elastic-training-temp-pdf:hover{
   opacity:1;
 }
+
+/* ============================================================
+   ILM · correction du dépassement
+   5 phases flexibles ; les flèches ne consomment plus de colonne.
+   ============================================================ */
+
+.tech-lane-elastic .elastic-lifecycle-layout{
+  grid-template-columns:minmax(225px,.68fr) minmax(0,2.32fr) !important;
+}
+
+.tech-lane-elastic .elastic-lifecycle-ilm{
+  min-width:0 !important;
+  overflow:hidden !important;
+}
+
+.tech-lane-elastic .elastic-ilm-flow{
+  display:grid !important;
+  grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+  gap:18px !important;
+  width:100% !important;
+  min-width:0 !important;
+  overflow:visible !important;
+}
+
+.tech-lane-elastic .elastic-ilm-phase{
+  position:relative !important;
+  min-width:0 !important;
+  width:auto !important;
+  padding:8px 5px !important;
+}
+
+/* Flèche placée dans le gap : aucune largeur supplémentaire */
+.tech-lane-elastic .elastic-ilm-phase:not(.delete)::after{
+  content:"" !important;
+  position:absolute !important;
+  z-index:2 !important;
+  top:50% !important;
+  left:calc(100% + 4px) !important;
+  width:10px !important;
+  height:1px !important;
+  background:rgba(249,168,212,.30) !important;
+  transform:translateY(-50%) !important;
+  pointer-events:none !important;
+}
+
+.tech-lane-elastic .elastic-ilm-phase:not(.delete)::before{
+  content:"" !important;
+  position:absolute !important;
+  z-index:3 !important;
+  top:50% !important;
+  left:calc(100% + 11px) !important;
+  width:4px !important;
+  height:4px !important;
+  border-top:1px solid rgba(249,168,212,.72) !important;
+  border-right:1px solid rgba(249,168,212,.72) !important;
+  transform:translateY(-50%) rotate(45deg) !important;
+  pointer-events:none !important;
+}
+
+/* Scintillement directionnel uniquement au survol, comme les autres flux */
+@keyframes ilmGapFlow{
+  0%{background-position:180% 50%}
+  100%{background-position:-180% 50%}
+}
+
+#technologies-pratique .elastic-core-lifecycle:hover
+.elastic-ilm-phase:not(.delete)::after{
+  background-image:linear-gradient(
+    90deg,
+    rgba(249,168,212,.10),
+    rgba(249,168,212,.32),
+    rgba(255,241,247,.96),
+    rgba(249,168,212,.28),
+    rgba(249,168,212,.10)
+  ) !important;
+  background-size:220% 100% !important;
+  animation:ilmGapFlow 3.4s linear infinite !important;
+}
+
+/* Tablette : 5 phases restent possibles tant que l'espace le permet. */
+@media(max-width:900px) and (min-width:701px){
+  .tech-lane-elastic .elastic-lifecycle-layout{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+
+  .tech-lane-elastic .elastic-ilm-flow{
+    gap:16px !important;
+  }
+}
+
+/* Mobile : on privilégie la lisibilité et on retire les flèches de liaison. */
+@media(max-width:700px){
+  .tech-lane-elastic .elastic-ilm-flow{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+  }
+
+  .tech-lane-elastic .elastic-ilm-phase.delete{
+    grid-column:1 / -1 !important;
+  }
+
+  .tech-lane-elastic .elastic-ilm-phase::before,
+  .tech-lane-elastic .elastic-ilm-phase::after{
+    display:none !important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  #technologies-pratique .elastic-core-lifecycle:hover
+  .elastic-ilm-phase:not(.delete)::after{
+    animation:none !important;
+  }
+}
+
+/* Soft skills — formulations plus développées */
+.soft-skill-flip-card,
+.soft-skill-flip-inner{
+  min-height:148px;
+}
+.soft-skill-back{
+  padding:17px 17px 40px;
+}
+.soft-skill-back-text{
+  font-size:11.5px;
+  line-height:1.55;
+}
 </style>
 <link href="img/logo.png" rel="icon" type="image/png"/>
 </head>
@@ -10255,8 +10381,8 @@
 <span aria-hidden="true" class="sidebar-block-icon">⌘</span>
 <div class="sidebar-block-copy">
 <div class="sidebar-block-kicker">STACK &amp; OUTILS</div>
-<div class="sidebar-block-title" id="sidebar-toolbox-title">Compétences techniques</div>
-<div class="sidebar-block-subtitle">En complément du Tech Cockpit</div>
+<div class="sidebar-block-title" id="sidebar-toolbox-title">Compétences techniques diverses</div>
+<div class="sidebar-block-subtitle">Stack complémentaire</div>
 </div>
 </div>
 <div class="tech-stack tech-stack-categorized">
@@ -10315,7 +10441,7 @@
 <div class="sidebar-cv-title" id="sidebar-cv-title">Curriculum Vitae</div>
 <div class="sidebar-cv-subtitle">Version PDF</div>
 </div>
-<a class="sidebar-cv-btn" href="CV - Alicia LE BRUN (4).pdf" rel="noopener noreferrer" target="_blank">
+<a class="sidebar-cv-btn" href="CV - Alicia LE BRUN (3).pdf" rel="noopener noreferrer" target="_blank">
 <span>PDF</span>
 <strong>Télécharger</strong>
 <b aria-hidden="true">↗</b>
@@ -10339,10 +10465,10 @@
 </div>
 <aside aria-label="Disponibilité professionnelle" class="profile-availability">
 <div class="availability-eyebrow">OBJECTIF 2026</div>
-<div class="availability-status"><span class="availability-dot"></span>Recherche CDI</div>
+<div class="availability-status"><span class="availability-dot"></span>Recherche CDD / CDI</div>
 <div class="availability-role">Data Engineering</div>
 <div class="availability-date">Disponible dès <strong>octobre 2026</strong></div>
-<a class="availability-contact" href="mailto:alicia.lebrun.contact@gmail.com">Me contacter <span>↗</span></a>
+<a class="availability-contact" href="https://www.linkedin.com/in/alicia-le-brun-457315218/" rel="noopener noreferrer" target="_blank">Me contacter <span>↗</span></a>
 </aside>
 </section>
 <!-- EXPERIENCE + TIMELINE CHART -->
@@ -10350,11 +10476,10 @@
 <section class="card tech-cockpit-feature" id="technologies-pratique">
 <div class="card-header">
 <div>
-<div class="card-title">Tech cockpit</div>
+<div class="card-title">Expertise technique</div>
 <div class="card-subtitle">Architecture, exploitation et concepts clés de ma stack Data Engineering</div>
 </div>
-<div class="chip-small">Data Engineering · RUN</div>
-<div class="chip-small cockpit-live-chip">LIVE STACK</div></div>
+</div>
 <div class="tech-cockpit tech-cockpit-flows">
 <div class="tech-cockpit-hero">
 <div>
@@ -10401,7 +10526,6 @@
 <div class="tech-module-title">Elastic Stack</div>
 </div>
 </div>
-<div class="tech-module-badge">Stage BNP</div>
 </div>
 <div class="elastic-core">
 <!-- Architecture générale -->
@@ -10503,27 +10627,18 @@
 <div aria-label="Cycle de vie ILM" class="elastic-ilm-flow">
 <div class="elastic-ilm-phase hot">
 <strong>HOT</strong>
-<small>Rollover</small>
 </div>
-<i aria-hidden="true"></i>
 <div class="elastic-ilm-phase warm">
 <strong>WARM</strong>
-<small>moins sollicité</small>
 </div>
-<i aria-hidden="true"></i>
 <div class="elastic-ilm-phase cold">
 <strong>COLD</strong>
-<small>accès rare</small>
 </div>
-<i aria-hidden="true"></i>
 <div class="elastic-ilm-phase frozen">
 <strong>FROZEN</strong>
-<small>très rare</small>
 </div>
-<i aria-hidden="true"></i>
 <div class="elastic-ilm-phase delete">
 <strong>DELETE</strong>
-<small>fin de rétention</small>
 </div>
 </div>
 </div>
@@ -10963,7 +11078,6 @@
 <div class="card-title">Engagement &amp; associations</div>
 <div class="card-subtitle">Responsabilités associatives &amp; bénévolat</div>
 </div>
-<div class="chip-small">ENGAGEMENT</div>
 </div>
 <div class="project-list">
 <details class="project-item project-accordion">
@@ -11029,37 +11143,37 @@
 <div class="card-title">Soft skills</div>
 <div class="card-subtitle">Compétences comportementales illustrées par mes expériences</div>
 </div>
-<div class="chip-small">6 soft skills</div>
+
 </div>
 <div class="soft-skills-grid"><div aria-pressed="false" class="soft-skill-flip-card" role="button" tabindex="0">
 <div class="soft-skill-flip-inner">
 <div class="soft-skill-face soft-skill-front"><div class="soft-skill-head"><span aria-hidden="true" class="soft-skill-icon"><svg viewbox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path><path d="M7 3 4 6"></path><path d="m17 3 3 3"></path></svg></span><div class="soft-skill-name">Gestion du stress</div></div><span class="soft-skill-flip-hint"></span></div>
-<div class="soft-skill-face soft-skill-back"><div class="soft-skill-back-text">Supervision de clusters, incidents RUN et environnements à forte volumétrie.</div><span class="soft-skill-flip-hint"></span></div>
+<div class="soft-skill-face soft-skill-back"><div class="soft-skill-back-text">Efficace sous pression : priorisation, prise de recul et communication claire, y compris lors de rushs, incidents ou demandes simultanées.</div><span class="soft-skill-flip-hint"></span></div>
 </div>
 </div><div aria-pressed="false" class="soft-skill-flip-card" role="button" tabindex="0">
 <div class="soft-skill-flip-inner">
 <div class="soft-skill-face soft-skill-front"><div class="soft-skill-head"><span aria-hidden="true" class="soft-skill-icon"><svg viewbox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3v-7a7 7 0 1 1 18 0Z"></path><path d="M8 12h.01"></path><path d="M12 12h.01"></path><path d="M16 12h.01"></path></svg></span><div class="soft-skill-name">Communication</div></div><span class="soft-skill-flip-hint"></span></div>
-<div class="soft-skill-face soft-skill-back"><div class="soft-skill-back-text">Coordination avec les équipes support, responsabilités associatives et communication terrain.</div><span class="soft-skill-flip-hint"></span></div>
+<div class="soft-skill-face soft-skill-back"><div class="soft-skill-back-text">Communication claire avec l’équipe, les équipes partenaires et les clients, à l’oral comme à l’écrit : coordination, reformulation et rédaction structurée.</div><span class="soft-skill-flip-hint"></span></div>
 </div>
 </div><div aria-pressed="false" class="soft-skill-flip-card" role="button" tabindex="0">
 <div class="soft-skill-flip-inner">
 <div class="soft-skill-face soft-skill-front"><div class="soft-skill-head"><span aria-hidden="true" class="soft-skill-icon"><svg viewbox="0 0 24 24"><path d="M4 7h11"></path><path d="m12 4 3 3-3 3"></path><path d="M20 17H9"></path><path d="m12 14-3 3 3 3"></path></svg></span><div class="soft-skill-name">Curiosité &amp; adaptabilité</div></div><span class="soft-skill-flip-hint"></span></div>
-<div class="soft-skill-face soft-skill-back"><div class="soft-skill-back-text">Montée en compétences sur Elastic, Kafka, Ansible et adaptation à des contextes internationaux.</div><span class="soft-skill-flip-hint"></span></div>
+<div class="soft-skill-face soft-skill-back"><div class="soft-skill-back-text">Intérêt spontané pour de nouveaux sujets et adaptation rapide aux environnements de travail ; capacité à s’investir pleinement et à devenir rapidement productive.</div><span class="soft-skill-flip-hint"></span></div>
 </div>
 </div><div aria-pressed="false" class="soft-skill-flip-card" role="button" tabindex="0">
 <div class="soft-skill-flip-inner">
 <div class="soft-skill-face soft-skill-front"><div class="soft-skill-head"><span aria-hidden="true" class="soft-skill-icon"><svg viewbox="0 0 24 24"><path d="m13 2-9 12h7l-1 8 9-12h-7l1-8Z"></path></svg></span><div class="soft-skill-name">Autonomie</div></div><span class="soft-skill-flip-hint"></span></div>
-<div class="soft-skill-face soft-skill-back"><div class="soft-skill-back-text">Automatisations Python / Ansible et prise en charge de sujets techniques au sein du RUN.</div><span class="soft-skill-flip-hint"></span></div>
+<div class="soft-skill-face soft-skill-back"><div class="soft-skill-back-text">Questions ciblées au démarrage pour sécuriser la compréhension, puis autonomie rapide : organisation, prise d’initiatives et avancée sans supervision constante.</div><span class="soft-skill-flip-hint"></span></div>
 </div>
 </div><div aria-pressed="false" class="soft-skill-flip-card" role="button" tabindex="0">
 <div class="soft-skill-flip-inner">
 <div class="soft-skill-face soft-skill-front"><div class="soft-skill-head"><span aria-hidden="true" class="soft-skill-icon"><svg viewbox="0 0 24 24"><circle cx="8" cy="8" r="3"></circle><circle cx="17" cy="9" r="3"></circle><path d="M2 21c0-4 2.5-7 6-7s6 3 6 7"></path><path d="M14 15c.8-.7 1.8-1 3-1 3 0 5 2.5 5 6"></path></svg></span><div class="soft-skill-name">Travail d’équipe &amp; leadership</div></div><span class="soft-skill-flip-hint"></span></div>
-<div class="soft-skill-face soft-skill-back"><div class="soft-skill-back-text">Travail avec les équipes support et responsabilités de trésorerie / communication en associations.</div><span class="soft-skill-flip-hint"></span></div>
+<div class="soft-skill-face soft-skill-back"><div class="soft-skill-back-text">Nombreux projets collectifs en stage et en études, avec une prise de leadership croissante : répartition des tâches, coordination et suivi des échéances.</div><span class="soft-skill-flip-hint"></span></div>
 </div>
 </div><div aria-pressed="false" class="soft-skill-flip-card" role="button" tabindex="0">
 <div class="soft-skill-flip-inner">
-<div class="soft-skill-face soft-skill-front"><div class="soft-skill-head"><span aria-hidden="true" class="soft-skill-icon"><svg viewbox="0 0 24 24"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></span><div class="soft-skill-name">Gestion de projets</div></div><span class="soft-skill-flip-hint"></span></div>
-<div class="soft-skill-face soft-skill-back"><div class="soft-skill-back-text">Contribution à un Kibana centralisé, amélioration de l’alerting et campagne d’upgrade Red Hat.</div><span class="soft-skill-flip-hint"></span></div>
+<div class="soft-skill-face soft-skill-front"><div class="soft-skill-head"><span aria-hidden="true" class="soft-skill-icon"><svg viewbox="0 0 24 24"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg></span><div class="soft-skill-name">Gestion de projet</div></div><span class="soft-skill-flip-hint"></span></div>
+<div class="soft-skill-face soft-skill-back"><div class="soft-skill-back-text">Pilotage autonome des timelines : découpage des étapes, priorisation, suivi de l’avancement et ajustement du planning jusqu’à la livraison.</div><span class="soft-skill-flip-hint"></span></div>
 </div>
 </div></div>
 </div>
@@ -11076,14 +11190,12 @@
 <div class="certif-info">
 <div class="certif-name">Data Analysis with Kibana</div>
 <div class="certif-date">Formation officielle Elastic</div>
-
-<a class="pill elastic-training-temp-pdf" href="CV - Alicia LE BRUN (4).pdf" rel="noopener noreferrer" target="_blank" title="PDF temporaire : CV utilisé en attendant le justificatif de formation">📄 PDF temporaire · CV</a></div>
+<a class="pill elastic-training-temp-pdf" href="CV - Alicia LE BRUN (3).pdf" rel="noopener noreferrer" target="_blank" title="PDF temporaire : CV utilisé en attendant le justificatif de formation">📄 PDF temporaire · CV</a></div>
 </div><div class="certif-item">
 <div class="certif-info">
 <div class="certif-name">Elastic Observability Engineer</div>
 <div class="certif-date">Formation officielle Elastic</div>
-
-<a class="pill elastic-training-temp-pdf" href="CV - Alicia LE BRUN (4).pdf" rel="noopener noreferrer" target="_blank" title="PDF temporaire : CV utilisé en attendant le justificatif de formation">📄 PDF temporaire · CV</a></div>
+<a class="pill elastic-training-temp-pdf" href="CV - Alicia LE BRUN (3).pdf" rel="noopener noreferrer" target="_blank" title="PDF temporaire : CV utilisé en attendant le justificatif de formation">📄 PDF temporaire · CV</a></div>
 </div></div></section><section class="certif-group-clean"><div class="certif-group-heading"><span>Certifications</span><i></i></div><div class="certif-row-clean"><div class="certif-item"><div class="certif-info"><div class="certif-name">Microsoft Azure AI-900 (AI Fundamentals)</div><div class="certif-date">2025</div><a class="pill" href="img/Certifs/AzureAI-900.pdf" rel="noopener noreferrer" target="_blank">📄 Voir la certification</a></div></div><div class="certif-item"><div class="certif-info"><div class="certif-name">PSC — Premiers Secours</div><div class="certif-date">2025</div><a class="pill" href="img/Certifs/PSC-LE-BRUN-Alicia.pdf" rel="noopener noreferrer" target="_blank">📄 Voir la certification</a></div></div></div></section></div>
 </div></div></section>
 <!-- CONTACT / FOOTER -->
