@@ -2582,14 +2582,6 @@
       grid-column: span 2;
     }
 
-    .interest-item:nth-child(4) {
-      grid-column: 2 / span 2;
-    }
-
-    .interest-item:nth-child(5) {
-      grid-column: 4 / span 2;
-    }
-
     .interest-item {
       min-width: 0;
       min-height: 58px;
@@ -2641,9 +2633,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .interest-item,
-      .interest-item:nth-child(4),
-      .interest-item:nth-child(5) {
+      .interest-item {
         grid-column: auto;
       }
 
@@ -3586,6 +3576,5947 @@
         grid-template-columns: minmax(0, 1fr);
       }
     }
+
+    /* --- Ajustements : titres tech sobres, automatisation renforcée, CV centré --- */
+    .sidebar-skills-panel .tech-title::before,
+    .sidebar-skills-panel .tech-stack-categorized .tech-title::before {
+      content: none !important;
+      display: none !important;
+    }
+
+    .sidebar-skills-panel .tech-stack-categorized .tech-title {
+      padding-left: 1px;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.035em;
+      color: #ffd3e6;
+    }
+
+    /* Automatisation = vrai troisième pilier du cockpit */
+    .tech-cockpit-feature .tech-control-plane {
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: start;
+      gap: 16px;
+      padding: 20px;
+      border: 1px solid rgba(249,168,212,0.48);
+      background:
+        radial-gradient(circle at 8% 0%, rgba(236,72,153,0.24), transparent 35%),
+        radial-gradient(circle at 92% 100%, rgba(124,58,237,0.22), transparent 42%),
+        linear-gradient(145deg, rgba(61,15,83,0.98), rgba(30,7,43,0.98));
+      box-shadow: 0 16px 34px rgba(0,0,0,0.30), 0 0 26px rgba(236,72,153,0.09);
+    }
+
+    .tech-cockpit-feature .tech-control-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 17px;
+      font-size: 23px;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.28), 0 0 18px rgba(236,72,153,0.16);
+    }
+
+    .tech-control-main {
+      min-width: 0;
+      width: 100%;
+    }
+
+    .tech-cockpit-feature .tech-control-title {
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .tech-cockpit-feature .tech-control-text {
+      max-width: 760px;
+      font-size: 11px;
+      line-height: 1.65;
+      color: #ffe4f7;
+    }
+
+    .tech-auto-workflows {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .tech-auto-card {
+      position: relative;
+      min-width: 0;
+      padding: 12px 13px;
+      border-radius: 15px;
+      border: 1px solid rgba(248,187,208,0.25);
+      background: rgba(30,7,41,0.48);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.035);
+    }
+
+    .tech-auto-card::before {
+      content: "";
+      position: absolute;
+      left: 13px;
+      right: 13px;
+      top: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(249,168,212,0.70), transparent);
+    }
+
+    .tech-auto-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      color: #fff1f7;
+    }
+
+    .tech-auto-label span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 25px;
+      height: 25px;
+      padding: 0 6px;
+      border-radius: 8px;
+      font-size: 8px;
+      color: #fff1f7;
+      background: linear-gradient(145deg, rgba(236,72,153,0.38), rgba(124,58,237,0.32));
+      border: 1px solid rgba(248,187,208,0.28);
+    }
+
+    .tech-auto-card p {
+      margin: 0;
+      font-size: 9px;
+      line-height: 1.55;
+      color: #fbcfe8;
+    }
+
+    .tech-control-tags {
+      margin-top: 12px;
+      max-width: none !important;
+      justify-content: flex-start !important;
+    }
+
+    /* Le bloc CV devient autonome et centré */
+    #cv-download.cv-download-centered {
+      width: min(720px, 100%);
+      margin: 0 auto;
+      text-align: center;
+      align-items: center;
+      padding: 18px 22px 20px;
+    }
+
+    #cv-download.cv-download-centered .card-header {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+
+    #cv-download.cv-download-centered .card-header > div {
+      width: 100%;
+    }
+
+    #cv-download.cv-download-centered .card-header .chip-small {
+      display: none;
+    }
+
+    #cv-download.cv-download-centered .cv-download-content {
+      width: 100%;
+      padding: 10px 10px 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #cv-download.cv-download-centered .cv-download-text {
+      max-width: 540px;
+      margin: 0 auto 15px;
+      text-align: center;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 760px) {
+      .tech-auto-workflows {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .tech-cockpit-feature .tech-control-plane {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .tech-cockpit-feature .tech-control-icon {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+
+    .tech-auto-card p strong {
+      color: #fff1f7;
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       TECH COCKPIT · LANE 03 — AUTOMATION ARCHITECTURE
+       Même langage visuel que Kafka & Elastic.
+       ========================================================= */
+    .tech-lane-automation {
+      background:
+        linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px),
+        radial-gradient(circle at 96% 4%, rgba(124,58,237,0.18), transparent 34%),
+        radial-gradient(circle at 4% 96%, rgba(236,72,153,0.13), transparent 38%),
+        linear-gradient(155deg, rgba(47,12,67,0.97), rgba(27,7,40,0.99));
+      background-size: 26px 26px, 26px 26px, auto, auto, auto;
+    }
+
+    .automation-architecture {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.38fr);
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .automation-architecture::before {
+      content: "";
+      position: absolute;
+      left: 40%;
+      top: 10%;
+      bottom: 10%;
+      width: 1px;
+      background: linear-gradient(
+        transparent,
+        rgba(249,168,212,0.24) 25%,
+        rgba(192,132,252,0.28) 72%,
+        transparent
+      );
+      pointer-events: none;
+    }
+
+    .automation-panel {
+      position: relative;
+      overflow: hidden;
+      min-width: 0;
+      min-height: 190px;
+      padding: 15px;
+      border-radius: 17px;
+      border: 1px solid rgba(248,187,208,0.19);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(236,72,153,0.10), transparent 42%),
+        rgba(17,4,25,0.48);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.035);
+      transition: border-color .22s ease, transform .22s ease, box-shadow .22s ease;
+    }
+
+    .automation-panel:hover {
+      transform: translateY(-2px);
+      border-color: rgba(249,168,212,0.42);
+      box-shadow: 0 12px 24px rgba(0,0,0,.20), 0 0 20px rgba(236,72,153,.055);
+    }
+
+    .automation-panel::after {
+      content: "";
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      top: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(249,168,212,.68), transparent);
+      opacity: .66;
+    }
+
+    .automation-panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .automation-panel-identity {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .automation-panel-symbol {
+      width: 38px;
+      height: 38px;
+      flex: 0 0 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      border: 1px solid rgba(248,187,208,.38);
+      background: linear-gradient(145deg, rgba(236,72,153,.38), rgba(124,58,237,.29));
+      color: #fff1f7;
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: -.02em;
+      box-shadow: 0 7px 17px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    .automation-panel-kicker {
+      margin-bottom: 2px;
+      font-size: 7px;
+      font-weight: 800;
+      letter-spacing: .14em;
+      color: #f9a8d4;
+    }
+
+    .automation-panel-title {
+      font-size: 13px;
+      line-height: 1.15;
+      font-weight: 750;
+      color: #fff1f7;
+    }
+
+    .automation-panel-status {
+      flex: 0 0 auto;
+      padding: 4px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(248,187,208,.19);
+      background: rgba(76,29,149,.28);
+      color: #fbcfe8;
+      font-size: 6.5px;
+      font-weight: 750;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    /* PYTHON — pas de lien artificiel avec Ansible */
+    .automation-python-logic {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) 20px minmax(0,1fr) 20px minmax(0,1fr);
+      align-items: center;
+      gap: 3px;
+      margin-bottom: 12px;
+    }
+
+    .automation-logic-node {
+      min-width: 0;
+      min-height: 69px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 8px 5px;
+      border-radius: 13px;
+      border: 1px solid rgba(248,187,208,.15);
+      background: rgba(11,3,17,.47);
+      text-align: center;
+    }
+
+    .automation-logic-node.is-focus {
+      border-color: rgba(249,168,212,.42);
+      background: linear-gradient(145deg, rgba(236,72,153,.17), rgba(76,29,149,.29));
+      box-shadow: 0 0 18px rgba(236,72,153,.07);
+    }
+
+    .automation-logic-node b {
+      font-size: 6.5px;
+      font-weight: 850;
+      letter-spacing: .08em;
+      color: #f472b6;
+    }
+
+    .automation-logic-node span {
+      font-size: 7px;
+      font-weight: 700;
+      color: #fff1f7;
+      white-space: nowrap;
+    }
+
+    .automation-mini-flow {
+      position: relative;
+      height: 1px;
+      background: rgba(249,168,212,.30);
+      overflow: visible;
+    }
+
+    .automation-mini-flow::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: -45%;
+      width: 45%;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, #f472b6, transparent);
+      animation: automationPulseFlow 2.15s linear infinite;
+    }
+
+    .automation-mini-flow::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 4px;
+      height: 4px;
+      border-right: 1px solid #f9a8d4;
+      border-top: 1px solid #f9a8d4;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    @keyframes automationPulseFlow {
+      from { left: -45%; }
+      to { left: 100%; }
+    }
+
+    /* ANSIBLE / TOWER — le seul flux directement lié */
+    .automation-orchestration-map {
+      display: grid;
+      grid-template-columns: minmax(0,1fr) minmax(82px,.44fr) minmax(0,1fr);
+      align-items: stretch;
+      gap: 9px;
+      margin-bottom: 10px;
+    }
+
+    .automation-orchestration-node {
+      position: relative;
+      min-width: 0;
+      min-height: 103px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      padding: 11px 9px;
+      border-radius: 14px;
+      border: 1px solid rgba(248,187,208,.17);
+      background: rgba(11,3,17,.45);
+      text-align: center;
+    }
+
+    .automation-orchestration-node.is-control {
+      border-color: rgba(249,168,212,.39);
+      background:
+        radial-gradient(circle at 80% 10%, rgba(236,72,153,.17), transparent 46%),
+        linear-gradient(145deg, rgba(57,14,78,.60), rgba(24,6,35,.69));
+      box-shadow: 0 0 20px rgba(236,72,153,.055);
+    }
+
+    .automation-orchestration-icon {
+      width: 32px;
+      height: 32px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      border: 1px solid rgba(248,187,208,.30);
+      background: linear-gradient(145deg, rgba(236,72,153,.29), rgba(124,58,237,.26));
+      color: #fff1f7;
+      font-size: 8px;
+      font-weight: 850;
+    }
+
+    .automation-orchestration-node strong {
+      font-size: 10px;
+      color: #fff1f7;
+    }
+
+    .automation-orchestration-node small {
+      font-size: 7px;
+      line-height: 1.45;
+      color: #f9a8d4;
+    }
+
+    .automation-orchestration-link {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      min-width: 0;
+    }
+
+    .automation-orchestration-link span {
+      position: relative;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(249,168,212,.16), rgba(249,168,212,.68));
+    }
+
+    .automation-orchestration-link span::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: -40%;
+      width: 40%;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, #c084fc, transparent);
+      animation: automationPulseFlow 1.85s linear infinite;
+    }
+
+    .automation-orchestration-link span::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 5px;
+      height: 5px;
+      border-right: 1px solid #f9a8d4;
+      border-top: 1px solid #f9a8d4;
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .automation-orchestration-link em {
+      font-style: normal;
+      font-size: 6.2px;
+      font-weight: 800;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      color: #f9a8d4;
+    }
+
+    .automation-env-strip {
+      display: grid;
+      grid-template-columns: auto 1fr auto 1fr auto;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 9px;
+      border-radius: 12px;
+      border: 1px solid rgba(248,187,208,.13);
+      background: rgba(10,2,16,.34);
+    }
+
+    .automation-env-strip span {
+      min-width: 37px;
+      padding: 4px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(248,187,208,.19);
+      background: rgba(76,29,149,.28);
+      text-align: center;
+      font-size: 6.5px;
+      font-weight: 800;
+      letter-spacing: .05em;
+      color: #fff1f7;
+    }
+
+    .automation-env-strip i {
+      position: relative;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(249,168,212,.14), rgba(249,168,212,.40));
+    }
+
+    .automation-env-strip i::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 3px;
+      height: 3px;
+      border-right: 1px solid rgba(249,168,212,.72);
+      border-top: 1px solid rgba(249,168,212,.72);
+      transform: translateY(-50%) rotate(45deg);
+    }
+
+    .automation-capability-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 7px;
+      margin-top: 12px;
+    }
+
+    .automation-capability {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 9px;
+      border-radius: 11px;
+      border: 1px solid rgba(248,187,208,.14);
+      background: rgba(30,7,41,.34);
+      color: #fbcfe8;
+      font-size: 7px;
+      line-height: 1.25;
+    }
+
+    .automation-capability::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      flex: 0 0 5px;
+      border-radius: 50%;
+      background: #f472b6;
+      box-shadow: 0 0 9px rgba(244,114,182,.38);
+    }
+
+    .automation-capability strong {
+      color: #fff1f7;
+      font-weight: 750;
+    }
+
+    .automation-tool-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 11px;
+    }
+
+    .automation-tool-tags span {
+      padding: 4px 6px;
+      border-radius: 999px;
+      border: 1px solid rgba(248,187,208,.17);
+      background: rgba(76,29,149,.25);
+      color: #fbcfe8;
+      font-size: 7px;
+    }
+
+    @media (max-width: 900px) {
+      .automation-architecture {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      .automation-architecture::before {
+        display: none;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .automation-python-logic,
+      .automation-orchestration-map {
+        grid-template-columns: minmax(0,1fr);
+      }
+
+      .automation-mini-flow {
+        width: 1px;
+        height: 16px;
+        justify-self: center;
+      }
+
+      .automation-mini-flow::before,
+      .automation-mini-flow::after,
+      .automation-orchestration-link span {
+        display: none;
+      }
+
+      .automation-orchestration-link {
+        min-height: 28px;
+      }
+
+      .automation-capability-strip {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .automation-mini-flow::before,
+      .automation-orchestration-link span::before {
+        animation: none !important;
+      }
+    }
+
+
+/* === Automation lane v2 : Python simple + Ansible/Tower multi-environnements === */
+.tech-lane-automation .automation-architecture-v2{
+  display:grid;
+  grid-template-columns:minmax(0,.72fr) minmax(0,1.38fr);
+  gap:12px;
+  align-items:stretch;
+}
+
+.tech-lane-automation .auto-v2-card{
+  position:relative;
+  overflow:hidden;
+  min-width:0;
+  padding:16px;
+  border-radius:17px;
+  border:1px solid rgba(248,187,208,.19);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(236,72,153,.10), transparent 42%),
+    rgba(17,4,25,.48);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+
+.tech-lane-automation .auto-v2-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(249,168,212,.40);
+  box-shadow:0 12px 24px rgba(0,0,0,.20),0 0 20px rgba(236,72,153,.055);
+}
+
+.tech-lane-automation .auto-v2-card::before{
+  content:"";
+  position:absolute;
+  top:0; left:15px; right:15px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(249,168,212,.68),transparent);
+}
+
+.tech-lane-automation .auto-v2-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:14px;
+}
+
+.tech-lane-automation .auto-v2-ident{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  min-width:0;
+}
+
+.tech-lane-automation .auto-v2-symbol{
+  width:40px;
+  height:40px;
+  flex:0 0 40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  border:1px solid rgba(248,187,208,.34);
+  background:linear-gradient(145deg,rgba(236,72,153,.34),rgba(124,58,237,.28));
+  color:#fff1f7;
+  font-size:10px;
+  font-weight:850;
+  box-shadow:0 8px 18px rgba(0,0,0,.22);
+}
+
+.tech-lane-automation .auto-v2-kicker{
+  margin-bottom:3px;
+  font-size:7px;
+  font-weight:800;
+  letter-spacing:.13em;
+  color:#f9a8d4;
+}
+
+.tech-lane-automation .auto-v2-title{
+  font-size:13px;
+  font-weight:760;
+  color:#fff1f7;
+}
+
+.tech-lane-automation .auto-v2-status{
+  flex:0 0 auto;
+  padding:4px 7px;
+  border-radius:999px;
+  border:1px solid rgba(248,187,208,.18);
+  background:rgba(76,29,149,.26);
+  color:#fbcfe8;
+  font-size:6.5px;
+  font-weight:760;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+
+/* Python volontairement simple : on montre la capacité, pas une pseudo-architecture triviale. */
+.tech-lane-automation .auto-v2-python-body{
+  min-height:112px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:13px;
+  padding:14px;
+  border-radius:14px;
+  border:1px solid rgba(248,187,208,.13);
+  background:
+    linear-gradient(145deg,rgba(236,72,153,.08),rgba(76,29,149,.16)),
+    rgba(11,3,17,.42);
+}
+
+.tech-lane-automation .auto-v2-python-line{
+  font-size:10px;
+  line-height:1.55;
+  color:#ffe4f1;
+}
+
+.tech-lane-automation .auto-v2-python-line strong{
+  display:block;
+  margin-bottom:3px;
+  font-size:11px;
+  color:#fff1f7;
+}
+
+.tech-lane-automation .auto-v2-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.tech-lane-automation .auto-v2-tags span{
+  padding:5px 7px;
+  border-radius:999px;
+  border:1px solid rgba(248,187,208,.16);
+  background:rgba(76,29,149,.24);
+  color:#fbcfe8;
+  font-size:7px;
+}
+
+/* Ansible + Tower : une seule chaîne, puis UNE portée commune pour les 3 environnements. */
+.tech-lane-automation .auto-v2-orchestration{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 92px minmax(0,1fr);
+  align-items:center;
+  gap:10px;
+}
+
+.tech-lane-automation .auto-v2-node{
+  min-height:98px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:12px 10px;
+  border-radius:14px;
+  border:1px solid rgba(248,187,208,.17);
+  background:rgba(11,3,17,.45);
+  text-align:center;
+}
+
+.tech-lane-automation .auto-v2-node.is-tower{
+  border-color:rgba(249,168,212,.35);
+  background:
+    radial-gradient(circle at 80% 10%,rgba(236,72,153,.15),transparent 46%),
+    linear-gradient(145deg,rgba(57,14,78,.56),rgba(24,6,35,.66));
+}
+
+.tech-lane-automation .auto-v2-node-icon{
+  width:32px;
+  height:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  border:1px solid rgba(248,187,208,.28);
+  background:linear-gradient(145deg,rgba(236,72,153,.27),rgba(124,58,237,.24));
+  color:#fff1f7;
+  font-size:8px;
+  font-weight:850;
+}
+
+.tech-lane-automation .auto-v2-node strong{
+  font-size:10px;
+  color:#fff1f7;
+}
+
+.tech-lane-automation .auto-v2-node small{
+  font-size:7px;
+  line-height:1.45;
+  color:#f9a8d4;
+}
+
+.tech-lane-automation .auto-v2-link{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  min-width:0;
+}
+
+.tech-lane-automation .auto-v2-link-line{
+  position:relative;
+  width:100%;
+  height:1px;
+  background:linear-gradient(90deg,rgba(249,168,212,.18),rgba(249,168,212,.68));
+}
+
+.tech-lane-automation .auto-v2-link-line::before{
+  content:"";
+  position:absolute;
+  top:-1px;
+  left:-38%;
+  width:38%;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg,transparent,#c084fc,transparent);
+  animation:autoV2Flow 1.9s linear infinite;
+}
+
+.tech-lane-automation .auto-v2-link-line::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:5px;
+  height:5px;
+  border-right:1px solid #f9a8d4;
+  border-top:1px solid #f9a8d4;
+  transform:translateY(-50%) rotate(45deg);
+}
+
+.tech-lane-automation .auto-v2-link em{
+  font-style:normal;
+  font-size:6px;
+  font-weight:800;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+  color:#f9a8d4;
+  text-align:center;
+}
+
+@keyframes autoV2Flow{
+  from{left:-38%}
+  to{left:100%}
+}
+
+.tech-lane-automation .auto-v2-shared-env{
+  position:relative;
+  margin-top:13px;
+  padding:13px 12px 11px;
+  border-radius:14px;
+  border:1px solid rgba(248,187,208,.17);
+  background:rgba(10,2,16,.36);
+}
+
+.tech-lane-automation .auto-v2-shared-env::before{
+  content:"";
+  position:absolute;
+  top:-9px;
+  left:50%;
+  width:1px;
+  height:9px;
+  background:rgba(249,168,212,.45);
+}
+
+.tech-lane-automation .auto-v2-shared-label{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  margin-bottom:9px;
+  font-size:6.6px;
+  font-weight:800;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  color:#f9a8d4;
+}
+
+.tech-lane-automation .auto-v2-shared-label::before,
+.tech-lane-automation .auto-v2-shared-label::after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:linear-gradient(90deg,transparent,rgba(249,168,212,.26));
+}
+
+.tech-lane-automation .auto-v2-shared-label::after{
+  background:linear-gradient(90deg,rgba(249,168,212,.26),transparent);
+}
+
+.tech-lane-automation .auto-v2-envs{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:7px;
+}
+
+.tech-lane-automation .auto-v2-env{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:34px;
+  border-radius:10px;
+  border:1px solid rgba(248,187,208,.17);
+  background:linear-gradient(145deg,rgba(76,29,149,.28),rgba(236,72,153,.09));
+  color:#fff1f7;
+  font-size:7px;
+  font-weight:820;
+  letter-spacing:.07em;
+}
+
+.tech-lane-automation .auto-v2-capabilities{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:12px;
+}
+
+.tech-lane-automation .auto-v2-capabilities span{
+  position:relative;
+  padding:5px 8px 5px 15px;
+  border-radius:999px;
+  border:1px solid rgba(248,187,208,.14);
+  background:rgba(30,7,41,.34);
+  color:#fbcfe8;
+  font-size:7px;
+}
+
+.tech-lane-automation .auto-v2-capabilities span::before{
+  content:"";
+  position:absolute;
+  left:7px;
+  top:50%;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:#f472b6;
+  box-shadow:0 0 8px rgba(244,114,182,.35);
+  transform:translateY(-50%);
+}
+
+@media (max-width:900px){
+  .tech-lane-automation .automation-architecture-v2{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+@media (max-width:620px){
+  .tech-lane-automation .auto-v2-orchestration{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .tech-lane-automation .auto-v2-link{
+    min-height:28px;
+  }
+  .tech-lane-automation .auto-v2-link-line{
+    width:1px;
+    height:18px;
+  }
+  .tech-lane-automation .auto-v2-link-line::before,
+  .tech-lane-automation .auto-v2-link-line::after{
+    display:none;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .tech-lane-automation .auto-v2-link-line::before{
+    animation:none!important;
+  }
+}
+
+
+/* === Automation lane v3 : preuve technique sans redite === */
+.tech-lane-automation .auto-v3-python-uses{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+}
+
+.tech-lane-automation .auto-v3-use{
+  position:relative;
+  min-width:0;
+  min-height:112px;
+  padding:13px;
+  border-radius:14px;
+  border:1px solid rgba(248,187,208,.16);
+  background:
+    radial-gradient(circle at 100% 0%,rgba(236,72,153,.10),transparent 45%),
+    rgba(11,3,17,.43);
+}
+
+.tech-lane-automation .auto-v3-use::before{
+  content:"";
+  position:absolute;
+  left:12px;
+  top:13px;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#f472b6;
+  box-shadow:0 0 10px rgba(244,114,182,.42);
+}
+
+.tech-lane-automation .auto-v3-use-kicker{
+  padding-left:13px;
+  margin-bottom:7px;
+  font-size:6.5px;
+  font-weight:820;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  color:#f9a8d4;
+}
+
+.tech-lane-automation .auto-v3-use strong{
+  display:block;
+  margin-bottom:5px;
+  font-size:10px;
+  line-height:1.25;
+  color:#fff1f7;
+}
+
+.tech-lane-automation .auto-v3-use p{
+  margin:0;
+  font-size:7.5px;
+  line-height:1.52;
+  color:#fbcfe8;
+}
+
+.tech-lane-automation .auto-v3-python-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+  margin-top:10px;
+}
+
+.tech-lane-automation .auto-v3-python-tags span{
+  padding:4px 6px;
+  border-radius:999px;
+  border:1px solid rgba(248,187,208,.15);
+  background:rgba(76,29,149,.23);
+  color:#fbcfe8;
+  font-size:6.8px;
+}
+
+/* Chaîne Ansible/Tower plus technique */
+.tech-lane-automation .auto-v3-pipeline{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 26px minmax(0,1fr) 26px minmax(0,1fr);
+  align-items:center;
+  gap:4px;
+}
+
+.tech-lane-automation .auto-v3-step{
+  min-width:0;
+  min-height:98px;
+  padding:11px 8px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  border-radius:14px;
+  border:1px solid rgba(248,187,208,.16);
+  background:rgba(11,3,17,.45);
+  text-align:center;
+}
+
+.tech-lane-automation .auto-v3-step.is-tower{
+  border-color:rgba(249,168,212,.37);
+  background:
+    radial-gradient(circle at 75% 5%,rgba(236,72,153,.15),transparent 48%),
+    linear-gradient(145deg,rgba(57,14,78,.57),rgba(24,6,35,.68));
+  box-shadow:0 0 18px rgba(236,72,153,.05);
+}
+
+.tech-lane-automation .auto-v3-step-no{
+  font-size:6px;
+  font-weight:850;
+  letter-spacing:.10em;
+  color:#f472b6;
+}
+
+.tech-lane-automation .auto-v3-step strong{
+  font-size:9px;
+  line-height:1.2;
+  color:#fff1f7;
+}
+
+.tech-lane-automation .auto-v3-step small{
+  font-size:6.7px;
+  line-height:1.4;
+  color:#f9a8d4;
+}
+
+.tech-lane-automation .auto-v3-arrow{
+  position:relative;
+  height:1px;
+  background:linear-gradient(90deg,rgba(249,168,212,.14),rgba(249,168,212,.65));
+}
+
+.tech-lane-automation .auto-v3-arrow::before{
+  content:"";
+  position:absolute;
+  top:-1px;
+  left:-55%;
+  width:50%;
+  height:3px;
+  border-radius:999px;
+  background:linear-gradient(90deg,transparent,#c084fc,transparent);
+  animation:autoV3Flow 1.8s linear infinite;
+}
+
+.tech-lane-automation .auto-v3-arrow::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:4px;
+  height:4px;
+  border-right:1px solid #f9a8d4;
+  border-top:1px solid #f9a8d4;
+  transform:translateY(-50%) rotate(45deg);
+}
+
+@keyframes autoV3Flow{
+  from{left:-55%}
+  to{left:100%}
+}
+
+.tech-lane-automation .auto-v3-stack-detail{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:6px;
+  margin-top:10px;
+}
+
+.tech-lane-automation .auto-v3-stack-detail div{
+  min-width:0;
+  padding:7px 8px;
+  border-radius:10px;
+  border:1px solid rgba(248,187,208,.12);
+  background:rgba(30,7,41,.30);
+}
+
+.tech-lane-automation .auto-v3-stack-detail b{
+  display:block;
+  margin-bottom:2px;
+  font-size:6px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#f472b6;
+}
+
+.tech-lane-automation .auto-v3-stack-detail span{
+  font-size:6.8px;
+  line-height:1.35;
+  color:#fbcfe8;
+}
+
+/* Portée d'exécution commune à toute la chaîne */
+.tech-lane-automation .auto-v3-scope{
+  margin-top:12px;
+  padding:10px 11px 11px;
+  border-radius:13px;
+  border:1px solid rgba(248,187,208,.16);
+  background:rgba(10,2,16,.35);
+}
+
+.tech-lane-automation .auto-v3-scope-label{
+  margin-bottom:8px;
+  text-align:center;
+  font-size:6.3px;
+  font-weight:820;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+  color:#f9a8d4;
+}
+
+.tech-lane-automation .auto-v3-env-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:6px;
+}
+
+.tech-lane-automation .auto-v3-env-grid span{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:31px;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.17);
+  background:linear-gradient(145deg,rgba(76,29,149,.27),rgba(236,72,153,.08));
+  color:#fff1f7;
+  font-size:6.8px;
+  font-weight:820;
+  letter-spacing:.07em;
+}
+
+@media (max-width:620px){
+  .tech-lane-automation .auto-v3-python-uses,
+  .tech-lane-automation .auto-v3-stack-detail{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .tech-lane-automation .auto-v3-pipeline{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .tech-lane-automation .auto-v3-arrow{
+    width:1px;
+    height:16px;
+    justify-self:center;
+  }
+
+  .tech-lane-automation .auto-v3-arrow::before,
+  .tech-lane-automation .auto-v3-arrow::after{
+    display:none;
+  }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .tech-lane-automation .auto-v3-arrow::before{
+    animation:none!important;
+  }
+}
+
+
+/* ============================================================
+   AUTOMATION LANE · 3 modules distincts, sans nuage de tags
+   ============================================================ */
+.tech-lane-automation .automation-modules-v4{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:11px;
+}
+
+.tech-lane-automation .auto-v4-card{
+  position:relative;
+  overflow:hidden;
+  min-width:0;
+  padding:16px;
+  border-radius:18px;
+  border:1px solid rgba(248,187,208,.18);
+  background:
+    radial-gradient(circle at 92% 3%,rgba(192,132,252,.11),transparent 38%),
+    radial-gradient(circle at 3% 100%,rgba(236,72,153,.08),transparent 35%),
+    rgba(15,4,23,.54);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 12px 28px rgba(0,0,0,.12);
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+
+.tech-lane-automation .auto-v4-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(249,168,212,.38);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 16px 30px rgba(0,0,0,.22),0 0 22px rgba(236,72,153,.045);
+}
+
+.tech-lane-automation .auto-v4-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:16px;
+  right:16px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(249,168,212,.68),transparent);
+}
+
+.tech-lane-automation .auto-v4-head{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  margin-bottom:15px;
+  padding-bottom:13px;
+  border-bottom:1px solid rgba(248,187,208,.12);
+}
+
+.tech-lane-automation .auto-v4-mark{
+  width:42px;
+  height:42px;
+  flex:0 0 42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:13px;
+  border:1px solid rgba(248,187,208,.31);
+  background:linear-gradient(145deg,rgba(236,72,153,.31),rgba(124,58,237,.27));
+  color:#fff1f7;
+  font-size:10px;
+  font-weight:850;
+  box-shadow:0 8px 18px rgba(0,0,0,.22);
+}
+
+.tech-lane-automation .auto-v4-eyebrow{
+  margin-bottom:3px;
+  color:#f9a8d4;
+  font-size:6.5px;
+  font-weight:820;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.tech-lane-automation .auto-v4-name{
+  color:#fff1f7;
+  font-size:14px;
+  line-height:1.1;
+  font-weight:780;
+}
+
+.tech-lane-automation .auto-v4-subtitle{
+  margin-top:3px;
+  color:#e9b9d5;
+  font-size:7px;
+  line-height:1.3;
+}
+
+.tech-lane-automation .auto-v4-section{
+  padding:11px 0;
+  border-bottom:1px solid rgba(248,187,208,.09);
+}
+
+.tech-lane-automation .auto-v4-section:last-child{
+  padding-bottom:0;
+  border-bottom:0;
+}
+
+.tech-lane-automation .auto-v4-label{
+  display:block;
+  margin-bottom:6px;
+  color:#f472b6;
+  font-size:6px;
+  font-weight:850;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+.tech-lane-automation .auto-v4-title{
+  margin-bottom:4px;
+  color:#fff1f7;
+  font-size:9.5px;
+  font-weight:740;
+  line-height:1.3;
+}
+
+.tech-lane-automation .auto-v4-copy{
+  margin:0;
+  color:#efc6dc;
+  font-size:7.3px;
+  line-height:1.52;
+}
+
+.tech-lane-automation .auto-v4-technical-line{
+  display:grid;
+  grid-template-columns:88px minmax(0,1fr);
+  gap:8px;
+  align-items:start;
+  padding:6px 0;
+  border-bottom:1px solid rgba(248,187,208,.07);
+}
+
+.tech-lane-automation .auto-v4-technical-line:last-child{
+  border-bottom:0;
+}
+
+.tech-lane-automation .auto-v4-technical-line b{
+  color:#f9a8d4;
+  font-size:6.7px;
+  line-height:1.4;
+  font-weight:780;
+}
+
+.tech-lane-automation .auto-v4-technical-line span{
+  color:#f5d5e5;
+  font-size:7px;
+  line-height:1.45;
+}
+
+.tech-lane-automation .auto-v4-flow{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 20px minmax(0,1fr) 20px minmax(0,1fr);
+  align-items:center;
+  gap:4px;
+  margin-top:7px;
+}
+
+.tech-lane-automation .auto-v4-flow-node{
+  min-width:0;
+  min-height:56px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  padding:7px 5px;
+  border-radius:11px;
+  border:1px solid rgba(248,187,208,.14);
+  background:rgba(10,2,16,.38);
+  text-align:center;
+}
+
+.tech-lane-automation .auto-v4-flow-node strong{
+  color:#fff1f7;
+  font-size:7.5px;
+  line-height:1.2;
+}
+
+.tech-lane-automation .auto-v4-flow-node small{
+  color:#e8b7d1;
+  font-size:5.8px;
+  line-height:1.3;
+}
+
+.tech-lane-automation .auto-v4-flow-arrow{
+  position:relative;
+  height:1px;
+  background:linear-gradient(90deg,rgba(249,168,212,.14),rgba(249,168,212,.52));
+}
+
+.tech-lane-automation .auto-v4-flow-arrow::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:4px;
+  height:4px;
+  border-right:1px solid rgba(249,168,212,.78);
+  border-top:1px solid rgba(249,168,212,.78);
+  transform:translateY(-50%) rotate(45deg);
+}
+
+.tech-lane-automation .auto-v4-env-wrap{
+  margin-top:8px;
+  padding:9px;
+  border-radius:12px;
+  border:1px solid rgba(248,187,208,.12);
+  background:rgba(10,2,16,.32);
+}
+
+.tech-lane-automation .auto-v4-env-title{
+  margin-bottom:7px;
+  color:#eab8d3;
+  font-size:5.8px;
+  font-weight:800;
+  letter-spacing:.10em;
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.tech-lane-automation .auto-v4-env-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:5px;
+}
+
+.tech-lane-automation .auto-v4-env-grid div{
+  min-height:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.16);
+  background:linear-gradient(145deg,rgba(76,29,149,.25),rgba(236,72,153,.07));
+  color:#fff1f7;
+  font-size:6.5px;
+  font-weight:830;
+  letter-spacing:.06em;
+}
+
+.tech-lane-automation .auto-v4-footer{
+  margin-top:11px;
+  padding:10px 12px;
+  border-radius:13px;
+  border:1px solid rgba(248,187,208,.12);
+  background:linear-gradient(90deg,rgba(76,29,149,.18),rgba(236,72,153,.07),rgba(76,29,149,.18));
+  color:#eec4da;
+  font-size:7px;
+  line-height:1.5;
+  text-align:center;
+}
+
+.tech-lane-automation .auto-v4-footer strong{
+  color:#fff1f7;
+  font-weight:760;
+}
+
+@media(max-width:980px){
+  .tech-lane-automation .automation-modules-v4{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+@media(max-width:620px){
+  .tech-lane-automation .auto-v4-flow{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .tech-lane-automation .auto-v4-flow-arrow{
+    width:1px;
+    height:12px;
+    justify-self:center;
+  }
+
+  .tech-lane-automation .auto-v4-flow-arrow::after{
+    display:none;
+  }
+
+  .tech-lane-automation .auto-v4-technical-line{
+    grid-template-columns:minmax(0,1fr);
+    gap:2px;
+  }
+}
+
+
+/* ============================================================
+   AUTOMATION LANE · version plus visuelle / moins rédigée
+   ============================================================ */
+.tech-lane-automation .automation-modules-v5{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:11px;
+}
+
+.tech-lane-automation .auto-v5-card{
+  position:relative;
+  overflow:hidden;
+  min-width:0;
+  padding:16px;
+  border-radius:18px;
+  border:1px solid rgba(248,187,208,.18);
+  background:
+    radial-gradient(circle at 92% 3%,rgba(192,132,252,.11),transparent 38%),
+    radial-gradient(circle at 3% 100%,rgba(236,72,153,.08),transparent 35%),
+    rgba(15,4,23,.54);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 12px 28px rgba(0,0,0,.12);
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+.tech-lane-automation .auto-v5-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(249,168,212,.38);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 16px 30px rgba(0,0,0,.22),0 0 22px rgba(236,72,153,.045);
+}
+.tech-lane-automation .auto-v5-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:16px;
+  right:16px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(249,168,212,.68),transparent);
+}
+.tech-lane-automation .auto-v5-head{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  margin-bottom:14px;
+  padding-bottom:12px;
+  border-bottom:1px solid rgba(248,187,208,.12);
+}
+.tech-lane-automation .auto-v5-mark{
+  width:42px;
+  height:42px;
+  flex:0 0 42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:13px;
+  border:1px solid rgba(248,187,208,.31);
+  background:linear-gradient(145deg,rgba(236,72,153,.31),rgba(124,58,237,.27));
+  color:#fff1f7;
+  font-size:10px;
+  font-weight:850;
+  box-shadow:0 8px 18px rgba(0,0,0,.22);
+}
+.tech-lane-automation .auto-v5-eyebrow{
+  margin-bottom:3px;
+  color:#f9a8d4;
+  font-size:6.5px;
+  font-weight:820;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.tech-lane-automation .auto-v5-name{
+  color:#fff1f7;
+  font-size:14px;
+  line-height:1.1;
+  font-weight:780;
+}
+.tech-lane-automation .auto-v5-subtitle{
+  margin-top:3px;
+  color:#e9b9d5;
+  font-size:7px;
+  line-height:1.3;
+}
+
+.tech-lane-automation .auto-v5-mini-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+}
+.tech-lane-automation .auto-v5-mini-card{
+  min-width:0;
+  min-height:108px;
+  padding:11px;
+  border-radius:14px;
+  border:1px solid rgba(248,187,208,.14);
+  background:rgba(10,2,16,.36);
+}
+.tech-lane-automation .auto-v5-mini-card strong{
+  display:block;
+  margin-bottom:5px;
+  color:#fff1f7;
+  font-size:9px;
+  line-height:1.25;
+}
+.tech-lane-automation .auto-v5-mini-card small{
+  display:block;
+  margin-bottom:7px;
+  color:#f9a8d4;
+  font-size:6px;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+.tech-lane-automation .auto-v5-mini-card p{
+  margin:0;
+  color:#efc6dc;
+  font-size:7px;
+  line-height:1.5;
+}
+
+.tech-lane-automation .auto-v5-flow{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr) 18px minmax(0,1fr);
+  align-items:center;
+  gap:4px;
+}
+.tech-lane-automation .auto-v5-node{
+  min-width:0;
+  min-height:68px;
+  padding:9px 6px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  border-radius:12px;
+  border:1px solid rgba(248,187,208,.14);
+  background:rgba(10,2,16,.38);
+  text-align:center;
+}
+.tech-lane-automation .auto-v5-node strong{
+  color:#fff1f7;
+  font-size:7.8px;
+  line-height:1.2;
+}
+.tech-lane-automation .auto-v5-node small{
+  color:#e8b7d1;
+  font-size:5.9px;
+  line-height:1.3;
+}
+.tech-lane-automation .auto-v5-arrow{
+  position:relative;
+  height:1px;
+  background:linear-gradient(90deg,rgba(249,168,212,.14),rgba(249,168,212,.55));
+}
+.tech-lane-automation .auto-v5-arrow::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:4px;
+  height:4px;
+  border-right:1px solid rgba(249,168,212,.78);
+  border-top:1px solid rgba(249,168,212,.78);
+  transform:translateY(-50%) rotate(45deg);
+}
+
+.tech-lane-automation .auto-v5-spec{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:7px;
+  margin-top:10px;
+}
+.tech-lane-automation .auto-v5-spec div{
+  min-width:0;
+  padding:8px 9px;
+  border-radius:11px;
+  border:1px solid rgba(248,187,208,.11);
+  background:rgba(30,7,41,.28);
+}
+.tech-lane-automation .auto-v5-spec b{
+  display:block;
+  margin-bottom:3px;
+  color:#f472b6;
+  font-size:6px;
+  font-weight:840;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+.tech-lane-automation .auto-v5-spec span{
+  color:#f0cfe0;
+  font-size:6.8px;
+  line-height:1.35;
+}
+
+.tech-lane-automation .auto-v5-env{
+  margin-top:10px;
+  padding:9px;
+  border-radius:12px;
+  border:1px solid rgba(248,187,208,.12);
+  background:rgba(10,2,16,.32);
+}
+.tech-lane-automation .auto-v5-env-title{
+  margin-bottom:6px;
+  text-align:center;
+  color:#eab8d3;
+  font-size:5.8px;
+  font-weight:800;
+  letter-spacing:.10em;
+  text-transform:uppercase;
+}
+.tech-lane-automation .auto-v5-env-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:5px;
+}
+.tech-lane-automation .auto-v5-env-grid div{
+  min-height:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.16);
+  background:linear-gradient(145deg,rgba(76,29,149,.25),rgba(236,72,153,.07));
+  color:#fff1f7;
+  font-size:6.5px;
+  font-weight:830;
+  letter-spacing:.06em;
+}
+
+.tech-lane-automation .auto-v5-footer{
+  margin-top:11px;
+  padding:10px 12px;
+  border-radius:13px;
+  border:1px solid rgba(248,187,208,.12);
+  background:linear-gradient(90deg,rgba(76,29,149,.18),rgba(236,72,153,.07),rgba(76,29,149,.18));
+  color:#eec4da;
+  font-size:7px;
+  line-height:1.45;
+  text-align:center;
+}
+
+@media(max-width:980px){
+  .tech-lane-automation .automation-modules-v5{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+@media(max-width:620px){
+  .tech-lane-automation .auto-v5-mini-grid,
+  .tech-lane-automation .auto-v5-spec{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .tech-lane-automation .auto-v5-flow{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .tech-lane-automation .auto-v5-arrow{
+    width:1px;
+    height:12px;
+    justify-self:center;
+  }
+  .tech-lane-automation .auto-v5-arrow::after{
+    display:none;
+  }
+}
+
+
+/* ============================================================
+   AUTOMATION LANE · MAX VISUEL / MIN TEXTE
+   ============================================================ */
+.tech-lane-automation .automation-visual-v6{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:11px;
+}
+
+.tech-lane-automation .auto-v6-card{
+  position:relative;
+  overflow:hidden;
+  min-width:0;
+  min-height:300px;
+  padding:15px;
+  border-radius:18px;
+  border:1px solid rgba(248,187,208,.18);
+  background:
+    linear-gradient(rgba(255,255,255,.014) 1px, transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.014) 1px,transparent 1px),
+    radial-gradient(circle at 90% 5%,rgba(192,132,252,.12),transparent 38%),
+    rgba(15,4,23,.56);
+  background-size:22px 22px,22px 22px,auto,auto;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035),0 12px 28px rgba(0,0,0,.12);
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+
+.tech-lane-automation .auto-v6-card:hover{
+  transform:translateY(-3px);
+  border-color:rgba(249,168,212,.38);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 16px 30px rgba(0,0,0,.22),0 0 22px rgba(236,72,153,.05);
+}
+
+.tech-lane-automation .auto-v6-card::before{
+  content:"";
+  position:absolute;
+  left:15px;
+  right:15px;
+  top:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(249,168,212,.68),transparent);
+}
+
+.tech-lane-automation .auto-v6-head{
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:16px;
+}
+
+.tech-lane-automation .auto-v6-mark{
+  width:40px;
+  height:40px;
+  flex:0 0 40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:12px;
+  border:1px solid rgba(248,187,208,.30);
+  background:linear-gradient(145deg,rgba(236,72,153,.31),rgba(124,58,237,.28));
+  box-shadow:0 8px 18px rgba(0,0,0,.22);
+  color:#fff1f7;
+  font-size:10px;
+  font-weight:850;
+}
+
+.tech-lane-automation .auto-v6-eyebrow{
+  margin-bottom:2px;
+  color:#f9a8d4;
+  font-size:6px;
+  font-weight:840;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+.tech-lane-automation .auto-v6-name{
+  color:#fff1f7;
+  font-size:14px;
+  line-height:1.1;
+  font-weight:780;
+}
+
+.tech-lane-automation .auto-v6-caption{
+  margin-top:3px;
+  color:#dca9c7;
+  font-size:6.8px;
+}
+
+/* Shared nodes */
+.tech-lane-automation .auto-v6-node{
+  position:relative;
+  min-width:0;
+  border:1px solid rgba(248,187,208,.16);
+  background:rgba(10,2,16,.48);
+  border-radius:12px;
+  text-align:center;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+.tech-lane-automation .auto-v6-node strong{
+  display:block;
+  color:#fff1f7;
+  font-size:7.5px;
+  line-height:1.2;
+}
+
+.tech-lane-automation .auto-v6-node small{
+  display:block;
+  margin-top:3px;
+  color:#e3afcd;
+  font-size:5.7px;
+  line-height:1.25;
+}
+
+.tech-lane-automation .auto-v6-core{
+  border-color:rgba(249,168,212,.38);
+  background:
+    radial-gradient(circle at 75% 10%,rgba(236,72,153,.18),transparent 48%),
+    linear-gradient(145deg,rgba(58,14,78,.64),rgba(24,6,35,.72));
+  box-shadow:0 0 20px rgba(236,72,153,.06);
+}
+
+/* PYTHON : central node + 2 branches */
+.tech-lane-automation .auto-v6-python-map{
+  display:grid;
+  grid-template-rows:auto 24px auto;
+  justify-items:center;
+  padding-top:7px;
+}
+
+.tech-lane-automation .auto-v6-python-core{
+  width:112px;
+  min-height:62px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:8px;
+}
+
+.tech-lane-automation .auto-v6-branch-lines{
+  position:relative;
+  width:68%;
+  height:24px;
+}
+
+.tech-lane-automation .auto-v6-branch-lines::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:50%;
+  width:1px;
+  height:12px;
+  background:rgba(249,168,212,.45);
+}
+
+.tech-lane-automation .auto-v6-branch-lines::after{
+  content:"";
+  position:absolute;
+  top:11px;
+  left:0;
+  right:0;
+  height:1px;
+  background:linear-gradient(90deg,rgba(249,168,212,.18),rgba(249,168,212,.55),rgba(249,168,212,.18));
+}
+
+.tech-lane-automation .auto-v6-python-branches{
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+}
+
+.tech-lane-automation .auto-v6-branch{
+  min-height:148px;
+  padding:10px;
+  border-radius:13px;
+  border:1px solid rgba(248,187,208,.14);
+  background:rgba(10,2,16,.39);
+}
+
+.tech-lane-automation .auto-v6-branch-title{
+  margin-bottom:9px;
+  text-align:center;
+  color:#f9a8d4;
+  font-size:6.4px;
+  font-weight:830;
+  letter-spacing:.09em;
+  text-transform:uppercase;
+}
+
+.tech-lane-automation .auto-v6-vertical-flow{
+  display:grid;
+  grid-template-rows:auto 14px auto 14px auto;
+  align-items:center;
+}
+
+.tech-lane-automation .auto-v6-vertical-flow .auto-v6-node{
+  min-height:39px;
+  padding:7px 5px;
+}
+
+.tech-lane-automation .auto-v6-v-arrow{
+  position:relative;
+  justify-self:center;
+  width:1px;
+  height:14px;
+  background:rgba(249,168,212,.38);
+}
+.tech-lane-automation .auto-v6-v-arrow::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:50%;
+  width:4px;
+  height:4px;
+  border-right:1px solid rgba(249,168,212,.78);
+  border-bottom:1px solid rgba(249,168,212,.78);
+  transform:translateX(-50%) rotate(45deg);
+}
+
+/* ANSIBLE : visible execution pipeline */
+.tech-lane-automation .auto-v6-ansible-map{
+  display:grid;
+  grid-template-rows:auto 14px auto 14px auto 14px auto;
+  align-items:center;
+  padding:3px 7px 0;
+}
+
+.tech-lane-automation .auto-v6-ansible-map .auto-v6-node{
+  min-height:46px;
+  padding:8px;
+}
+
+.tech-lane-automation .auto-v6-host-row{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:5px;
+}
+
+.tech-lane-automation .auto-v6-host{
+  padding:8px 4px;
+  border-radius:10px;
+  border:1px solid rgba(248,187,208,.13);
+  background:rgba(76,29,149,.16);
+  color:#f5d5e5;
+  font-size:6px;
+  font-weight:760;
+  text-align:center;
+}
+
+.tech-lane-automation .auto-v6-output{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:6px;
+}
+.tech-lane-automation .auto-v6-output .auto-v6-node{
+  min-height:46px;
+}
+
+/* TOWER : central hub controlling environments */
+.tech-lane-automation .auto-v6-tower-map{
+  position:relative;
+  display:grid;
+  grid-template-rows:auto 26px auto;
+  justify-items:center;
+  padding-top:5px;
+}
+
+.tech-lane-automation .auto-v6-tower-core{
+  width:132px;
+  min-height:76px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:10px;
+}
+
+.tech-lane-automation .auto-v6-tower-core .auto-v6-status-line{
+  display:flex;
+  gap:5px;
+  margin-top:7px;
+}
+.tech-lane-automation .auto-v6-status-dot{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#f472b6;
+  box-shadow:0 0 7px rgba(244,114,182,.4);
+}
+.tech-lane-automation .auto-v6-status-dot:nth-child(2){opacity:.72}
+.tech-lane-automation .auto-v6-status-dot:nth-child(3){opacity:.48}
+
+.tech-lane-automation .auto-v6-tower-lines{
+  position:relative;
+  width:78%;
+  height:26px;
+}
+.tech-lane-automation .auto-v6-tower-lines::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:50%;
+  width:1px;
+  height:14px;
+  background:rgba(249,168,212,.46);
+}
+.tech-lane-automation .auto-v6-tower-lines::after{
+  content:"";
+  position:absolute;
+  top:13px;
+  left:0;
+  right:0;
+  height:1px;
+  background:linear-gradient(90deg,rgba(249,168,212,.15),rgba(249,168,212,.56),rgba(249,168,212,.15));
+}
+
+.tech-lane-automation .auto-v6-env-row{
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:7px;
+}
+
+.tech-lane-automation .auto-v6-env{
+  position:relative;
+  min-height:118px;
+  padding:10px 6px;
+  border-radius:13px;
+  border:1px solid rgba(248,187,208,.15);
+  background:linear-gradient(145deg,rgba(76,29,149,.24),rgba(236,72,153,.06));
+  text-align:center;
+}
+
+.tech-lane-automation .auto-v6-env::before{
+  content:"";
+  position:absolute;
+  top:-13px;
+  left:50%;
+  width:1px;
+  height:13px;
+  background:rgba(249,168,212,.34);
+}
+
+.tech-lane-automation .auto-v6-env strong{
+  display:block;
+  margin-bottom:10px;
+  color:#fff1f7;
+  font-size:7px;
+  letter-spacing:.07em;
+}
+
+.tech-lane-automation .auto-v6-env-stage{
+  display:grid;
+  gap:5px;
+}
+.tech-lane-automation .auto-v6-env-stage span{
+  display:block;
+  padding:6px 3px;
+  border-radius:8px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.32);
+  color:#deb0c9;
+  font-size:5.5px;
+}
+
+@media(max-width:980px){
+  .tech-lane-automation .automation-visual-v6{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .tech-lane-automation .auto-v6-card{
+    min-height:auto;
+  }
+}
+
+@media(max-width:620px){
+  .tech-lane-automation .auto-v6-python-branches,
+  .tech-lane-automation .auto-v6-env-row{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .tech-lane-automation .auto-v6-branch-lines,
+  .tech-lane-automation .auto-v6-tower-lines{
+    display:none;
+  }
+  .tech-lane-automation .auto-v6-env::before{
+    display:none;
+  }
+}
+
+
+/* ============================================================
+   TOWER · architecture visuelle enrichie
+   ============================================================ */
+.tech-lane-automation .auto-v7-tower-map{
+  display:grid;
+  gap:9px;
+  padding-top:2px;
+}
+
+.tech-lane-automation .auto-v7-inputs{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:6px;
+}
+
+.tech-lane-automation .auto-v7-input{
+  position:relative;
+  min-width:0;
+  min-height:57px;
+  padding:8px 5px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  border-radius:11px;
+  border:1px solid rgba(248,187,208,.14);
+  background:rgba(10,2,16,.40);
+  text-align:center;
+}
+
+.tech-lane-automation .auto-v7-input strong{
+  color:#fff1f7;
+  font-size:6.9px;
+  line-height:1.2;
+}
+
+.tech-lane-automation .auto-v7-input small{
+  color:#dda9c6;
+  font-size:5.3px;
+  line-height:1.25;
+}
+
+.tech-lane-automation .auto-v7-converge{
+  position:relative;
+  height:20px;
+  margin:0 13%;
+}
+
+.tech-lane-automation .auto-v7-converge::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:1px;
+  background:linear-gradient(90deg,rgba(249,168,212,.18),rgba(249,168,212,.55),rgba(249,168,212,.18));
+}
+
+.tech-lane-automation .auto-v7-converge::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  width:1px;
+  height:20px;
+  background:rgba(249,168,212,.45);
+}
+
+.tech-lane-automation .auto-v7-template{
+  width:74%;
+  min-height:66px;
+  margin:0 auto;
+  padding:9px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  border-radius:13px;
+  border:1px solid rgba(249,168,212,.42);
+  background:
+    radial-gradient(circle at 78% 10%,rgba(236,72,153,.18),transparent 46%),
+    linear-gradient(145deg,rgba(58,14,78,.68),rgba(24,6,35,.76));
+  box-shadow:0 0 20px rgba(236,72,153,.07);
+  text-align:center;
+}
+
+.tech-lane-automation .auto-v7-template strong{
+  color:#fff1f7;
+  font-size:8px;
+}
+
+.tech-lane-automation .auto-v7-template small{
+  color:#efbdd8;
+  font-size:5.7px;
+}
+
+.tech-lane-automation .auto-v7-launch{
+  display:grid;
+  grid-template-columns:1fr 20px 1fr;
+  align-items:center;
+  gap:5px;
+}
+
+.tech-lane-automation .auto-v7-launch-node{
+  min-height:54px;
+  padding:8px 6px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  border-radius:11px;
+  border:1px solid rgba(248,187,208,.14);
+  background:rgba(10,2,16,.40);
+  text-align:center;
+}
+
+.tech-lane-automation .auto-v7-launch-node.is-job{
+  border-color:rgba(249,168,212,.34);
+  background:linear-gradient(145deg,rgba(76,29,149,.31),rgba(236,72,153,.10));
+}
+
+.tech-lane-automation .auto-v7-launch-node strong{
+  color:#fff1f7;
+  font-size:7px;
+}
+
+.tech-lane-automation .auto-v7-launch-node small{
+  color:#dda9c6;
+  font-size:5.4px;
+}
+
+.tech-lane-automation .auto-v7-arrow{
+  position:relative;
+  height:1px;
+  background:linear-gradient(90deg,rgba(249,168,212,.15),rgba(249,168,212,.56));
+}
+.tech-lane-automation .auto-v7-arrow::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:4px;
+  height:4px;
+  border-right:1px solid rgba(249,168,212,.8);
+  border-top:1px solid rgba(249,168,212,.8);
+  transform:translateY(-50%) rotate(45deg);
+}
+
+.tech-lane-automation .auto-v7-distribute{
+  position:relative;
+  height:20px;
+  margin:0 13%;
+}
+
+.tech-lane-automation .auto-v7-distribute::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  width:1px;
+  height:10px;
+  background:rgba(249,168,212,.43);
+}
+
+.tech-lane-automation .auto-v7-distribute::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:9px;
+  height:1px;
+  background:linear-gradient(90deg,rgba(249,168,212,.18),rgba(249,168,212,.55),rgba(249,168,212,.18));
+}
+
+.tech-lane-automation .auto-v7-envs{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:6px;
+}
+
+.tech-lane-automation .auto-v7-env{
+  position:relative;
+  min-height:53px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  border-radius:11px;
+  border:1px solid rgba(248,187,208,.15);
+  background:linear-gradient(145deg,rgba(76,29,149,.23),rgba(236,72,153,.06));
+  text-align:center;
+}
+.tech-lane-automation .auto-v7-env::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:-11px;
+  width:1px;
+  height:11px;
+  background:rgba(249,168,212,.34);
+}
+.tech-lane-automation .auto-v7-env strong{
+  color:#fff1f7;
+  font-size:6.8px;
+  letter-spacing:.07em;
+}
+.tech-lane-automation .auto-v7-env small{
+  color:#dca9c7;
+  font-size:5.3px;
+}
+
+.tech-lane-automation .auto-v7-status{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:5px;
+  margin-top:2px;
+}
+
+.tech-lane-automation .auto-v7-status span{
+  min-height:27px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.32);
+  color:#e8b7d1;
+  font-size:5.4px;
+  text-align:center;
+}
+
+@media(max-width:620px){
+  .tech-lane-automation .auto-v7-inputs,
+  .tech-lane-automation .auto-v7-envs,
+  .tech-lane-automation .auto-v7-status{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .tech-lane-automation .auto-v7-converge,
+  .tech-lane-automation .auto-v7-distribute{
+    display:none;
+  }
+  .tech-lane-automation .auto-v7-launch{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .tech-lane-automation .auto-v7-arrow{
+    width:1px;
+    height:12px;
+    justify-self:center;
+  }
+  .tech-lane-automation .auto-v7-arrow::after{
+    display:none;
+  }
+  .tech-lane-automation .auto-v7-env::before{
+    display:none;
+  }
+}
+
+
+/* ============================================================
+   ROLES + INVENTORIES · intégration visuelle
+   ============================================================ */
+.tech-lane-automation .auto-v8-ansible-map{
+  display:grid;
+  gap:8px;
+}
+
+.tech-lane-automation .auto-v8-source-row{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:7px;
+}
+
+.tech-lane-automation .auto-v8-source{
+  min-width:0;
+  min-height:76px;
+  padding:9px;
+  border-radius:12px;
+  border:1px solid rgba(248,187,208,.14);
+  background:rgba(10,2,16,.42);
+  text-align:center;
+}
+
+.tech-lane-automation .auto-v8-source strong{
+  display:block;
+  margin-bottom:6px;
+  color:#fff1f7;
+  font-size:7px;
+}
+
+.tech-lane-automation .auto-v8-source-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:4px;
+}
+
+.tech-lane-automation .auto-v8-source-grid span{
+  min-height:23px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:3px;
+  border-radius:7px;
+  border:1px solid rgba(248,187,208,.09);
+  background:rgba(76,29,149,.18);
+  color:#dca9c7;
+  font-size:5.2px;
+  line-height:1.15;
+}
+
+.tech-lane-automation .auto-v8-merge{
+  position:relative;
+  width:72%;
+  height:19px;
+  margin:0 auto;
+}
+
+.tech-lane-automation .auto-v8-merge::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  height:1px;
+  background:linear-gradient(90deg,rgba(249,168,212,.18),rgba(249,168,212,.56),rgba(249,168,212,.18));
+}
+
+.tech-lane-automation .auto-v8-merge::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:50%;
+  width:1px;
+  height:19px;
+  background:rgba(249,168,212,.44);
+}
+
+.tech-lane-automation .auto-v8-playbook{
+  width:72%;
+  min-height:54px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:8px;
+  border-radius:12px;
+  border:1px solid rgba(249,168,212,.39);
+  background:
+    radial-gradient(circle at 75% 10%,rgba(236,72,153,.17),transparent 48%),
+    linear-gradient(145deg,rgba(58,14,78,.63),rgba(24,6,35,.72));
+  text-align:center;
+}
+
+.tech-lane-automation .auto-v8-playbook strong{
+  color:#fff1f7;
+  font-size:7.5px;
+}
+
+.tech-lane-automation .auto-v8-playbook small{
+  margin-top:3px;
+  color:#e9b9d5;
+  font-size:5.5px;
+}
+
+.tech-lane-automation .auto-v8-down{
+  position:relative;
+  width:1px;
+  height:15px;
+  margin:0 auto;
+  background:rgba(249,168,212,.38);
+}
+
+.tech-lane-automation .auto-v8-down::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:0;
+  width:4px;
+  height:4px;
+  border-right:1px solid rgba(249,168,212,.78);
+  border-bottom:1px solid rgba(249,168,212,.78);
+  transform:translateX(-50%) rotate(45deg);
+}
+
+.tech-lane-automation .auto-v8-exec{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr);
+  align-items:center;
+  gap:4px;
+}
+
+.tech-lane-automation .auto-v8-exec-node{
+  min-height:53px;
+  padding:8px 6px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  border-radius:11px;
+  border:1px solid rgba(248,187,208,.14);
+  background:rgba(10,2,16,.38);
+  text-align:center;
+}
+
+.tech-lane-automation .auto-v8-exec-node strong{
+  color:#fff1f7;
+  font-size:6.8px;
+}
+
+.tech-lane-automation .auto-v8-exec-node small{
+  color:#dda9c6;
+  font-size:5.3px;
+}
+
+.tech-lane-automation .auto-v8-h-arrow{
+  position:relative;
+  height:1px;
+  background:linear-gradient(90deg,rgba(249,168,212,.15),rgba(249,168,212,.56));
+}
+
+.tech-lane-automation .auto-v8-h-arrow::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:4px;
+  height:4px;
+  border-right:1px solid rgba(249,168,212,.8);
+  border-top:1px solid rgba(249,168,212,.8);
+  transform:translateY(-50%) rotate(45deg);
+}
+
+/* Tower project block can explicitly contain roles + playbooks */
+.tech-lane-automation .auto-v7-input.project-with-roles{
+  background:
+    radial-gradient(circle at 82% 8%,rgba(236,72,153,.11),transparent 45%),
+    rgba(10,2,16,.42);
+}
+
+.tech-lane-automation .auto-v8-project-mini{
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:4px;
+  margin-top:4px;
+}
+
+.tech-lane-automation .auto-v8-project-mini span{
+  padding:4px 3px;
+  border-radius:6px;
+  border:1px solid rgba(248,187,208,.08);
+  background:rgba(76,29,149,.17);
+  color:#dca9c7;
+  font-size:4.9px;
+}
+
+@media(max-width:620px){
+  .tech-lane-automation .auto-v8-source-row{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .tech-lane-automation .auto-v8-merge{
+    display:none;
+  }
+  .tech-lane-automation .auto-v8-exec{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .tech-lane-automation .auto-v8-h-arrow{
+    width:1px;
+    height:12px;
+    justify-self:center;
+  }
+  .tech-lane-automation .auto-v8-h-arrow::after{
+    display:none;
+  }
+}
+
+
+/* Engagement · détail visuel Trésorière */
+.engagement-detail-visual{
+  display:grid;
+  gap:10px;
+}
+.engagement-duo{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+}
+.engagement-duo-card{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:10px 11px;
+  border-radius:12px;
+  border:1px solid rgba(248,187,208,.16);
+  background:rgba(76,29,149,.13);
+}
+.engagement-duo-icon{
+  width:30px;
+  height:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  background:rgba(236,72,153,.12);
+  font-size:15px;
+}
+.engagement-duo-card strong{
+  display:block;
+  color:#fff1f7;
+  font-size:9px;
+}
+.engagement-duo-card small{
+  display:block;
+  margin-top:2px;
+  color:#d8a7c3;
+  font-size:6.8px;
+}
+.engagement-responsibilities{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:7px;
+}
+.engagement-resp{
+  min-width:0;
+  padding:9px 8px;
+  border-radius:10px;
+  border:1px solid rgba(248,187,208,.12);
+  background:rgba(17,4,25,.34);
+  text-align:center;
+}
+.engagement-resp strong{
+  display:block;
+  margin-bottom:3px;
+  color:#f9a8d4;
+  font-size:7px;
+}
+.engagement-resp span{
+  display:block;
+  color:#f3d3e4;
+  font-size:6.5px;
+  line-height:1.3;
+}
+@media(max-width:620px){
+  .engagement-duo,
+  .engagement-responsibilities{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+/* Engagements : détails simples et lisibles */
+.engagement-bullets{
+  margin:0;
+  padding-left:18px;
+  display:grid;
+  gap:6px;
+}
+.engagement-bullets li{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.5;
+}
+.engagement-bullets strong{
+  color:var(--text);
+}
+
+/* Bloc Formations & certifications : éviter la redondance avec la timeline */
+.compact-certif-divider{
+  margin: 4px 0 8px;
+  padding-top: 2px;
+}
+.compact-certif-divider .formation-divider-title{
+  font-size: 10px;
+  letter-spacing: .06em;
+}
+
+/* Formations & certifications — layout propre */
+.certif-groups-clean{
+  display:grid;
+  gap:20px;
+  width:100%;
+}
+
+.certif-group-clean{
+  display:grid;
+  gap:10px;
+  width:100%;
+}
+
+.certif-group-heading{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  width:100%;
+}
+
+.certif-group-heading span{
+  flex:0 0 auto;
+  font-size:10px;
+  font-weight:650;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#fecdd3;
+}
+
+.certif-group-heading i{
+  height:1px;
+  flex:1;
+  background:linear-gradient(90deg,rgba(248,187,208,.34),transparent);
+}
+
+.certif-row-clean{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  width:100%;
+}
+
+.certif-row-clean .certif-item{
+  min-width:0;
+  min-height:128px;
+  height:100%;
+  padding:15px 16px;
+}
+
+.certif-row-clean .certif-info{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:5px;
+}
+
+.certif-row-clean .certif-name{
+  font-size:13px;
+  line-height:1.35;
+  font-weight:650;
+}
+
+.certif-row-clean .certif-date{
+  min-height:16px;
+}
+
+.certif-row-clean .pill{
+  margin-top:auto;
+  width:auto;
+  max-width:100%;
+}
+
+@media(max-width:700px){
+  .certif-row-clean{
+    grid-template-columns:minmax(0,1fr);
+    gap:12px;
+  }
+}
+
+/* ============================================================
+   ELASTIC LANE · plus technique, toujours CV / visuel
+   ============================================================ */
+.tech-lane-elastic .elastic-v2{
+  display:grid;
+  gap:10px;
+}
+
+.tech-lane-elastic .elastic-v2-flow{
+  display:grid;
+  grid-template-columns:minmax(0,.8fr) 18px minmax(0,1fr) 18px minmax(0,1.15fr) 18px minmax(0,1fr);
+  align-items:center;
+  gap:4px;
+}
+
+.tech-lane-elastic .elastic-v2-node{
+  position:relative;
+  min-width:0;
+  min-height:76px;
+  padding:10px 7px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  border-radius:13px;
+  border:1px solid rgba(248,187,208,.15);
+  background:rgba(10,2,16,.40);
+  text-align:center;
+}
+
+.tech-lane-elastic .elastic-v2-node.is-core{
+  border-color:rgba(249,168,212,.39);
+  background:
+    radial-gradient(circle at 82% 8%,rgba(236,72,153,.16),transparent 46%),
+    linear-gradient(145deg,rgba(58,14,78,.62),rgba(24,6,35,.72));
+  box-shadow:0 0 20px rgba(236,72,153,.055);
+}
+
+.tech-lane-elastic .elastic-v2-symbol{
+  width:27px;
+  height:27px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.26);
+  background:linear-gradient(145deg,rgba(236,72,153,.25),rgba(124,58,237,.22));
+  color:#fff1f7;
+  font-size:8px;
+  font-weight:850;
+}
+
+.tech-lane-elastic .elastic-v2-node strong{
+  color:#fff1f7;
+  font-size:8px;
+  line-height:1.2;
+}
+.tech-lane-elastic .elastic-v2-node small{
+  color:#e3afcd;
+  font-size:5.8px;
+  line-height:1.3;
+}
+
+.tech-lane-elastic .elastic-v2-arrow{
+  position:relative;
+  height:1px;
+  background:linear-gradient(90deg,rgba(249,168,212,.14),rgba(249,168,212,.55));
+}
+.tech-lane-elastic .elastic-v2-arrow::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:4px;
+  height:4px;
+  border-right:1px solid rgba(249,168,212,.78);
+  border-top:1px solid rgba(249,168,212,.78);
+  transform:translateY(-50%) rotate(45deg);
+}
+
+/* Sous-couche technique */
+.tech-lane-elastic .elastic-v2-ops{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:8px;
+}
+
+.tech-lane-elastic .elastic-v2-panel{
+  min-width:0;
+  padding:10px;
+  border-radius:13px;
+  border:1px solid rgba(248,187,208,.12);
+  background:
+    radial-gradient(circle at 95% 0%,rgba(124,58,237,.09),transparent 46%),
+    rgba(17,4,25,.34);
+}
+
+.tech-lane-elastic .elastic-v2-panel-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:6px;
+  margin-bottom:8px;
+  color:#fff1f7;
+  font-size:7px;
+  font-weight:780;
+}
+
+.tech-lane-elastic .elastic-v2-panel-title small{
+  color:#f9a8d4;
+  font-size:5.3px;
+  font-weight:720;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+
+/* Cluster health */
+.tech-lane-elastic .elastic-v2-health{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:5px;
+}
+.tech-lane-elastic .elastic-v2-health span{
+  min-height:29px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  border-radius:8px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.34);
+  color:#e9c1d7;
+  font-size:5.6px;
+  font-weight:750;
+}
+.tech-lane-elastic .elastic-v2-health span::before{
+  content:"";
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:currentColor;
+  box-shadow:0 0 7px currentColor;
+  opacity:.8;
+}
+.tech-lane-elastic .elastic-v2-health .health-green{color:#9de7c3}
+.tech-lane-elastic .elastic-v2-health .health-yellow{color:#f4d77d}
+.tech-lane-elastic .elastic-v2-health .health-red{color:#f49aa8}
+
+/* Index template chain */
+.tech-lane-elastic .elastic-v2-template-flow{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 14px minmax(0,1fr) 14px minmax(0,1fr);
+  align-items:center;
+  gap:3px;
+}
+.tech-lane-elastic .elastic-v2-mini-node{
+  min-width:0;
+  min-height:41px;
+  padding:6px 4px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.34);
+  text-align:center;
+}
+.tech-lane-elastic .elastic-v2-mini-node strong{
+  color:#fff1f7;
+  font-size:5.9px;
+}
+.tech-lane-elastic .elastic-v2-mini-node small{
+  margin-top:2px;
+  color:#dca9c7;
+  font-size:4.8px;
+}
+.tech-lane-elastic .elastic-v2-mini-arrow{
+  position:relative;
+  height:1px;
+  background:rgba(249,168,212,.38);
+}
+.tech-lane-elastic .elastic-v2-mini-arrow::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:3px;
+  height:3px;
+  border-right:1px solid rgba(249,168,212,.7);
+  border-top:1px solid rgba(249,168,212,.7);
+  transform:translateY(-50%) rotate(45deg);
+}
+
+/* Kibana alerting */
+.tech-lane-elastic .elastic-v2-alert-flow{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:5px;
+}
+.tech-lane-elastic .elastic-v2-alert-flow span{
+  min-height:36px;
+  padding:5px 3px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(76,29,149,.16);
+  color:#f0cfe0;
+  font-size:5.5px;
+  font-weight:700;
+  text-align:center;
+}
+
+.tech-lane-elastic .elastic-v2-runbar{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:6px;
+  padding:8px;
+  border-radius:12px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.28);
+}
+.tech-lane-elastic .elastic-v2-runbar div{
+  min-width:0;
+  text-align:center;
+}
+.tech-lane-elastic .elastic-v2-runbar b{
+  display:block;
+  margin-bottom:2px;
+  color:#f9a8d4;
+  font-size:5.4px;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.tech-lane-elastic .elastic-v2-runbar span{
+  color:#f0cfe0;
+  font-size:5.7px;
+  line-height:1.25;
+}
+
+@media(max-width:820px){
+  .tech-lane-elastic .elastic-v2-flow,
+  .tech-lane-elastic .elastic-v2-ops{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .tech-lane-elastic .elastic-v2-arrow{
+    width:1px;
+    height:14px;
+    justify-self:center;
+  }
+  .tech-lane-elastic .elastic-v2-arrow::after{
+    display:none;
+  }
+}
+
+
+/* Elastic — lecture architecture + expertise, sans doublons */
+.tech-lane-elastic .elastic-v2{
+  gap:12px;
+}
+.tech-lane-elastic .elastic-v2-health-note{
+  margin-top:7px;
+  text-align:center;
+  color:#dca9c7;
+  font-size:5.4px;
+  letter-spacing:.03em;
+}
+
+/* ============================================================
+   ELASTIC V3 · 1 composant = 1 périmètre technique
+   ============================================================ */
+.tech-lane-elastic .elastic-v3{
+  display:grid;
+  gap:13px;
+}
+
+.tech-lane-elastic .elastic-v3-stack{
+  display:grid;
+  grid-template-columns:minmax(0,.78fr) 24px minmax(0,1fr) 24px minmax(0,1.08fr) 24px minmax(0,1fr);
+  align-items:center;
+  gap:5px;
+}
+
+.tech-lane-elastic .elastic-v3-stack-node{
+  min-width:0;
+  min-height:78px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:10px;
+  border-radius:14px;
+  border:1px solid rgba(248,187,208,.15);
+  background:rgba(10,2,16,.41);
+  text-align:center;
+}
+
+.tech-lane-elastic .elastic-v3-stack-node.is-core{
+  border-color:rgba(249,168,212,.40);
+  background:
+    radial-gradient(circle at 82% 8%,rgba(236,72,153,.17),transparent 46%),
+    linear-gradient(145deg,rgba(58,14,78,.63),rgba(24,6,35,.72));
+  box-shadow:0 0 20px rgba(236,72,153,.055);
+}
+
+.tech-lane-elastic .elastic-v3-stack-icon{
+  width:30px;
+  height:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  border:1px solid rgba(248,187,208,.27);
+  background:linear-gradient(145deg,rgba(236,72,153,.25),rgba(124,58,237,.22));
+  color:#fff1f7;
+  font-size:8px;
+  font-weight:850;
+}
+
+.tech-lane-elastic .elastic-v3-stack-node strong{
+  color:#fff1f7;
+  font-size:8.2px;
+  line-height:1.2;
+}
+
+.tech-lane-elastic .elastic-v3-stack-arrow{
+  position:relative;
+  height:1px;
+  background:linear-gradient(90deg,rgba(249,168,212,.14),rgba(249,168,212,.58));
+}
+
+.tech-lane-elastic .elastic-v3-stack-arrow::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:5px;
+  height:5px;
+  border-right:1px solid rgba(249,168,212,.78);
+  border-top:1px solid rgba(249,168,212,.78);
+  transform:translateY(-50%) rotate(45deg);
+}
+
+/* 3 périmètres réellement rattachés aux composants */
+.tech-lane-elastic .elastic-v3-components{
+  display:grid;
+  grid-template-columns:.82fr 1.18fr 1fr;
+  gap:10px;
+}
+
+.tech-lane-elastic .elastic-v3-card{
+  position:relative;
+  overflow:hidden;
+  min-width:0;
+  padding:13px;
+  border-radius:15px;
+  border:1px solid rgba(248,187,208,.14);
+  background:
+    radial-gradient(circle at 96% 0%,rgba(124,58,237,.08),transparent 45%),
+    rgba(16,4,24,.38);
+}
+
+.tech-lane-elastic .elastic-v3-card::before{
+  content:"";
+  position:absolute;
+  left:13px;
+  right:13px;
+  top:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(249,168,212,.52),transparent);
+}
+
+.tech-lane-elastic .elastic-v3-card-head{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:11px;
+  padding-bottom:9px;
+  border-bottom:1px solid rgba(248,187,208,.09);
+}
+
+.tech-lane-elastic .elastic-v3-card-mark{
+  width:27px;
+  height:27px;
+  flex:0 0 27px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.23);
+  background:rgba(76,29,149,.25);
+  color:#fff1f7;
+  font-size:7px;
+  font-weight:850;
+}
+
+.tech-lane-elastic .elastic-v3-card-head strong{
+  display:block;
+  color:#fff1f7;
+  font-size:9px;
+}
+
+.tech-lane-elastic .elastic-v3-card-head small{
+  display:block;
+  margin-top:2px;
+  color:#dca9c7;
+  font-size:5.8px;
+}
+
+/* LOGSTASH */
+.tech-lane-elastic .elastic-v3-pipelines{
+  display:grid;
+  gap:7px;
+}
+
+.tech-lane-elastic .elastic-v3-pipeline{
+  position:relative;
+  min-height:43px;
+  display:grid;
+  grid-template-columns:1fr 26px 1fr;
+  align-items:center;
+  gap:5px;
+  padding:7px 8px;
+  border-radius:10px;
+  border:1px solid rgba(248,187,208,.11);
+  background:rgba(10,2,16,.34);
+}
+
+.tech-lane-elastic .elastic-v3-pipeline span{
+  text-align:center;
+  color:#efc6dc;
+  font-size:5.8px;
+}
+
+.tech-lane-elastic .elastic-v3-pipeline b{
+  text-align:center;
+  color:#fff1f7;
+  font-size:6.3px;
+}
+
+.tech-lane-elastic .elastic-v3-pipeline i{
+  position:relative;
+  height:1px;
+  background:rgba(249,168,212,.38);
+}
+
+.tech-lane-elastic .elastic-v3-pipeline i::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:3px;
+  height:3px;
+  border-right:1px solid rgba(249,168,212,.72);
+  border-top:1px solid rgba(249,168,212,.72);
+  transform:translateY(-50%) rotate(45deg);
+}
+
+.tech-lane-elastic .elastic-v3-etl-label{
+  margin-top:7px;
+  text-align:center;
+  color:#f9a8d4;
+  font-size:5.8px;
+  font-weight:760;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+/* ELASTICSEARCH */
+.tech-lane-elastic .elastic-v3-es-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+}
+
+.tech-lane-elastic .elastic-v3-es-block{
+  min-width:0;
+  padding:9px;
+  border-radius:11px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.32);
+}
+
+.tech-lane-elastic .elastic-v3-es-block.full{
+  grid-column:1 / -1;
+}
+
+.tech-lane-elastic .elastic-v3-subtitle{
+  margin-bottom:7px;
+  color:#f9a8d4;
+  font-size:5.8px;
+  font-weight:790;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.tech-lane-elastic .elastic-v3-health{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:4px;
+}
+
+.tech-lane-elastic .elastic-v3-health span{
+  min-height:27px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  border-radius:8px;
+  border:1px solid rgba(248,187,208,.08);
+  background:rgba(76,29,149,.15);
+  font-size:5.3px;
+  font-weight:780;
+}
+
+.tech-lane-elastic .elastic-v3-health span::before{
+  content:"";
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:currentColor;
+  box-shadow:0 0 7px currentColor;
+  opacity:.8;
+}
+
+.tech-lane-elastic .elastic-v3-health .g{color:#9de7c3}
+.tech-lane-elastic .elastic-v3-health .y{color:#f4d77d}
+.tech-lane-elastic .elastic-v3-health .r{color:#f49aa8}
+
+.tech-lane-elastic .elastic-v3-template{
+  display:grid;
+  grid-template-columns:1fr 16px 1fr;
+  align-items:center;
+  gap:4px;
+}
+
+.tech-lane-elastic .elastic-v3-template span{
+  min-height:31px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  border:1px solid rgba(248,187,208,.09);
+  background:rgba(76,29,149,.15);
+  color:#f0cfe0;
+  font-size:5.5px;
+  text-align:center;
+}
+
+.tech-lane-elastic .elastic-v3-template i{
+  position:relative;
+  height:1px;
+  background:rgba(249,168,212,.38);
+}
+
+.tech-lane-elastic .elastic-v3-template i::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:3px;
+  height:3px;
+  border-right:1px solid rgba(249,168,212,.72);
+  border-top:1px solid rgba(249,168,212,.72);
+  transform:translateY(-50%) rotate(45deg);
+}
+
+.tech-lane-elastic .elastic-v3-watcher{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  align-items:center;
+  gap:8px;
+}
+
+.tech-lane-elastic .elastic-v3-watcher-mark{
+  min-width:58px;
+  min-height:31px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  border:1px solid rgba(249,168,212,.20);
+  background:linear-gradient(145deg,rgba(76,29,149,.28),rgba(236,72,153,.08));
+  color:#fff1f7;
+  font-size:6px;
+  font-weight:780;
+}
+
+.tech-lane-elastic .elastic-v3-watcher-line{
+  height:1px;
+  background:linear-gradient(90deg,rgba(249,168,212,.42),transparent);
+}
+
+/* KIBANA */
+.tech-lane-elastic .elastic-v3-kibana{
+  display:grid;
+  gap:8px;
+}
+
+.tech-lane-elastic .elastic-v3-central{
+  display:grid;
+  grid-template-columns:repeat(3,25px) 1fr;
+  align-items:center;
+  gap:5px;
+  min-height:52px;
+  padding:8px;
+  border-radius:10px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.32);
+}
+
+.tech-lane-elastic .elastic-v3-cluster-dot{
+  width:25px;
+  height:25px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(76,29,149,.17);
+  color:#e9b9d5;
+  font-size:5px;
+}
+
+.tech-lane-elastic .elastic-v3-central-target{
+  min-height:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  border:1px solid rgba(249,168,212,.24);
+  background:linear-gradient(145deg,rgba(76,29,149,.28),rgba(236,72,153,.08));
+  color:#fff1f7;
+  font-size:5.8px;
+  font-weight:760;
+  text-align:center;
+}
+
+.tech-lane-elastic .elastic-v3-alerting{
+  padding:9px;
+  border-radius:10px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.32);
+}
+
+.tech-lane-elastic .elastic-v3-alert-flow{
+  display:grid;
+  grid-template-columns:1fr 18px 1fr;
+  align-items:center;
+  gap:4px;
+}
+
+.tech-lane-elastic .elastic-v3-alert-flow span{
+  min-height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(76,29,149,.16);
+  color:#f0cfe0;
+  font-size:5.7px;
+  font-weight:700;
+}
+
+.tech-lane-elastic .elastic-v3-alert-flow i{
+  position:relative;
+  height:1px;
+  background:rgba(249,168,212,.40);
+}
+
+.tech-lane-elastic .elastic-v3-alert-flow i::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:3px;
+  height:3px;
+  border-right:1px solid rgba(249,168,212,.72);
+  border-top:1px solid rgba(249,168,212,.72);
+  transform:translateY(-50%) rotate(45deg);
+}
+
+@media(max-width:880px){
+  .tech-lane-elastic .elastic-v3-stack,
+  .tech-lane-elastic .elastic-v3-components{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .tech-lane-elastic .elastic-v3-stack-arrow{
+    width:1px;
+    height:14px;
+    justify-self:center;
+  }
+
+  .tech-lane-elastic .elastic-v3-stack-arrow::after{
+    display:none;
+  }
+}
+
+@media(max-width:620px){
+  .tech-lane-elastic .elastic-v3-es-grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .tech-lane-elastic .elastic-v3-es-block.full{
+    grid-column:auto;
+  }
+}
+
+
+/* Elastic v4 — alerting Kibana sans redondance */
+.tech-lane-elastic .elastic-v4-kibana-alerting{
+  display:grid;
+  gap:8px;
+}
+
+.tech-lane-elastic .elastic-v4-alert-row{
+  display:grid;
+  grid-template-columns:84px 18px minmax(0,1fr);
+  align-items:center;
+  gap:5px;
+}
+
+.tech-lane-elastic .elastic-v4-alert-label{
+  min-height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.12);
+  background:rgba(76,29,149,.18);
+  color:#fff1f7;
+  font-size:6px;
+  font-weight:760;
+  text-align:center;
+}
+
+.tech-lane-elastic .elastic-v4-alert-arrow{
+  position:relative;
+  height:1px;
+  background:rgba(249,168,212,.38);
+}
+
+.tech-lane-elastic .elastic-v4-alert-arrow::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:3px;
+  height:3px;
+  border-right:1px solid rgba(249,168,212,.72);
+  border-top:1px solid rgba(249,168,212,.72);
+  transform:translateY(-50%) rotate(45deg);
+}
+
+.tech-lane-elastic .elastic-v4-alert-target{
+  min-height:36px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.32);
+  color:#e9b9d5;
+  font-size:5.8px;
+  text-align:center;
+}
+
+.tech-lane-elastic .elastic-v4-rules-flow{
+  display:grid;
+  grid-template-columns:1fr 16px 1fr;
+  align-items:center;
+  gap:4px;
+}
+
+.tech-lane-elastic .elastic-v4-rules-flow span{
+  min-height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(76,29,149,.16);
+  color:#f0cfe0;
+  font-size:5.7px;
+  font-weight:700;
+}
+
+.tech-lane-elastic .elastic-v4-rules-flow i{
+  position:relative;
+  height:1px;
+  background:rgba(249,168,212,.40);
+}
+
+.tech-lane-elastic .elastic-v4-rules-flow i::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:3px;
+  height:3px;
+  border-right:1px solid rgba(249,168,212,.72);
+  border-top:1px solid rgba(249,168,212,.72);
+  transform:translateY(-50%) rotate(45deg);
+}
+
+@media(max-width:620px){
+  .tech-lane-elastic .elastic-v4-alert-row{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .tech-lane-elastic .elastic-v4-alert-arrow{
+    width:1px;
+    height:12px;
+    justify-self:center;
+  }
+  .tech-lane-elastic .elastic-v4-alert-arrow::after{
+    display:none;
+  }
+}
+
+
+/* ============================================================
+   ELASTIC V5 · clair, technique, sans répétitions
+   ============================================================ */
+
+/* Logstash : structure réelle d'un pipeline */
+.tech-lane-elastic .elastic-v5-logstash-flow{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 16px minmax(0,1fr) 16px minmax(0,1fr);
+  align-items:center;
+  gap:4px;
+}
+.tech-lane-elastic .elastic-v5-logstash-node{
+  min-width:0;
+  min-height:50px;
+  padding:7px 4px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.34);
+  text-align:center;
+}
+.tech-lane-elastic .elastic-v5-logstash-node strong{
+  color:#fff1f7;
+  font-size:6.5px;
+}
+.tech-lane-elastic .elastic-v5-logstash-node small{
+  margin-top:3px;
+  color:#dca9c7;
+  font-size:5px;
+}
+.tech-lane-elastic .elastic-v5-arrow{
+  position:relative;
+  height:1px;
+  background:rgba(249,168,212,.39);
+}
+.tech-lane-elastic .elastic-v5-arrow::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:3px;
+  height:3px;
+  border-right:1px solid rgba(249,168,212,.75);
+  border-top:1px solid rgba(249,168,212,.75);
+  transform:translateY(-50%) rotate(45deg);
+}
+
+/* Index templates : wording explicite */
+.tech-lane-elastic .elastic-v5-template-flow{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr) 18px minmax(0,1fr);
+  align-items:center;
+  gap:4px;
+}
+.tech-lane-elastic .elastic-v5-template-node{
+  min-width:0;
+  min-height:39px;
+  padding:6px 4px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  border:1px solid rgba(248,187,208,.09);
+  background:rgba(76,29,149,.15);
+  text-align:center;
+}
+.tech-lane-elastic .elastic-v5-template-node strong{
+  color:#fff1f7;
+  font-size:5.8px;
+  line-height:1.15;
+}
+.tech-lane-elastic .elastic-v5-template-node small{
+  margin-top:2px;
+  color:#dca9c7;
+  font-size:4.7px;
+}
+.tech-lane-elastic .elastic-v5-template-arrow{
+  position:relative;
+  height:1px;
+  background:rgba(249,168,212,.38);
+}
+.tech-lane-elastic .elastic-v5-template-arrow::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:3px;
+  height:3px;
+  border-right:1px solid rgba(249,168,212,.72);
+  border-top:1px solid rgba(249,168,212,.72);
+  transform:translateY(-50%) rotate(45deg);
+}
+
+/* Kibana : monitoring + alerting, sans projet "Kibana centralisé" */
+.tech-lane-elastic .elastic-v5-kibana{
+  display:grid;
+  gap:8px;
+}
+
+.tech-lane-elastic .elastic-v5-kibana-block{
+  padding:9px;
+  border-radius:11px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.31);
+}
+
+.tech-lane-elastic .elastic-v5-kibana-title{
+  margin-bottom:7px;
+  color:#f9a8d4;
+  font-size:5.8px;
+  font-weight:790;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+/* Monitoring */
+.tech-lane-elastic .elastic-v5-monitoring{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 16px minmax(0,1fr) 16px minmax(0,1fr);
+  align-items:center;
+  gap:4px;
+}
+.tech-lane-elastic .elastic-v5-monitor-node{
+  min-width:0;
+  min-height:40px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:6px 4px;
+  border-radius:8px;
+  border:1px solid rgba(248,187,208,.09);
+  background:rgba(76,29,149,.15);
+  text-align:center;
+}
+.tech-lane-elastic .elastic-v5-monitor-node strong{
+  color:#fff1f7;
+  font-size:5.8px;
+}
+.tech-lane-elastic .elastic-v5-monitor-node small{
+  margin-top:2px;
+  color:#dca9c7;
+  font-size:4.7px;
+}
+
+/* Alerting : 2 mécanismes distincts et lisibles */
+.tech-lane-elastic .elastic-v5-alerting-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:7px;
+}
+.tech-lane-elastic .elastic-v5-alert-lane{
+  min-width:0;
+  padding:8px;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.09);
+  background:rgba(76,29,149,.12);
+}
+.tech-lane-elastic .elastic-v5-alert-lane-title{
+  margin-bottom:6px;
+  color:#fff1f7;
+  font-size:6.2px;
+  font-weight:760;
+  text-align:center;
+}
+.tech-lane-elastic .elastic-v5-alert-flow{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 12px minmax(0,1fr) 12px minmax(0,1fr);
+  align-items:center;
+  gap:3px;
+}
+.tech-lane-elastic .elastic-v5-alert-node{
+  min-width:0;
+  min-height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:5px 3px;
+  border-radius:7px;
+  border:1px solid rgba(248,187,208,.08);
+  background:rgba(10,2,16,.30);
+  color:#eec4da;
+  font-size:5px;
+  line-height:1.15;
+  text-align:center;
+}
+
+@media(max-width:620px){
+  .tech-lane-elastic .elastic-v5-logstash-flow,
+  .tech-lane-elastic .elastic-v5-template-flow,
+  .tech-lane-elastic .elastic-v5-monitoring,
+  .tech-lane-elastic .elastic-v5-alert-flow{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .tech-lane-elastic .elastic-v5-alerting-grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .tech-lane-elastic .elastic-v5-arrow,
+  .tech-lane-elastic .elastic-v5-template-arrow{
+    width:1px;
+    height:12px;
+    justify-self:center;
+  }
+  .tech-lane-elastic .elastic-v5-arrow::after,
+  .tech-lane-elastic .elastic-v5-template-arrow::after{
+    display:none;
+  }
+}
+
+
+/* ============================================================
+   ELASTIC · réagencement uniquement
+   Le contenu n'est plus compressé dans 3 colonnes égales.
+   ============================================================ */
+
+/* Ligne 1 : Logstash compact + Elasticsearch large
+   Ligne 2 : Kibana pleine largeur */
+.tech-lane-elastic .elastic-v3-components{
+  display:grid !important;
+  grid-template-columns:minmax(220px,.72fr) minmax(0,1.55fr) !important;
+  grid-template-areas:
+    "logstash elasticsearch"
+    "kibana kibana";
+  gap:10px !important;
+  align-items:stretch;
+}
+
+.tech-lane-elastic .elastic-layout-logstash{
+  grid-area:logstash;
+}
+
+.tech-lane-elastic .elastic-layout-es{
+  grid-area:elasticsearch;
+}
+
+.tech-lane-elastic .elastic-layout-kibana{
+  grid-area:kibana;
+}
+
+/* Logstash : sa visualisation d'origine a suffisamment d'espace */
+.tech-lane-elastic .elastic-layout-logstash .elastic-v3-pipelines{
+  display:grid;
+  gap:8px;
+}
+
+.tech-lane-elastic .elastic-layout-logstash .elastic-v3-pipeline{
+  grid-template-columns:minmax(0,1fr) 30px minmax(0,1fr);
+  min-height:48px;
+}
+
+/* Elasticsearch : ne plus forcer health + templates dans deux demi-cartes.
+   Ils sont empilés, donc le schéma d'index template reste lisible. */
+.tech-lane-elastic .elastic-layout-es .elastic-v3-es-grid{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) !important;
+  gap:8px;
+}
+
+.tech-lane-elastic .elastic-layout-es .elastic-v3-es-block{
+  width:100%;
+}
+
+.tech-lane-elastic .elastic-layout-es .elastic-v5-template-flow{
+  grid-template-columns:minmax(105px,1fr) 24px minmax(105px,1fr) 24px minmax(105px,1fr);
+  gap:5px;
+}
+
+.tech-lane-elastic .elastic-layout-es .elastic-v5-template-node{
+  min-height:45px;
+  padding:7px 6px;
+}
+
+/* Kibana : pleine largeur.
+   Monitoring et Alerting sont deux usages, donc deux colonnes sémantiques. */
+.tech-lane-elastic .elastic-layout-kibana .elastic-v5-kibana{
+  display:grid !important;
+  grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  gap:9px;
+  align-items:stretch;
+}
+
+.tech-lane-elastic .elastic-layout-kibana .elastic-v5-kibana-block{
+  height:100%;
+  min-width:0;
+}
+
+.tech-lane-elastic .elastic-layout-kibana .elastic-v5-monitoring{
+  grid-template-columns:minmax(90px,1fr) 24px minmax(90px,1fr) 24px minmax(90px,1fr);
+}
+
+.tech-lane-elastic .elastic-layout-kibana .elastic-v5-alerting-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+}
+
+.tech-lane-elastic .elastic-layout-kibana .elastic-v5-alert-flow{
+  grid-template-columns:minmax(55px,1fr) 16px minmax(55px,1fr) 16px minmax(55px,1fr);
+}
+
+/* Plus de hauteur vide artificielle */
+.tech-lane-elastic .elastic-v3-card{
+  min-height:0;
+}
+
+/* Responsive : retour en une colonne uniquement quand nécessaire */
+@media(max-width:820px){
+  .tech-lane-elastic .elastic-v3-components{
+    grid-template-columns:minmax(0,1fr) !important;
+    grid-template-areas:
+      "logstash"
+      "elasticsearch"
+      "kibana";
+  }
+
+  .tech-lane-elastic .elastic-layout-kibana .elastic-v5-kibana{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+@media(max-width:620px){
+  .tech-lane-elastic .elastic-layout-es .elastic-v5-template-flow,
+  .tech-lane-elastic .elastic-layout-kibana .elastic-v5-monitoring,
+  .tech-lane-elastic .elastic-layout-kibana .elastic-v5-alert-flow{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+/* Elastic — version simplifiée et pertinente */
+.tech-lane-elastic .elastic-layout-es .elastic-v3-es-grid{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:8px;
+}
+.tech-lane-elastic .elastic-simple-capability{
+  min-width:0;
+  padding:10px;
+  border-radius:11px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.32);
+}
+.tech-lane-elastic .elastic-simple-big-tile{
+  min-height:47px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  padding:8px;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.11);
+  background:rgba(76,29,149,.15);
+  text-align:center;
+}
+.tech-lane-elastic .elastic-simple-big-tile strong{
+  color:#fff1f7;
+  font-size:6.4px;
+}
+.tech-lane-elastic .elastic-simple-big-tile small{
+  color:#dca9c7;
+  font-size:5.1px;
+}
+.tech-lane-elastic .elastic-layout-kibana .elastic-v3-kibana{
+  display:block !important;
+}
+.tech-lane-elastic .elastic-kibana-simple{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+}
+.tech-lane-elastic .elastic-kibana-use{
+  min-width:0;
+  padding:10px;
+  border-radius:11px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.31);
+}
+.tech-lane-elastic .elastic-kibana-use-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:7px;
+}
+.tech-lane-elastic .elastic-simple-tile{
+  min-width:0;
+  min-height:48px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  padding:8px 6px;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(76,29,149,.15);
+  text-align:center;
+}
+.tech-lane-elastic .elastic-simple-tile strong{
+  color:#fff1f7;
+  font-size:6.3px;
+  line-height:1.2;
+}
+.tech-lane-elastic .elastic-simple-tile small{
+  color:#dca9c7;
+  font-size:5px;
+  line-height:1.25;
+}
+@media(max-width:700px){
+  .tech-lane-elastic .elastic-layout-es .elastic-v3-es-grid,
+  .tech-lane-elastic .elastic-kibana-simple{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+}
+
+/* ============================================================
+   Elasticsearch · Index & Data Management
+   ============================================================ */
+.tech-lane-elastic .elastic-layout-es .elastic-v3-es-grid{
+  display:grid !important;
+  grid-template-columns:minmax(190px,.72fr) minmax(0,1.28fr) !important;
+  gap:8px;
+  align-items:stretch;
+}
+
+.tech-lane-elastic .elastic-es-health-card,
+.tech-lane-elastic .elastic-es-management-card{
+  min-width:0;
+  padding:10px;
+  border-radius:11px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.32);
+}
+
+.tech-lane-elastic .elastic-es-management-grid{
+  display:grid;
+  grid-template-columns:minmax(130px,.72fr) minmax(0,1.28fr);
+  gap:7px;
+}
+
+.tech-lane-elastic .elastic-es-management-tile{
+  min-width:0;
+  min-height:74px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  padding:9px 7px;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(76,29,149,.15);
+  text-align:center;
+}
+
+.tech-lane-elastic .elastic-es-management-icon{
+  width:24px;
+  height:24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:8px;
+  border:1px solid rgba(248,187,208,.16);
+  background:rgba(236,72,153,.09);
+  color:#f9a8d4;
+  font-size:6px;
+  font-weight:850;
+}
+
+.tech-lane-elastic .elastic-es-management-tile strong{
+  color:#fff1f7;
+  font-size:6.5px;
+  line-height:1.2;
+}
+
+.tech-lane-elastic .elastic-es-management-tile small{
+  color:#dca9c7;
+  font-size:5px;
+  line-height:1.2;
+}
+
+.tech-lane-elastic .elastic-es-lifecycle-tile{
+  justify-content:flex-start;
+  padding-top:8px;
+}
+
+.tech-lane-elastic .elastic-es-lifecycle-flow{
+  width:100%;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 12px minmax(0,1fr) 12px minmax(0,1fr);
+  align-items:center;
+  gap:3px;
+  margin-top:4px;
+}
+
+.tech-lane-elastic .elastic-es-lifecycle-flow span{
+  min-width:0;
+  min-height:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:4px 3px;
+  border-radius:7px;
+  border:1px solid rgba(248,187,208,.08);
+  background:rgba(10,2,16,.30);
+  color:#efc6dc;
+  font-size:4.8px;
+  text-align:center;
+}
+
+.tech-lane-elastic .elastic-es-lifecycle-flow i{
+  position:relative;
+  height:1px;
+  background:rgba(249,168,212,.38);
+}
+
+.tech-lane-elastic .elastic-es-lifecycle-flow i::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:3px;
+  height:3px;
+  border-right:1px solid rgba(249,168,212,.72);
+  border-top:1px solid rgba(249,168,212,.72);
+  transform:translateY(-50%) rotate(45deg);
+}
+
+@media(max-width:720px){
+  .tech-lane-elastic .elastic-layout-es .elastic-v3-es-grid,
+  .tech-lane-elastic .elastic-es-management-grid{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+}
+
+/* ============================================================
+   ELASTIC CURATED · architecture + capacités, sans redondance
+   ============================================================ */
+.tech-lane-elastic .elastic-curated{
+  display:grid;
+  gap:12px;
+}
+
+.tech-lane-elastic .elastic-curated-architecture{
+  display:grid;
+  grid-template-columns:minmax(0,.72fr) 24px minmax(0,1fr) 24px minmax(0,1.12fr) 24px minmax(0,1fr);
+  align-items:center;
+  gap:5px;
+}
+
+.tech-lane-elastic .elastic-curated-architecture > i{
+  position:relative;
+  height:1px;
+  background:linear-gradient(90deg,rgba(249,168,212,.14),rgba(249,168,212,.58));
+}
+.tech-lane-elastic .elastic-curated-architecture > i::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:5px;
+  height:5px;
+  border-right:1px solid rgba(249,168,212,.8);
+  border-top:1px solid rgba(249,168,212,.8);
+  transform:translateY(-50%) rotate(45deg);
+}
+
+.tech-lane-elastic .elastic-curated-node{
+  min-width:0;
+  min-height:72px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:9px;
+  border-radius:14px;
+  border:1px solid rgba(248,187,208,.15);
+  background:rgba(10,2,16,.40);
+  text-align:center;
+}
+.tech-lane-elastic .elastic-curated-node.is-core{
+  border-color:rgba(249,168,212,.40);
+  background:
+    radial-gradient(circle at 82% 8%,rgba(236,72,153,.17),transparent 46%),
+    linear-gradient(145deg,rgba(58,14,78,.63),rgba(24,6,35,.72));
+}
+.tech-lane-elastic .elastic-curated-node > span{
+  width:29px;
+  height:29px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.26);
+  background:linear-gradient(145deg,rgba(236,72,153,.25),rgba(124,58,237,.22));
+  color:#fff1f7;
+  font-size:8px;
+  font-weight:850;
+}
+.tech-lane-elastic .elastic-curated-node strong{
+  color:#fff1f7;
+  font-size:8px;
+}
+
+.tech-lane-elastic .elastic-curated-grid{
+  display:grid;
+  grid-template-columns:minmax(210px,.68fr) minmax(0,1.32fr);
+  grid-template-areas:
+    "logstash es"
+    "kibana kibana";
+  gap:10px;
+  align-items:stretch;
+}
+
+.tech-lane-elastic .elastic-curated-card{
+  min-width:0;
+  padding:13px;
+  border-radius:15px;
+  border:1px solid rgba(248,187,208,.14);
+  background:
+    radial-gradient(circle at 96% 0%,rgba(124,58,237,.08),transparent 45%),
+    rgba(16,4,24,.38);
+}
+
+.tech-lane-elastic .elastic-curated-logstash{grid-area:logstash}
+.tech-lane-elastic .elastic-curated-es{grid-area:es}
+.tech-lane-elastic .elastic-curated-kibana{grid-area:kibana}
+
+.tech-lane-elastic .elastic-curated-card-head{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:11px;
+  padding-bottom:9px;
+  border-bottom:1px solid rgba(248,187,208,.09);
+}
+.tech-lane-elastic .elastic-curated-mark{
+  width:28px;
+  height:28px;
+  flex:0 0 28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.23);
+  background:rgba(76,29,149,.25);
+  color:#fff1f7;
+  font-size:7px;
+  font-weight:850;
+}
+.tech-lane-elastic .elastic-curated-card-head strong{
+  display:block;
+  color:#fff1f7;
+  font-size:9px;
+}
+.tech-lane-elastic .elastic-curated-card-head small{
+  display:block;
+  margin-top:2px;
+  color:#dca9c7;
+  font-size:5.8px;
+}
+
+/* Logstash */
+.tech-lane-elastic .elastic-curated-ingestion{
+  min-height:78px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 22px minmax(0,1.15fr) 22px minmax(0,1fr);
+  align-items:center;
+  gap:4px;
+}
+.tech-lane-elastic .elastic-curated-ingestion > i{
+  position:relative;
+  height:1px;
+  background:rgba(249,168,212,.38);
+}
+.tech-lane-elastic .elastic-curated-ingestion > i::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:3px;
+  height:3px;
+  border-right:1px solid rgba(249,168,212,.72);
+  border-top:1px solid rgba(249,168,212,.72);
+  transform:translateY(-50%) rotate(45deg);
+}
+.tech-lane-elastic .elastic-curated-pill,
+.tech-lane-elastic .elastic-curated-pipeline{
+  min-width:0;
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:7px 5px;
+  border-radius:10px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.34);
+  color:#efc6dc;
+  font-size:6px;
+  font-weight:720;
+  text-align:center;
+}
+.tech-lane-elastic .elastic-curated-pipeline{
+  border-color:rgba(249,168,212,.25);
+  background:linear-gradient(145deg,rgba(76,29,149,.25),rgba(236,72,153,.08));
+  color:#fff1f7;
+}
+
+/* Elasticsearch */
+.tech-lane-elastic .elastic-curated-es-layout{
+  display:grid;
+  grid-template-columns:minmax(170px,.68fr) minmax(0,1.32fr);
+  gap:8px;
+}
+.tech-lane-elastic .elastic-curated-es-module,
+.tech-lane-elastic .elastic-curated-kibana-module{
+  min-width:0;
+  padding:10px;
+  border-radius:11px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.31);
+}
+.tech-lane-elastic .elastic-curated-label{
+  margin-bottom:7px;
+  color:#f9a8d4;
+  font-size:5.8px;
+  font-weight:790;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.tech-lane-elastic .elastic-curated-health{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:5px;
+}
+.tech-lane-elastic .elastic-curated-health span{
+  min-height:31px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  border-radius:8px;
+  border:1px solid rgba(248,187,208,.08);
+  background:rgba(76,29,149,.15);
+  font-size:5.4px;
+  font-weight:780;
+}
+.tech-lane-elastic .elastic-curated-health span::before{
+  content:"";
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:currentColor;
+  box-shadow:0 0 7px currentColor;
+}
+.tech-lane-elastic .elastic-curated-health .green{color:#9de7c3}
+.tech-lane-elastic .elastic-curated-health .yellow{color:#f4d77d}
+.tech-lane-elastic .elastic-curated-health .red{color:#f49aa8}
+
+.tech-lane-elastic .elastic-curated-index-grid,
+.tech-lane-elastic .elastic-curated-feature-row{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:7px;
+}
+.tech-lane-elastic .elastic-curated-feature{
+  min-width:0;
+  min-height:52px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  padding:8px 6px;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(76,29,149,.15);
+  text-align:center;
+}
+.tech-lane-elastic .elastic-curated-feature strong{
+  color:#fff1f7;
+  font-size:6.4px;
+  line-height:1.2;
+}
+.tech-lane-elastic .elastic-curated-feature small{
+  color:#dca9c7;
+  font-size:5px;
+  line-height:1.25;
+}
+
+/* Kibana : toute la largeur, monitoring / alerting équilibrés */
+.tech-lane-elastic .elastic-curated-kibana-layout{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+}
+
+@media(max-width:820px){
+  .tech-lane-elastic .elastic-curated-architecture,
+  .tech-lane-elastic .elastic-curated-grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .tech-lane-elastic .elastic-curated-grid{
+    grid-template-areas:
+      "logstash"
+      "es"
+      "kibana";
+  }
+  .tech-lane-elastic .elastic-curated-architecture > i{
+    width:1px;
+    height:14px;
+    justify-self:center;
+  }
+  .tech-lane-elastic .elastic-curated-architecture > i::after{
+    display:none;
+  }
+}
+
+@media(max-width:620px){
+  .tech-lane-elastic .elastic-curated-es-layout,
+  .tech-lane-elastic .elastic-curated-kibana-layout,
+  .tech-lane-elastic .elastic-curated-index-grid,
+  .tech-lane-elastic .elastic-curated-feature-row,
+  .tech-lane-elastic .elastic-curated-ingestion{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .tech-lane-elastic .elastic-curated-ingestion > i{
+    width:1px;
+    height:12px;
+    justify-self:center;
+  }
+  .tech-lane-elastic .elastic-curated-ingestion > i::after{
+    display:none;
+  }
+}
+
+/* ============================================================
+   ELASTIC FINAL · complet, visuel, sans faux savoir-faire
+   ============================================================ */
+.tech-lane-elastic .elastic-final{
+  display:grid;
+  gap:12px;
+}
+
+.tech-lane-elastic .elastic-final-architecture{
+  display:grid;
+  grid-template-columns:minmax(0,.72fr) 24px minmax(0,1fr) 24px minmax(0,1.12fr) 24px minmax(0,1fr);
+  align-items:center;
+  gap:5px;
+}
+.tech-lane-elastic .elastic-final-architecture > i{
+  position:relative;
+  height:1px;
+  background:linear-gradient(90deg,rgba(249,168,212,.14),rgba(249,168,212,.58));
+}
+.tech-lane-elastic .elastic-final-architecture > i::after{
+  content:"";
+  position:absolute;
+  right:0; top:50%;
+  width:5px; height:5px;
+  border-right:1px solid rgba(249,168,212,.8);
+  border-top:1px solid rgba(249,168,212,.8);
+  transform:translateY(-50%) rotate(45deg);
+}
+.tech-lane-elastic .elastic-final-arch-node{
+  min-height:72px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:9px;
+  border-radius:14px;
+  border:1px solid rgba(248,187,208,.15);
+  background:rgba(10,2,16,.40);
+}
+.tech-lane-elastic .elastic-final-arch-node.is-core{
+  border-color:rgba(249,168,212,.40);
+  background:
+    radial-gradient(circle at 82% 8%,rgba(236,72,153,.17),transparent 46%),
+    linear-gradient(145deg,rgba(58,14,78,.63),rgba(24,6,35,.72));
+}
+.tech-lane-elastic .elastic-final-arch-node span{
+  width:29px; height:29px;
+  display:flex; align-items:center; justify-content:center;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.26);
+  background:linear-gradient(145deg,rgba(236,72,153,.25),rgba(124,58,237,.22));
+  color:#fff1f7;
+  font-size:8px;
+  font-weight:850;
+}
+.tech-lane-elastic .elastic-final-arch-node strong{
+  color:#fff1f7;
+  font-size:8px;
+}
+
+.tech-lane-elastic .elastic-final-layout{
+  display:grid;
+  grid-template-columns:minmax(215px,.66fr) minmax(0,1.34fr);
+  grid-template-areas:
+    "logstash es"
+    "kibana kibana";
+  gap:10px;
+}
+.tech-lane-elastic .elastic-final-logstash{grid-area:logstash}
+.tech-lane-elastic .elastic-final-es{grid-area:es}
+.tech-lane-elastic .elastic-final-kibana{grid-area:kibana}
+
+.tech-lane-elastic .elastic-final-card{
+  min-width:0;
+  padding:13px;
+  border-radius:15px;
+  border:1px solid rgba(248,187,208,.14);
+  background:
+    radial-gradient(circle at 96% 0%,rgba(124,58,237,.08),transparent 45%),
+    rgba(16,4,24,.38);
+}
+.tech-lane-elastic .elastic-final-card-head{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:11px;
+  padding-bottom:9px;
+  border-bottom:1px solid rgba(248,187,208,.09);
+}
+.tech-lane-elastic .elastic-final-mark{
+  width:28px; height:28px;
+  flex:0 0 28px;
+  display:flex; align-items:center; justify-content:center;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.23);
+  background:rgba(76,29,149,.25);
+  color:#fff1f7;
+  font-size:7px;
+  font-weight:850;
+}
+.tech-lane-elastic .elastic-final-card-head strong{
+  display:block;
+  color:#fff1f7;
+  font-size:9px;
+}
+.tech-lane-elastic .elastic-final-card-head small{
+  display:block;
+  margin-top:2px;
+  color:#dca9c7;
+  font-size:5.8px;
+}
+
+/* Logstash restauré */
+.tech-lane-elastic .elastic-final-pipelines{
+  display:grid;
+  gap:8px;
+}
+.tech-lane-elastic .elastic-final-pipeline{
+  min-height:48px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 30px minmax(0,1fr);
+  align-items:center;
+  gap:5px;
+  padding:7px 8px;
+  border-radius:10px;
+  border:1px solid rgba(248,187,208,.11);
+  background:rgba(10,2,16,.34);
+}
+.tech-lane-elastic .elastic-final-pipeline span,
+.tech-lane-elastic .elastic-final-pipeline b{
+  text-align:center;
+  font-size:5.9px;
+}
+.tech-lane-elastic .elastic-final-pipeline span{color:#efc6dc}
+.tech-lane-elastic .elastic-final-pipeline b{color:#fff1f7}
+.tech-lane-elastic .elastic-final-pipeline i{
+  position:relative;
+  height:1px;
+  background:rgba(249,168,212,.38);
+}
+.tech-lane-elastic .elastic-final-pipeline i::after{
+  content:"";
+  position:absolute;
+  right:0; top:50%;
+  width:3px; height:3px;
+  border-right:1px solid rgba(249,168,212,.72);
+  border-top:1px solid rgba(249,168,212,.72);
+  transform:translateY(-50%) rotate(45deg);
+}
+.tech-lane-elastic .elastic-final-caption{
+  margin-top:7px;
+  text-align:center;
+  color:#f9a8d4;
+  font-size:5.7px;
+  font-weight:760;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+
+/* Shared modules */
+.tech-lane-elastic .elastic-final-es-grid{
+  display:grid;
+  grid-template-columns:minmax(170px,.72fr) minmax(0,1.28fr);
+  gap:8px;
+}
+.tech-lane-elastic .elastic-final-kibana-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+}
+.tech-lane-elastic .elastic-final-module{
+  min-width:0;
+  padding:10px;
+  border-radius:11px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.31);
+}
+.tech-lane-elastic .elastic-final-wide{
+  grid-column:1 / -1;
+}
+.tech-lane-elastic .elastic-final-label{
+  margin-bottom:7px;
+  color:#f9a8d4;
+  font-size:5.8px;
+  font-weight:790;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.tech-lane-elastic .elastic-final-health{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:5px;
+}
+.tech-lane-elastic .elastic-final-health span{
+  min-height:31px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  border-radius:8px;
+  border:1px solid rgba(248,187,208,.08);
+  background:rgba(76,29,149,.15);
+  font-size:5.4px;
+  font-weight:780;
+}
+.tech-lane-elastic .elastic-final-health span::before{
+  content:"";
+  width:5px; height:5px;
+  border-radius:50%;
+  background:currentColor;
+  box-shadow:0 0 7px currentColor;
+}
+.tech-lane-elastic .elastic-final-health .g{color:#9de7c3}
+.tech-lane-elastic .elastic-final-health .y{color:#f4d77d}
+.tech-lane-elastic .elastic-final-health .r{color:#f49aa8}
+
+.tech-lane-elastic .elastic-final-micro{
+  margin-top:7px;
+  text-align:center;
+  color:#dca9c7;
+  font-size:5px;
+}
+
+.tech-lane-elastic .elastic-final-feature-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:7px;
+}
+.tech-lane-elastic .elastic-final-feature{
+  min-width:0;
+  min-height:51px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  padding:8px 6px;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(76,29,149,.15);
+  text-align:center;
+}
+.tech-lane-elastic .elastic-final-feature strong{
+  color:#fff1f7;
+  font-size:6.3px;
+  line-height:1.2;
+}
+.tech-lane-elastic .elastic-final-feature small{
+  color:#dca9c7;
+  font-size:5px;
+  line-height:1.25;
+}
+
+.tech-lane-elastic .elastic-final-troubleshoot,
+.tech-lane-elastic .elastic-final-support-row{
+  display:grid;
+  gap:6px;
+}
+.tech-lane-elastic .elastic-final-troubleshoot{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+}
+.tech-lane-elastic .elastic-final-support-row{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.tech-lane-elastic .elastic-final-troubleshoot span,
+.tech-lane-elastic .elastic-final-support-row span{
+  min-height:34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:6px 5px;
+  border-radius:8px;
+  border:1px solid rgba(248,187,208,.09);
+  background:rgba(76,29,149,.14);
+  color:#eec4da;
+  font-size:5.5px;
+  text-align:center;
+}
+
+@media(max-width:820px){
+  .tech-lane-elastic .elastic-final-architecture,
+  .tech-lane-elastic .elastic-final-layout{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .tech-lane-elastic .elastic-final-layout{
+    grid-template-areas:
+      "logstash"
+      "es"
+      "kibana";
+  }
+  .tech-lane-elastic .elastic-final-architecture > i{
+    width:1px;
+    height:14px;
+    justify-self:center;
+  }
+  .tech-lane-elastic .elastic-final-architecture > i::after{display:none}
+}
+@media(max-width:620px){
+  .tech-lane-elastic .elastic-final-es-grid,
+  .tech-lane-elastic .elastic-final-kibana-grid,
+  .tech-lane-elastic .elastic-final-feature-grid,
+  .tech-lane-elastic .elastic-final-troubleshoot,
+  .tech-lane-elastic .elastic-final-support-row{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+/* ============================================================
+   ELASTIC / KIBANA · CORE KNOWLEDGE MAP
+   Fiche de connaissances, pas résumé des missions.
+   ============================================================ */
+.tech-lane-elastic .elastic-core{
+  display:grid;
+  gap:12px;
+}
+
+.tech-lane-elastic .elastic-core-architecture{
+  display:grid;
+  grid-template-columns:minmax(0,.72fr) 24px minmax(0,1fr) 24px minmax(0,1.12fr) 24px minmax(0,1fr);
+  align-items:center;
+  gap:5px;
+}
+
+.tech-lane-elastic .elastic-core-architecture > i{
+  position:relative;
+  height:1px;
+  background:linear-gradient(90deg,rgba(249,168,212,.14),rgba(249,168,212,.58));
+}
+.tech-lane-elastic .elastic-core-architecture > i::after{
+  content:"";
+  position:absolute;
+  right:0; top:50%;
+  width:5px; height:5px;
+  border-right:1px solid rgba(249,168,212,.8);
+  border-top:1px solid rgba(249,168,212,.8);
+  transform:translateY(-50%) rotate(45deg);
+}
+
+.tech-lane-elastic .elastic-core-arch-node{
+  min-height:70px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  padding:9px;
+  border-radius:14px;
+  border:1px solid rgba(248,187,208,.15);
+  background:rgba(10,2,16,.40);
+}
+.tech-lane-elastic .elastic-core-arch-node.is-core{
+  border-color:rgba(249,168,212,.40);
+  background:
+    radial-gradient(circle at 82% 8%,rgba(236,72,153,.17),transparent 46%),
+    linear-gradient(145deg,rgba(58,14,78,.63),rgba(24,6,35,.72));
+}
+.tech-lane-elastic .elastic-core-arch-node > span{
+  width:28px;
+  height:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.26);
+  background:linear-gradient(145deg,rgba(236,72,153,.25),rgba(124,58,237,.22));
+  color:#fff1f7;
+  font-size:8px;
+  font-weight:850;
+}
+.tech-lane-elastic .elastic-core-arch-node strong{
+  color:#fff1f7;
+  font-size:8px;
+}
+
+.tech-lane-elastic .elastic-core-layout{
+  display:grid;
+  grid-template-columns:minmax(215px,.64fr) minmax(0,1.36fr);
+  grid-template-areas:
+    "logstash es"
+    "kibana kibana";
+  gap:10px;
+}
+.tech-lane-elastic .elastic-core-logstash{grid-area:logstash}
+.tech-lane-elastic .elastic-core-es{grid-area:es}
+.tech-lane-elastic .elastic-core-kibana{grid-area:kibana}
+
+.tech-lane-elastic .elastic-core-card{
+  min-width:0;
+  padding:13px;
+  border-radius:15px;
+  border:1px solid rgba(248,187,208,.14);
+  background:
+    radial-gradient(circle at 96% 0%,rgba(124,58,237,.08),transparent 45%),
+    rgba(16,4,24,.38);
+}
+
+.tech-lane-elastic .elastic-core-head{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:11px;
+  padding-bottom:9px;
+  border-bottom:1px solid rgba(248,187,208,.09);
+}
+.tech-lane-elastic .elastic-core-mark{
+  width:28px; height:28px;
+  flex:0 0 28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  border:1px solid rgba(248,187,208,.23);
+  background:rgba(76,29,149,.25);
+  color:#fff1f7;
+  font-size:7px;
+  font-weight:850;
+}
+.tech-lane-elastic .elastic-core-head strong{
+  display:block;
+  color:#fff1f7;
+  font-size:9px;
+}
+.tech-lane-elastic .elastic-core-head small{
+  display:block;
+  margin-top:2px;
+  color:#dca9c7;
+  font-size:5.8px;
+}
+
+/* Logstash identique dans sa logique */
+.tech-lane-elastic .elastic-core-pipelines{
+  display:grid;
+  gap:8px;
+}
+.tech-lane-elastic .elastic-core-pipeline{
+  min-height:48px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 30px minmax(0,1fr);
+  align-items:center;
+  gap:5px;
+  padding:7px 8px;
+  border-radius:10px;
+  border:1px solid rgba(248,187,208,.11);
+  background:rgba(10,2,16,.34);
+}
+.tech-lane-elastic .elastic-core-pipeline span,
+.tech-lane-elastic .elastic-core-pipeline b{
+  text-align:center;
+  font-size:5.9px;
+}
+.tech-lane-elastic .elastic-core-pipeline span{color:#efc6dc}
+.tech-lane-elastic .elastic-core-pipeline b{color:#fff1f7}
+.tech-lane-elastic .elastic-core-pipeline i{
+  position:relative;
+  height:1px;
+  background:rgba(249,168,212,.38);
+}
+.tech-lane-elastic .elastic-core-pipeline i::after{
+  content:"";
+  position:absolute;
+  right:0; top:50%;
+  width:3px; height:3px;
+  border-right:1px solid rgba(249,168,212,.72);
+  border-top:1px solid rgba(249,168,212,.72);
+  transform:translateY(-50%) rotate(45deg);
+}
+.tech-lane-elastic .elastic-core-caption{
+  margin-top:7px;
+  text-align:center;
+  color:#f9a8d4;
+  font-size:5.7px;
+  font-weight:760;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+
+/* Elasticsearch */
+.tech-lane-elastic .elastic-core-es-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+}
+.tech-lane-elastic .elastic-core-topic{
+  min-width:0;
+  min-height:100px;
+  padding:10px;
+  border-radius:11px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.31);
+}
+.tech-lane-elastic .elastic-core-topic-icon{
+  width:24px;
+  height:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:7px;
+  border-radius:7px;
+  background:rgba(236,72,153,.10);
+  color:#f9a8d4;
+  font-size:5.4px;
+  font-weight:850;
+}
+.tech-lane-elastic .elastic-core-topic-name{
+  margin-bottom:8px;
+  color:#fff1f7;
+  font-size:6.9px;
+  font-weight:760;
+}
+.tech-lane-elastic .elastic-core-topic-items{
+  display:flex;
+  flex-wrap:wrap;
+  gap:5px;
+}
+.tech-lane-elastic .elastic-core-topic-items span{
+  padding:5px 6px;
+  border-radius:7px;
+  border:1px solid rgba(248,187,208,.08);
+  background:rgba(76,29,149,.16);
+  color:#e9bdd5;
+  font-size:5.2px;
+  line-height:1.15;
+}
+
+/* Kibana */
+.tech-lane-elastic .elastic-core-kibana-grid{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:7px;
+}
+.tech-lane-elastic .elastic-core-k-topic{
+  min-width:0;
+  min-height:112px;
+  padding:10px 8px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  border-radius:11px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.31);
+  text-align:center;
+}
+.tech-lane-elastic .elastic-core-k-icon{
+  width:27px;
+  height:27px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:7px;
+  border-radius:8px;
+  border:1px solid rgba(248,187,208,.13);
+  background:rgba(76,29,149,.20);
+  color:#f9a8d4;
+  font-size:7px;
+  font-weight:800;
+}
+.tech-lane-elastic .elastic-core-k-topic > strong{
+  margin-bottom:8px;
+  color:#fff1f7;
+  font-size:6.5px;
+}
+.tech-lane-elastic .elastic-core-k-items{
+  width:100%;
+  display:grid;
+  gap:4px;
+}
+.tech-lane-elastic .elastic-core-k-items span{
+  min-height:24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:4px;
+  border-radius:7px;
+  border:1px solid rgba(248,187,208,.07);
+  background:rgba(76,29,149,.13);
+  color:#e9bdd5;
+  font-size:4.9px;
+  line-height:1.15;
+}
+
+@media(max-width:920px){
+  .tech-lane-elastic .elastic-core-kibana-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+@media(max-width:820px){
+  .tech-lane-elastic .elastic-core-architecture,
+  .tech-lane-elastic .elastic-core-layout{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .tech-lane-elastic .elastic-core-layout{
+    grid-template-areas:
+      "logstash"
+      "es"
+      "kibana";
+  }
+  .tech-lane-elastic .elastic-core-architecture > i{
+    width:1px;
+    height:14px;
+    justify-self:center;
+  }
+  .tech-lane-elastic .elastic-core-architecture > i::after{
+    display:none;
+  }
+}
+@media(max-width:620px){
+  .tech-lane-elastic .elastic-core-es-grid,
+  .tech-lane-elastic .elastic-core-kibana-grid{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+/* === Kafka core knowledge === */
+.tech-lane-kafka .kcore{display:grid;gap:11px}
+.tech-lane-kafka .kcore-flow{display:grid;grid-template-columns:minmax(0,.8fr) minmax(80px,.65fr) minmax(0,1fr) minmax(80px,.65fr) minmax(0,.8fr);align-items:center;gap:7px}
+.tech-lane-kafka .kcore-node{min-height:72px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:9px;border-radius:13px;border:1px solid rgba(248,187,208,.14);background:rgba(10,2,16,.38);text-align:center}
+.tech-lane-kafka .kcore-node.hub{border-color:rgba(249,168,212,.38);background:linear-gradient(145deg,rgba(58,14,78,.60),rgba(24,6,35,.72))}
+.tech-lane-kafka .kcore-node b{width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:9px;border:1px solid rgba(248,187,208,.24);background:rgba(76,29,149,.24);color:#fff1f7;font-size:7px}
+.tech-lane-kafka .kcore-node strong{color:#fff1f7;font-size:7.5px}.tech-lane-kafka .kcore-node small{color:#dca9c7;font-size:5.2px}
+.tech-lane-kafka .kcore-arrow{position:relative;height:1px;background:linear-gradient(90deg,rgba(249,168,212,.15),rgba(249,168,212,.58))}
+.tech-lane-kafka .kcore-arrow:before{content:attr(data-label);position:absolute;left:50%;bottom:7px;transform:translateX(-50%);white-space:nowrap;padding:3px 6px;border-radius:999px;border:1px solid rgba(248,187,208,.11);background:rgba(20,4,30,.88);color:#e9bdd5;font-size:4.7px;font-weight:700}
+.tech-lane-kafka .kcore-arrow:after{content:"";position:absolute;right:0;top:50%;width:4px;height:4px;border-right:1px solid rgba(249,168,212,.8);border-top:1px solid rgba(249,168,212,.8);transform:translateY(-50%) rotate(45deg)}
+.tech-lane-kafka .kcore-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.tech-lane-kafka .kcore-topic,.tech-lane-automation .acore-topic{min-width:0;padding:9px;border-radius:11px;border:1px solid rgba(248,187,208,.09);background:rgba(10,2,16,.30)}
+.tech-lane-kafka .kcore-topic em,.tech-lane-automation .acore-topic em{width:22px;height:19px;display:flex;align-items:center;justify-content:center;margin-bottom:6px;border-radius:7px;background:rgba(236,72,153,.10);color:#f9a8d4;font-size:5px;font-style:normal;font-weight:850}
+.tech-lane-kafka .kcore-topic>strong,.tech-lane-automation .acore-topic>strong{display:block;margin-bottom:7px;color:#fff1f7;font-size:6.4px}
+.tech-lane-kafka .kcore-topic>div,.tech-lane-automation .acore-topic>div{display:flex;flex-wrap:wrap;gap:4px}
+.tech-lane-kafka .kcore-topic span,.tech-lane-automation .acore-topic span{padding:4px 5px;border-radius:7px;border:1px solid rgba(248,187,208,.07);background:rgba(76,29,149,.14);color:#e9bdd5;font-size:4.8px;line-height:1.15}
+
+/* === Automation core knowledge === */
+.tech-lane-automation .acore{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.tech-lane-automation .acore-card{min-width:0;padding:12px;border-radius:14px;border:1px solid rgba(248,187,208,.13);background:radial-gradient(circle at 96% 0%,rgba(124,58,237,.07),transparent 45%),rgba(16,4,24,.37)}
+.tech-lane-automation .acore-head{display:flex;align-items:center;gap:8px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid rgba(248,187,208,.09)}
+.tech-lane-automation .acore-head>b{width:29px;height:29px;flex:0 0 29px;display:flex;align-items:center;justify-content:center;border-radius:9px;border:1px solid rgba(248,187,208,.22);background:rgba(76,29,149,.24);color:#fff1f7;font-size:6.5px}
+.tech-lane-automation .acore-head strong{display:block;color:#fff1f7;font-size:8.4px}.tech-lane-automation .acore-head small{display:block;margin-top:2px;color:#dca9c7;font-size:5.1px}
+.tech-lane-automation .acore-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.tech-lane-automation .acore-topic{min-height:98px}
+
+/* responsive */
+@media(max-width:980px){
+  .tech-lane-kafka .kcore-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tech-lane-automation .acore{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:720px){
+  .tech-lane-kafka .kcore-flow{grid-template-columns:minmax(0,1fr)}
+  .tech-lane-kafka .kcore-arrow{width:1px;height:18px;justify-self:center}
+  .tech-lane-kafka .kcore-arrow:after{display:none}
+  .tech-lane-kafka .kcore-arrow:before{left:8px;bottom:auto;top:50%;transform:translateY(-50%)}
+}
+@media(max-width:560px){
+  .tech-lane-kafka .kcore-grid,.tech-lane-automation .acore-grid{grid-template-columns:minmax(0,1fr)}
+}
+
+/* ============================================================
+   TECH COCKPIT · INTERACTIVITÉ
+   Focus au clic + navigation architecture + flux animés au survol
+   ============================================================ */
+
+#technologies-pratique .cockpit-interactive-chip{
+  border-color:rgba(249,168,212,.20);
+  background:rgba(236,72,153,.08);
+  color:#f9a8d4;
+}
+
+/* Éléments interactifs */
+#technologies-pratique .tech-focusable,
+#technologies-pratique .tech-arch-button{
+  cursor:pointer;
+  outline:none;
+  transition:
+    transform .22s ease,
+    opacity .22s ease,
+    filter .22s ease,
+    border-color .22s ease,
+    box-shadow .22s ease,
+    background .22s ease;
+}
+
+#technologies-pratique .tech-focusable:focus-visible,
+#technologies-pratique .tech-arch-button:focus-visible{
+  box-shadow:
+    0 0 0 2px rgba(249,168,212,.20),
+    0 0 0 5px rgba(124,58,237,.10);
+}
+
+#technologies-pratique .tech-focusable:hover{
+  transform:translateY(-3px);
+  border-color:rgba(249,168,212,.33) !important;
+  box-shadow:
+    0 14px 28px rgba(0,0,0,.18),
+    0 0 24px rgba(236,72,153,.055);
+}
+
+#technologies-pratique [data-tech-interactive-group="true"].has-tech-selection
+  > .tech-focusable:not(.is-tech-selected){
+  opacity:.42;
+  filter:saturate(.55) brightness(.80);
+  transform:scale(.985);
+}
+
+#technologies-pratique .tech-focusable.is-tech-selected{
+  position:relative;
+  z-index:4;
+  transform:translateY(-4px) scale(1.018);
+  border-color:rgba(249,168,212,.58) !important;
+  background:
+    radial-gradient(circle at 88% 6%,rgba(236,72,153,.15),transparent 46%),
+    rgba(23,5,34,.82) !important;
+  box-shadow:
+    0 18px 34px rgba(0,0,0,.28),
+    0 0 0 1px rgba(249,168,212,.12),
+    0 0 28px rgba(236,72,153,.075);
+}
+
+/* Les pills du concept sélectionné deviennent plus lisibles */
+#technologies-pratique .kcore-topic.is-tech-selected span,
+#technologies-pratique .elastic-core-topic.is-tech-selected .elastic-core-topic-items span,
+#technologies-pratique .elastic-core-k-topic.is-tech-selected .elastic-core-k-items span{
+  border-color:rgba(249,168,212,.20);
+  background:rgba(124,58,237,.24);
+  color:#fff1f7;
+}
+
+/* petit accent qui apparaît uniquement au focus */
+#technologies-pratique .kcore-topic::after,
+#technologies-pratique .elastic-core-topic::after,
+#technologies-pratique .elastic-core-k-topic::after{
+  content:"";
+  display:block;
+  width:0;
+  height:1px;
+  margin-top:8px;
+  background:linear-gradient(90deg,#f9a8d4,rgba(196,181,253,.20));
+  transition:width .24s ease;
+}
+#technologies-pratique .kcore-topic.is-tech-selected::after,
+#technologies-pratique .elastic-core-topic.is-tech-selected::after,
+#technologies-pratique .elastic-core-k-topic.is-tech-selected::after{
+  width:100%;
+}
+
+/* Automation : vraie mise au point au clic, sans changer le contenu */
+#technologies-pratique .automation-visual-v6.has-tech-selection
+  > .auto-v6-card:not(.is-tech-selected){
+  opacity:.38;
+  filter:saturate(.48) brightness(.76);
+  transform:scale(.978);
+}
+
+#technologies-pratique .automation-visual-v6 > .auto-v6-card.is-tech-selected{
+  transform:translateY(-5px) scale(1.018);
+  border-color:rgba(249,168,212,.58);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.05),
+    0 20px 38px rgba(0,0,0,.27),
+    0 0 30px rgba(236,72,153,.07);
+}
+
+#technologies-pratique .automation-visual-v6 > .auto-v6-card.is-tech-selected .auto-v6-core,
+#technologies-pratique .automation-visual-v6 > .auto-v6-card.is-tech-selected .auto-v7-template,
+#technologies-pratique .automation-visual-v6 > .auto-v6-card.is-tech-selected .auto-v8-playbook{
+  border-color:rgba(249,168,212,.52);
+  box-shadow:0 0 20px rgba(236,72,153,.09);
+}
+
+/* Architecture Elastic : navigation visuelle */
+#technologies-pratique .elastic-core-arch-node.tech-arch-button:hover{
+  transform:translateY(-3px);
+  border-color:rgba(249,168,212,.42);
+}
+
+#technologies-pratique .elastic-core-arch-node.tech-arch-button.is-arch-selected{
+  transform:translateY(-3px) scale(1.025);
+  border-color:rgba(249,168,212,.62);
+  box-shadow:
+    0 14px 26px rgba(0,0,0,.22),
+    0 0 24px rgba(236,72,153,.08);
+}
+
+#technologies-pratique .elastic-core-layout.has-arch-focus
+  > .elastic-core-card:not(.is-arch-target){
+  opacity:.38;
+  filter:saturate(.55) brightness(.78);
+}
+
+#technologies-pratique .elastic-core-card{
+  transition:
+    opacity .22s ease,
+    filter .22s ease,
+    transform .22s ease,
+    border-color .22s ease,
+    box-shadow .22s ease;
+}
+
+#technologies-pratique .elastic-core-card.is-arch-target{
+  position:relative;
+  z-index:3;
+  transform:translateY(-4px);
+  border-color:rgba(249,168,212,.52);
+  box-shadow:
+    0 18px 32px rgba(0,0,0,.23),
+    0 0 28px rgba(236,72,153,.06);
+}
+
+/* Flux : animation uniquement quand l'utilisateur interagit avec la lane */
+@keyframes cockpitFlowShift{
+  from{background-position:0 0}
+  to{background-position:180% 0}
+}
+
+#technologies-pratique .tech-lane-kafka:hover .kcore-arrow,
+#technologies-pratique .tech-lane-elastic:hover .elastic-core-architecture > i,
+#technologies-pratique .tech-lane-elastic:hover .elastic-core-pipeline i{
+  background-image:linear-gradient(
+    90deg,
+    rgba(249,168,212,.10) 0%,
+    rgba(249,168,212,.34) 28%,
+    rgba(255,241,247,.88) 48%,
+    rgba(249,168,212,.34) 68%,
+    rgba(249,168,212,.10) 100%
+  );
+  background-size:180% 100%;
+  animation:cockpitFlowShift 1.25s linear infinite;
+}
+
+/* Micro-réaction des nœuds lors du survol de leur diagramme */
+#technologies-pratique .kcore-flow:hover .kcore-node,
+#technologies-pratique .elastic-core-architecture:hover .elastic-core-arch-node{
+  border-color:rgba(249,168,212,.24);
+}
+
+@media (prefers-reduced-motion: reduce){
+  #technologies-pratique .tech-focusable,
+  #technologies-pratique .tech-arch-button,
+  #technologies-pratique .elastic-core-card{
+    transition:none !important;
+  }
+  #technologies-pratique .tech-lane-kafka:hover .kcore-arrow,
+  #technologies-pratique .tech-lane-elastic:hover .elastic-core-architecture > i,
+  #technologies-pratique .tech-lane-elastic:hover .elastic-core-pipeline i{
+    animation:none !important;
+  }
+}
+
+/* ============================================================
+   TECH COCKPIT · LIVE / HOVER
+   Pas de clic : micro-animations, profondeur et flux au survol.
+   ============================================================ */
+
+#technologies-pratique .cockpit-live-chip{
+  border-color:rgba(249,168,212,.18);
+  background:
+    linear-gradient(135deg,rgba(236,72,153,.10),rgba(124,58,237,.10));
+  color:#f9a8d4;
+  box-shadow:0 0 18px rgba(236,72,153,.05);
+}
+
+/* Mouvement général très léger des lanes */
+#technologies-pratique .tech-lane{
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform .28s ease,
+    border-color .28s ease,
+    box-shadow .28s ease,
+    background .28s ease;
+}
+
+#technologies-pratique .tech-lane::after{
+  content:"";
+  position:absolute;
+  inset:-40% -25%;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 20% 15%,rgba(236,72,153,.06),transparent 22%),
+    radial-gradient(circle at 82% 70%,rgba(124,58,237,.055),transparent 25%);
+  opacity:.25;
+  transform:translate3d(0,0,0);
+  transition:opacity .35s ease, transform .55s ease;
+}
+
+#technologies-pratique .tech-lane:hover{
+  transform:translateY(-2px);
+  border-color:rgba(249,168,212,.20);
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.18),
+    0 0 32px rgba(236,72,153,.035);
+}
+
+#technologies-pratique .tech-lane:hover::after{
+  opacity:.8;
+  transform:translate3d(2.5%, -1.5%, 0);
+}
+
+/* ------------------------------------------------------------
+   Kafka : pulsation des nœuds + flux animé
+   ------------------------------------------------------------ */
+#technologies-pratique .kcore-node{
+  transition:
+    transform .24s ease,
+    border-color .24s ease,
+    box-shadow .24s ease,
+    background .24s ease;
+}
+
+#technologies-pratique .kcore-node:hover{
+  transform:translateY(-4px) scale(1.02);
+  border-color:rgba(249,168,212,.42);
+  background:
+    radial-gradient(circle at 75% 10%,rgba(236,72,153,.14),transparent 48%),
+    rgba(15,3,23,.60);
+  box-shadow:
+    0 12px 25px rgba(0,0,0,.20),
+    0 0 22px rgba(236,72,153,.06);
+}
+
+#technologies-pratique .kcore-node:hover b{
+  transform:rotate(-4deg) scale(1.06);
+  border-color:rgba(249,168,212,.42);
+  box-shadow:0 0 16px rgba(236,72,153,.10);
+}
+
+#technologies-pratique .kcore-node b{
+  transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+@keyframes liveFlow{
+  0%{background-position:0 50%}
+  100%{background-position:200% 50%}
+}
+
+#technologies-pratique .tech-lane-kafka:hover .kcore-arrow{
+  background:
+    linear-gradient(
+      90deg,
+      rgba(249,168,212,.10) 0%,
+      rgba(249,168,212,.42) 25%,
+      rgba(255,241,247,.92) 50%,
+      rgba(249,168,212,.42) 75%,
+      rgba(249,168,212,.10) 100%
+    );
+  background-size:200% 100%;
+  animation:liveFlow 1.25s linear infinite;
+}
+
+#technologies-pratique .kcore-topic{
+  transition:
+    transform .24s ease,
+    border-color .24s ease,
+    box-shadow .24s ease,
+    background .24s ease;
+}
+
+#technologies-pratique .kcore-topic:hover{
+  transform:translateY(-4px);
+  border-color:rgba(249,168,212,.28);
+  background:
+    linear-gradient(145deg,rgba(76,29,149,.18),rgba(25,5,38,.48));
+  box-shadow:0 12px 24px rgba(0,0,0,.16);
+}
+
+#technologies-pratique .kcore-topic:hover span{
+  border-color:rgba(249,168,212,.17);
+  background:rgba(124,58,237,.20);
+  color:#fff1f7;
+}
+
+/* ------------------------------------------------------------
+   Elastic : architecture vivante + cartes knowledge
+   ------------------------------------------------------------ */
+#technologies-pratique .elastic-core-arch-node{
+  transition:
+    transform .25s ease,
+    border-color .25s ease,
+    box-shadow .25s ease,
+    background .25s ease;
+}
+
+#technologies-pratique .elastic-core-arch-node:hover{
+  transform:translateY(-4px) scale(1.025);
+  border-color:rgba(249,168,212,.48);
+  box-shadow:
+    0 12px 24px rgba(0,0,0,.20),
+    0 0 24px rgba(236,72,153,.07);
+}
+
+#technologies-pratique .elastic-core-arch-node:hover > span{
+  transform:rotate(5deg) scale(1.08);
+  box-shadow:0 0 18px rgba(236,72,153,.10);
+}
+
+#technologies-pratique .elastic-core-arch-node > span{
+  transition:transform .24s ease, box-shadow .24s ease;
+}
+
+#technologies-pratique .tech-lane-elastic:hover .elastic-core-architecture > i,
+#technologies-pratique .tech-lane-elastic:hover .elastic-core-pipeline i{
+  background:
+    linear-gradient(
+      90deg,
+      rgba(249,168,212,.08),
+      rgba(249,168,212,.45),
+      rgba(255,241,247,.95),
+      rgba(249,168,212,.45),
+      rgba(249,168,212,.08)
+    );
+  background-size:200% 100%;
+  animation:liveFlow 1.35s linear infinite;
+}
+
+#technologies-pratique .elastic-core-topic,
+#technologies-pratique .elastic-core-k-topic{
+  position:relative;
+  overflow:hidden;
+  transition:
+    transform .24s ease,
+    border-color .24s ease,
+    box-shadow .24s ease,
+    background .24s ease;
+}
+
+#technologies-pratique .elastic-core-topic::before,
+#technologies-pratique .elastic-core-k-topic::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(249,168,212,.07) 48%,
+    transparent 66%
+  );
+  transform:translateX(-130%);
+  transition:transform .55s ease;
+}
+
+#technologies-pratique .elastic-core-topic:hover::before,
+#technologies-pratique .elastic-core-k-topic:hover::before{
+  transform:translateX(130%);
+}
+
+#technologies-pratique .elastic-core-topic:hover,
+#technologies-pratique .elastic-core-k-topic:hover{
+  transform:translateY(-4px);
+  border-color:rgba(249,168,212,.30);
+  background:
+    radial-gradient(circle at 90% 5%,rgba(236,72,153,.11),transparent 43%),
+    rgba(16,4,25,.52);
+  box-shadow:
+    0 13px 26px rgba(0,0,0,.18),
+    0 0 20px rgba(236,72,153,.035);
+}
+
+#technologies-pratique .elastic-core-topic:hover span,
+#technologies-pratique .elastic-core-k-topic:hover span{
+  border-color:rgba(249,168,212,.17);
+  background:rgba(124,58,237,.20);
+  color:#fff1f7;
+}
+
+/* ------------------------------------------------------------
+   Automation : garder le contenu ancien, mais donner de la vie
+   ------------------------------------------------------------ */
+#technologies-pratique .automation-visual-v6 > .auto-v6-card{
+  transition:
+    transform .28s ease,
+    border-color .28s ease,
+    box-shadow .28s ease,
+    filter .28s ease;
+}
+
+#technologies-pratique .automation-visual-v6 > .auto-v6-card:hover{
+  transform:translateY(-5px);
+  border-color:rgba(249,168,212,.36);
+  box-shadow:
+    0 16px 32px rgba(0,0,0,.20),
+    0 0 24px rgba(236,72,153,.045);
+}
+
+#technologies-pratique .automation-visual-v6 > .auto-v6-card:hover .auto-v6-logo{
+  transform:rotate(-4deg) scale(1.07);
+  box-shadow:0 0 18px rgba(236,72,153,.10);
+}
+
+#technologies-pratique .auto-v6-logo{
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+
+/* Les petits nœuds internes gagnent en relief au passage de la souris */
+#technologies-pratique .auto-v6-node,
+#technologies-pratique .auto-v7-node,
+#technologies-pratique .auto-v8-node,
+#technologies-pratique .auto-v7-resource,
+#technologies-pratique .auto-v8-resource{
+  transition:
+    transform .22s ease,
+    border-color .22s ease,
+    background .22s ease;
+}
+
+#technologies-pratique .auto-v6-node:hover,
+#technologies-pratique .auto-v7-node:hover,
+#technologies-pratique .auto-v8-node:hover,
+#technologies-pratique .auto-v7-resource:hover,
+#technologies-pratique .auto-v8-resource:hover{
+  transform:translateY(-2px);
+  border-color:rgba(249,168,212,.24);
+  background:rgba(76,29,149,.20);
+}
+
+/* ------------------------------------------------------------
+   Effet de respiration extrêmement discret sur les hubs
+   ------------------------------------------------------------ */
+@keyframes softPulse{
+  0%,100%{box-shadow:0 0 0 rgba(236,72,153,0)}
+  50%{box-shadow:0 0 22px rgba(236,72,153,.055)}
+}
+
+#technologies-pratique .kcore-node.hub,
+#technologies-pratique .elastic-core-arch-node.is-core{
+  animation:softPulse 4.8s ease-in-out infinite;
+}
+
+/* Aucun mouvement imposé aux utilisateurs qui le réduisent */
+@media (prefers-reduced-motion: reduce){
+  #technologies-pratique *,
+  #technologies-pratique *::before,
+  #technologies-pratique *::after{
+    animation:none !important;
+    transition-duration:.01ms !important;
+  }
+}
+
+/* ============================================================
+   FLÈCHES SCINTILLANTES · flux vivant
+   Scintillement discret en continu, plus visible au survol.
+   ============================================================ */
+
+@keyframes arrowShimmerX{
+  0%   { background-position:200% 50%; }
+  100% { background-position:-200% 50%; }
+}
+
+@keyframes arrowShimmerY{
+  0%   { background-position:50% 200%; }
+  100% { background-position:50% -200%; }
+}
+
+@keyframes arrowHeadTwinkle{
+  0%,100%{
+    opacity:.72;
+    filter:drop-shadow(0 0 0 rgba(249,168,212,0));
+  }
+  45%{
+    opacity:1;
+    filter:
+      drop-shadow(0 0 3px rgba(255,241,247,.85))
+      drop-shadow(0 0 7px rgba(236,72,153,.48));
+  }
+  58%{
+    opacity:.82;
+    filter:drop-shadow(0 0 2px rgba(249,168,212,.28));
+  }
+}
+
+/* ----- Flèches horizontales ----- */
+#technologies-pratique .kcore-arrow,
+#technologies-pratique .elastic-core-architecture > i,
+#technologies-pratique .elastic-core-pipeline i,
+#technologies-pratique .auto-v7-arrow,
+#technologies-pratique .auto-v8-h-arrow{
+  background-image:linear-gradient(
+    90deg,
+    rgba(249,168,212,.12) 0%,
+    rgba(249,168,212,.28) 27%,
+    rgba(255,241,247,.96) 48%,
+    rgba(249,168,212,.30) 61%,
+    rgba(249,168,212,.10) 100%
+  ) !important;
+  background-size:240% 100% !important;
+  animation:arrowShimmerX 3.2s linear infinite;
+}
+
+/* ----- Flèches verticales ----- */
+#technologies-pratique .auto-v6-v-arrow,
+#technologies-pratique .auto-v8-down{
+  background-image:linear-gradient(
+    180deg,
+    rgba(249,168,212,.10) 0%,
+    rgba(249,168,212,.28) 25%,
+    rgba(255,241,247,.96) 48%,
+    rgba(249,168,212,.30) 62%,
+    rgba(249,168,212,.10) 100%
+  ) !important;
+  background-size:100% 240% !important;
+  animation:arrowShimmerY 2.9s linear infinite;
+}
+
+/* ----- Branches / convergence ----- */
+#technologies-pratique .auto-v6-branch-lines::before,
+#technologies-pratique .auto-v7-converge::after,
+#technologies-pratique .auto-v7-distribute::before{
+  background-image:linear-gradient(
+    180deg,
+    rgba(249,168,212,.10),
+    rgba(255,241,247,.90),
+    rgba(249,168,212,.12)
+  ) !important;
+  background-size:100% 220% !important;
+  animation:arrowShimmerY 3.4s linear infinite;
+}
+
+#technologies-pratique .auto-v6-branch-lines::after,
+#technologies-pratique .auto-v7-converge::before,
+#technologies-pratique .auto-v7-distribute::after{
+  background-image:linear-gradient(
+    90deg,
+    rgba(249,168,212,.08),
+    rgba(249,168,212,.34),
+    rgba(255,241,247,.92),
+    rgba(249,168,212,.34),
+    rgba(249,168,212,.08)
+  ) !important;
+  background-size:240% 100% !important;
+  animation:arrowShimmerX 3.6s linear infinite;
+}
+
+/* Les pointes scintillent aussi légèrement */
+#technologies-pratique .kcore-arrow::after,
+#technologies-pratique .elastic-core-architecture > i::after,
+#technologies-pratique .elastic-core-pipeline i::after,
+#technologies-pratique .auto-v6-v-arrow::after,
+#technologies-pratique .auto-v7-arrow::after,
+#technologies-pratique .auto-v8-down::after,
+#technologies-pratique .auto-v8-h-arrow::after{
+  animation:arrowHeadTwinkle 2.7s ease-in-out infinite;
+}
+
+/* Au survol de la lane : flux plus rapide et plus lumineux */
+#technologies-pratique .tech-lane:hover .kcore-arrow,
+#technologies-pratique .tech-lane:hover .elastic-core-architecture > i,
+#technologies-pratique .tech-lane:hover .elastic-core-pipeline i,
+#technologies-pratique .tech-lane:hover .auto-v7-arrow,
+#technologies-pratique .tech-lane:hover .auto-v8-h-arrow{
+  animation-duration:1.25s !important;
+  filter:drop-shadow(0 0 4px rgba(249,168,212,.22));
+}
+
+#technologies-pratique .tech-lane:hover .auto-v6-v-arrow,
+#technologies-pratique .tech-lane:hover .auto-v8-down,
+#technologies-pratique .tech-lane:hover .auto-v6-branch-lines::before,
+#technologies-pratique .tech-lane:hover .auto-v7-converge::after,
+#technologies-pratique .tech-lane:hover .auto-v7-distribute::before{
+  animation-duration:3.4s !important;
+  filter:drop-shadow(0 0 4px rgba(249,168,212,.22));
+}
+
+/* Petit décalage entre les flux pour éviter un effet trop mécanique */
+#technologies-pratique .kcore-arrow:nth-of-type(2){ animation-delay:-1.1s; }
+#technologies-pratique .elastic-core-architecture > i:nth-of-type(2){ animation-delay:-.8s; }
+#technologies-pratique .elastic-core-architecture > i:nth-of-type(3){ animation-delay:-1.6s; }
+#technologies-pratique .auto-v6-v-arrow:nth-of-type(2){ animation-delay:-.7s; }
+
+/* Accessibilité */
+@media (prefers-reduced-motion: reduce){
+  #technologies-pratique .kcore-arrow,
+  #technologies-pratique .elastic-core-architecture > i,
+  #technologies-pratique .elastic-core-pipeline i,
+  #technologies-pratique .auto-v6-v-arrow,
+  #technologies-pratique .auto-v7-arrow,
+  #technologies-pratique .auto-v8-down,
+  #technologies-pratique .auto-v8-h-arrow,
+  #technologies-pratique .auto-v6-branch-lines::before,
+  #technologies-pratique .auto-v6-branch-lines::after,
+  #technologies-pratique .auto-v7-converge::before,
+  #technologies-pratique .auto-v7-converge::after,
+  #technologies-pratique .auto-v7-distribute::before,
+  #technologies-pratique .auto-v7-distribute::after,
+  #technologies-pratique .kcore-arrow::after,
+  #technologies-pratique .elastic-core-architecture > i::after,
+  #technologies-pratique .elastic-core-pipeline i::after,
+  #technologies-pratique .auto-v6-v-arrow::after,
+  #technologies-pratique .auto-v7-arrow::after,
+  #technologies-pratique .auto-v8-down::after,
+  #technologies-pratique .auto-v8-h-arrow::after{
+    animation:none !important;
+  }
+}
+
+/* ============================================================
+   FLUX DIRECTIONNEL · uniquement au survol
+   Reprend la main sur les anciennes animations.
+   Horizontal : gauche -> droite
+   Vertical   : haut -> bas
+   ============================================================ */
+
+@keyframes flowForwardX {
+  0%   { background-position: 200% 50%; }
+  100% { background-position: -200% 50%; }
+}
+
+@keyframes flowForwardY {
+  0%   { background-position: 50% 200%; }
+  100% { background-position: 50% -200%; }
+}
+
+/* ----- AU REPOS : aucune animation ----- */
+#technologies-pratique .kcore-arrow,
+#technologies-pratique .elastic-core-architecture > i,
+#technologies-pratique .elastic-core-pipeline i,
+#technologies-pratique .auto-v7-arrow,
+#technologies-pratique .auto-v8-h-arrow,
+#technologies-pratique .auto-v6-v-arrow,
+#technologies-pratique .auto-v8-down,
+#technologies-pratique .auto-v6-branch-lines::before,
+#technologies-pratique .auto-v6-branch-lines::after,
+#technologies-pratique .auto-v7-converge::before,
+#technologies-pratique .auto-v7-converge::after,
+#technologies-pratique .auto-v7-distribute::before,
+#technologies-pratique .auto-v7-distribute::after{
+  animation: none !important;
+  filter: none !important;
+}
+
+/* Les pointes restent fixes au repos */
+#technologies-pratique .kcore-arrow::after,
+#technologies-pratique .elastic-core-architecture > i::after,
+#technologies-pratique .elastic-core-pipeline i::after,
+#technologies-pratique .auto-v6-v-arrow::after,
+#technologies-pratique .auto-v7-arrow::after,
+#technologies-pratique .auto-v8-down::after,
+#technologies-pratique .auto-v8-h-arrow::after{
+  animation:none !important;
+  opacity:.82;
+  filter:none;
+}
+
+/* ----- HOVER : flux horizontal gauche -> droite ----- */
+#technologies-pratique .tech-lane:hover .kcore-arrow,
+#technologies-pratique .tech-lane:hover .elastic-core-architecture > i,
+#technologies-pratique .tech-lane:hover .elastic-core-pipeline i,
+#technologies-pratique .tech-lane:hover .auto-v7-arrow,
+#technologies-pratique .tech-lane:hover .auto-v8-h-arrow,
+#technologies-pratique .tech-lane:hover .auto-v6-branch-lines::after,
+#technologies-pratique .tech-lane:hover .auto-v7-converge::before,
+#technologies-pratique .tech-lane:hover .auto-v7-distribute::after{
+  background-image:linear-gradient(
+    90deg,
+    rgba(249,168,212,.10) 0%,
+    rgba(249,168,212,.22) 31%,
+    rgba(255,241,247,.98) 48%,
+    rgba(249,168,212,.34) 59%,
+    rgba(249,168,212,.10) 100%
+  ) !important;
+  background-size:240% 100% !important;
+  animation-name:flowForwardX !important;
+  animation-duration:3.4s !important;
+  animation-timing-function:linear !important;
+  animation-iteration-count:infinite !important;
+  animation-direction:normal !important;
+  filter:drop-shadow(0 0 4px rgba(249,168,212,.20)) !important;
+}
+
+/* ----- HOVER : flux vertical haut -> bas ----- */
+#technologies-pratique .tech-lane:hover .auto-v6-v-arrow,
+#technologies-pratique .tech-lane:hover .auto-v8-down,
+#technologies-pratique .tech-lane:hover .auto-v6-branch-lines::before,
+#technologies-pratique .tech-lane:hover .auto-v7-converge::after,
+#technologies-pratique .tech-lane:hover .auto-v7-distribute::before{
+  background-image:linear-gradient(
+    180deg,
+    rgba(249,168,212,.10) 0%,
+    rgba(249,168,212,.22) 31%,
+    rgba(255,241,247,.98) 48%,
+    rgba(249,168,212,.34) 59%,
+    rgba(249,168,212,.10) 100%
+  ) !important;
+  background-size:100% 240% !important;
+  animation-name:flowForwardY !important;
+  animation-duration:3.4s !important;
+  animation-timing-function:linear !important;
+  animation-iteration-count:infinite !important;
+  animation-direction:normal !important;
+  filter:drop-shadow(0 0 4px rgba(249,168,212,.20)) !important;
+}
+
+/* La pointe s'illumine seulement lorsque le flux est actif */
+#technologies-pratique .tech-lane:hover .kcore-arrow::after,
+#technologies-pratique .tech-lane:hover .elastic-core-architecture > i::after,
+#technologies-pratique .tech-lane:hover .elastic-core-pipeline i::after,
+#technologies-pratique .tech-lane:hover .auto-v6-v-arrow::after,
+#technologies-pratique .tech-lane:hover .auto-v7-arrow::after,
+#technologies-pratique .tech-lane:hover .auto-v8-down::after,
+#technologies-pratique .tech-lane:hover .auto-v8-h-arrow::after{
+  animation:arrowHeadTwinkle 3.4s ease-in-out infinite !important;
+}
+
+/* Accessibilité */
+@media (prefers-reduced-motion: reduce){
+  #technologies-pratique .tech-lane:hover .kcore-arrow,
+  #technologies-pratique .tech-lane:hover .elastic-core-architecture > i,
+  #technologies-pratique .tech-lane:hover .elastic-core-pipeline i,
+  #technologies-pratique .tech-lane:hover .auto-v7-arrow,
+  #technologies-pratique .tech-lane:hover .auto-v8-h-arrow,
+  #technologies-pratique .tech-lane:hover .auto-v6-v-arrow,
+  #technologies-pratique .tech-lane:hover .auto-v8-down,
+  #technologies-pratique .tech-lane:hover .auto-v6-branch-lines::before,
+  #technologies-pratique .tech-lane:hover .auto-v6-branch-lines::after,
+  #technologies-pratique .tech-lane:hover .auto-v7-converge::before,
+  #technologies-pratique .tech-lane:hover .auto-v7-converge::after,
+  #technologies-pratique .tech-lane:hover .auto-v7-distribute::before,
+  #technologies-pratique .tech-lane:hover .auto-v7-distribute::after{
+    animation:none !important;
+  }
+}
 </style>
 <link href="img/logo.png" rel="icon" type="image/png"/>
 </head>
@@ -3602,7 +9533,6 @@
 <div class="chip-role">Ingénieure Data Engineering</div>
 </div>
 </div>
-
 <section aria-labelledby="sidebar-toolbox-title" class="sidebar-skills-panel">
 <div class="sidebar-block-head">
 <span aria-hidden="true" class="sidebar-block-icon">⌘</span>
@@ -3613,14 +9543,14 @@
 </div>
 </div>
 <div class="tech-stack tech-stack-categorized">
-<div class="tech-group"><div class="tech-title" data-icon="DB">Bases de données</div><div class="pill-list"><span class="pill">SQL</span><span class="pill">PL/SQL</span></div></div>
-<div class="tech-group"><div class="tech-title" data-icon="Py">Python</div><div class="pill-list"><span class="pill">Python</span></div></div>
-<div class="tech-group"><div class="tech-title" data-icon="◫">Data apps &amp; BI</div><div class="pill-list"><span class="pill">Streamlit</span><span class="pill">Dash</span><span class="pill">Power BI</span></div></div>
-<div class="tech-group"><div class="tech-title" data-icon="API">Web &amp; API</div><div class="pill-list"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span><span class="pill">API REST</span></div></div>
-<div class="tech-group"><div class="tech-title" data-icon="⌁">Mobile</div><div class="pill-list"><span class="pill">SwiftUI</span></div></div>
-<div class="tech-group"><div class="tech-title" data-icon="$_">Systèmes</div><div class="pill-list"><span class="pill">Linux</span><span class="pill">Shell</span></div></div>
-<div class="tech-group"><div class="tech-title" data-icon="Git">Versioning &amp; CI/CD</div><div class="pill-list"><span class="pill">Git</span><span class="pill">GitHub Actions</span></div></div>
-<div class="tech-group"><div class="tech-title" data-icon="◈">Conteneurs</div><div class="pill-list"><span class="pill">Docker</span><span class="pill">Kubernetes</span></div></div>
+<div class="tech-group"><div class="tech-title">Bases de données</div><div class="pill-list"><span class="pill">SQL</span><span class="pill">PL/SQL</span></div></div>
+<div class="tech-group"><div class="tech-title">Python</div><div class="pill-list"><span class="pill">Python</span></div></div>
+<div class="tech-group"><div class="tech-title">Data apps &amp; BI</div><div class="pill-list"><span class="pill">Streamlit</span><span class="pill">Dash</span><span class="pill">Power BI</span></div></div>
+<div class="tech-group"><div class="tech-title">Web &amp; API</div><div class="pill-list"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span><span class="pill">API REST</span></div></div>
+<div class="tech-group"><div class="tech-title">Mobile</div><div class="pill-list"><span class="pill">SwiftUI</span></div></div>
+<div class="tech-group"><div class="tech-title">Systèmes</div><div class="pill-list"><span class="pill">Linux</span><span class="pill">Shell</span></div></div>
+<div class="tech-group"><div class="tech-title">Versioning &amp; CI/CD</div><div class="pill-list"><span class="pill">Git</span><span class="pill">GitHub Actions</span></div></div>
+<div class="tech-group"><div class="tech-title">Conteneurs</div><div class="pill-list"><span class="pill">Docker</span><span class="pill">Kubernetes</span></div></div>
 </div>
 </section>
 <div class="sidebar-personal-zone">
@@ -3655,9 +9585,8 @@
 <div class="interest-item"><span>🐾</span><small>Animaux</small></div>
 <div class="interest-item"><span>🎶</span><small>Musique</small></div>
 <div class="interest-item"><span>💃</span><small>Danse</small></div>
-
 <div class="interest-item"><span>🎮</span><small>Jeux vidéo</small></div>
-</div>
+<div class="interest-item"><span>🏈</span><small>Football US</small></div></div>
 </section>
 </div>
 </aside>
@@ -3689,16 +9618,16 @@
 <div class="card-header">
 <div>
 <div class="card-title">Tech cockpit</div>
-<div class="card-subtitle">Mon environnement Data Engineering actuel, du flux à l’exploitation</div>
+<div class="card-subtitle">Architecture, exploitation et concepts clés de ma stack Data Engineering</div>
 </div>
 <div class="chip-small">Data Engineering · RUN</div>
-</div>
+<div class="chip-small cockpit-live-chip">LIVE STACK</div></div>
 <div class="tech-cockpit tech-cockpit-flows">
 <div class="tech-cockpit-hero">
 <div>
 <div class="tech-cockpit-eyebrow">CORE STACK · 2026</div>
 <div class="tech-cockpit-title">Elastic <span>×</span> Kafka <span>×</span> Automation</div>
-<div class="tech-cockpit-copy">Mon cœur de stack actuel : streaming Kafka, ingestion et observabilité Elastic, avec Python et Ansible comme couche d’automatisation autour des opérations RUN.</div>
+<div class="tech-cockpit-copy">Kafka, Elastic et automation : flux, mécanismes structurants et briques d’industrialisation.</div>
 </div>
 <div class="tech-live-badge"><span class="tech-live-dot"></span>RUN · LIVE</div>
 </div>
@@ -3708,30 +9637,25 @@
 <div class="tech-lane-heading">
 <span class="tech-lane-index">01</span>
 <div>
-<div class="tech-module-kicker">STREAMING &amp; MESSAGING</div>
+<div class="tech-module-kicker">STREAMING · CORE KNOWLEDGE</div>
 <div class="tech-module-title">Kafka &amp; AKHQ</div>
 </div>
 </div>
-<div class="tech-module-badge">Flux temps réel</div>
+<div class="tech-module-badge">Event streaming</div>
 </div>
-<div aria-label="Flux Kafka producteurs topics consommateurs" class="tech-kafka-map">
-<div class="tech-flow-node tech-actor-node">
-<span class="tech-flow-symbol">P</span>
-<strong>Producers</strong>
-<small>publication</small>
+<div class="kcore">
+<div class="kcore-flow">
+<div class="kcore-node"><b>P</b><strong>Producer</strong><small>publication</small></div>
+<div class="kcore-arrow" data-label="ACL · WRITE"></div>
+<div class="kcore-node hub"><b>K</b><strong>Kafka</strong><small>topics · partitions</small></div>
+<div class="kcore-arrow" data-label="ACL · READ"></div>
+<div class="kcore-node"><b>C</b><strong>Consumer</strong><small>lecture</small></div>
 </div>
-<span class="tech-flow-line" data-acl="ACL · WRITE"></span>
-<div class="tech-flow-node tech-kafka-hub featured">
-<span class="tech-flow-symbol">K</span>
-<strong>Kafka</strong>
-<small>topics · partitions</small>
-<div class="tech-hub-mini"><span>AKHQ</span><span>ACL</span><span>offsets</span><span>lags</span></div>
-</div>
-<span class="tech-flow-line" data-acl="ACL · READ"></span>
-<div class="tech-flow-node tech-actor-node">
-<span class="tech-flow-symbol">C</span>
-<strong>Consumers</strong>
-<small>lecture</small>
+<div class="kcore-grid">
+<div class="kcore-topic"><em>01</em><strong>Structure</strong><div><span>Topics</span><span>Partitions</span><span>Records</span></div></div>
+<div class="kcore-topic"><em>02</em><strong>Consumption</strong><div><span>Consumer Groups</span><span>Offsets</span><span>Lag</span></div></div>
+<div class="kcore-topic"><em>03</em><strong>Reliability</strong><div><span>Replication</span><span>ISR</span><span>Acks</span></div></div>
+<div class="kcore-topic"><em>04</em><strong>Operations</strong><div><span>Retention</span><span>Rebalancing</span><span>AKHQ</span></div></div>
 </div>
 </div>
 </article>
@@ -3740,51 +9664,320 @@
 <div class="tech-lane-heading">
 <span class="tech-lane-index">02</span>
 <div>
-<div class="tech-module-kicker">INGESTION · ETL · OBSERVABILITÉ</div>
+<div class="tech-module-kicker">ELASTIC STACK · CORE KNOWLEDGE</div>
 <div class="tech-module-title">Elastic Stack</div>
 </div>
 </div>
 <div class="tech-module-badge">Stage BNP</div>
 </div>
-<div aria-label="Flux Elastic des sources à Kibana" class="tech-elastic-map">
-<div class="tech-flow-node">
-<span class="tech-flow-symbol">◉</span>
-<strong>Sources</strong>
-<small>logs</small>
+<div class="elastic-core">
+<!-- Architecture générale -->
+<div class="elastic-core-architecture">
+<div class="elastic-core-arch-node">
+<span>◉</span><strong>Logs</strong>
 </div>
-<span class="tech-flow-line"></span>
-<div class="tech-flow-node">
-<span class="tech-flow-symbol">L</span>
+<i></i>
+<div class="elastic-core-arch-node">
+<span>L</span><strong>Logstash</strong>
+</div>
+<i></i>
+<div class="elastic-core-arch-node is-core">
+<span>E</span><strong>Elasticsearch</strong>
+</div>
+<i></i>
+<div class="elastic-core-arch-node">
+<span>K</span><strong>Kibana</strong>
+</div>
+</div>
+<div class="elastic-core-layout">
+<!-- Logstash inchangé dans sa logique -->
+<section class="elastic-core-card elastic-core-logstash">
+<div class="elastic-core-head">
+<div class="elastic-core-mark">L</div>
+<div>
 <strong>Logstash</strong>
-<small>pipelines · ETL</small>
+<small>Pipelines · ETL</small>
 </div>
-<span class="tech-flow-line"></span>
-<div class="tech-flow-node featured">
-<span class="tech-flow-symbol">E</span>
+</div>
+<div class="elastic-core-pipelines">
+<div class="elastic-core-pipeline">
+<span>Logs</span>
+<i></i>
+<b>Pipeline</b>
+</div>
+<div class="elastic-core-pipeline">
+<b>Pipeline</b>
+<i></i>
+<span>Elasticsearch</span>
+</div>
+</div>
+<div class="elastic-core-caption">Pipelines d’ingestion</div>
+</section>
+<!-- Elasticsearch : concepts fondamentaux -->
+<section class="elastic-core-card elastic-core-es">
+<div class="elastic-core-head">
+<div class="elastic-core-mark">E</div>
+<div>
 <strong>Elasticsearch</strong>
-<small>clusters · index</small>
+<small>Data store · Search · Cluster</small>
 </div>
-<span class="tech-flow-line"></span>
-<div class="tech-flow-node">
-<span class="tech-flow-symbol">K</span>
+</div>
+<div class="elastic-core-es-grid">
+<div class="elastic-core-topic">
+<div class="elastic-core-topic-icon">01</div>
+<div class="elastic-core-topic-name">Index &amp; Schema</div>
+<div class="elastic-core-topic-items">
+<span>Mappings</span>
+<span>Index Templates</span>
+<span>Component Templates</span>
+</div>
+</div>
+<div class="elastic-core-topic">
+<div class="elastic-core-topic-icon">02</div>
+<div class="elastic-core-topic-name">Cluster &amp; Resilience</div>
+<div class="elastic-core-topic-items">
+<span>Cluster Health</span>
+<span>Shards</span>
+<span>Replicas</span>
+</div>
+</div>
+<div class="elastic-core-topic">
+<div class="elastic-core-topic-icon">03</div>
+<div class="elastic-core-topic-name">Lifecycle &amp; Time Series</div>
+<div class="elastic-core-topic-items">
+<span>Data Streams</span>
+<span>ILM</span>
+<span>Rollover</span>
+</div>
+</div>
+<div class="elastic-core-topic">
+<div class="elastic-core-topic-icon">04</div>
+<div class="elastic-core-topic-name">Search &amp; Analytics</div>
+<div class="elastic-core-topic-items">
+<span>Query DSL</span>
+<span>Filters</span>
+<span>Aggregations</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Kibana : outils de travail et d'analyse -->
+<section class="elastic-core-card elastic-core-kibana">
+<div class="elastic-core-head">
+<div class="elastic-core-mark">K</div>
+<div>
 <strong>Kibana</strong>
-<small>monitoring · alerting</small>
+<small>Explore · Visualize · Monitor · Alert</small>
 </div>
 </div>
-<div class="tech-module-footer">
-<span>Supervision</span><span>Index templates</span><span>Watchers</span><span>Rules / connectors</span><span>Troubleshooting</span>
+<div class="elastic-core-kibana-grid">
+<div class="elastic-core-k-topic">
+<div class="elastic-core-k-icon">⌕</div>
+<strong>Discover</strong>
+<div class="elastic-core-k-items">
+<span>Data Views</span>
+<span>KQL</span>
+<span>ES|QL</span>
+</div>
+</div>
+<div class="elastic-core-k-topic">
+<div class="elastic-core-k-icon">▥</div>
+<strong>Visualisation</strong>
+<div class="elastic-core-k-items">
+<span>Lens</span>
+<span>Dashboards</span>
+<span>Filters &amp; Time Range</span>
+</div>
+</div>
+<div class="elastic-core-k-topic">
+<div class="elastic-core-k-icon">◎</div>
+<strong>Stack Monitoring</strong>
+<div class="elastic-core-k-items">
+<span>Clusters</span>
+<span>Nodes</span>
+<span>Indices</span>
+</div>
+</div>
+<div class="elastic-core-k-topic">
+<div class="elastic-core-k-icon">⚡</div>
+<strong>Alerting</strong>
+<div class="elastic-core-k-items">
+<span>Watcher</span>
+<span>Rules</span>
+<span>Connectors</span>
+</div>
+</div>
+<div class="elastic-core-k-topic">
+<div class="elastic-core-k-icon">&gt;_</div>
+<strong>Dev Tools</strong>
+<div class="elastic-core-k-items">
+<span>Console</span>
+<span>REST APIs</span>
+</div>
+</div>
+</div>
+</section>
+</div>
 </div>
 </article>
+<article class="tech-lane tech-lane-automation">
+<div class="tech-lane-head">
+<div class="tech-lane-heading">
+<span class="tech-lane-index">03</span>
+<div>
+<div class="tech-module-kicker">AUTOMATISATION &amp; INDUSTRIALISATION</div>
+<div class="tech-module-title">Python · Ansible · Ansible Tower</div>
 </div>
-<div class="tech-control-plane">
-<div class="tech-control-icon">⚙</div>
-<div class="tech-control-copy">
-<div class="tech-module-kicker">COUCHE D'AUTOMATISATION</div>
-<div class="tech-control-title">Python &amp; Ansible</div>
-<div class="tech-control-text">Automatiser les tâches récurrentes, les contrôles, les campagnes d’upgrade et la génération de configurations autour de ces environnements.</div>
 </div>
-<div class="tech-control-tags"><span>Python</span><span>Ansible</span><span>Ansible Tower</span><span>Shell</span></div>
+<div class="tech-module-badge">Automation stack</div>
 </div>
+<div class="automation-visual-v6">
+<section aria-label="Python" class="auto-v6-card">
+<div class="auto-v6-head">
+<div class="auto-v6-mark">Py</div>
+<div>
+<div class="auto-v6-eyebrow">Automatisation ciblée</div>
+<div class="auto-v6-name">Python</div>
+<div class="auto-v6-caption">Config automation · Data processing</div>
+</div>
+</div>
+<div class="auto-v6-python-map">
+<div class="auto-v6-node auto-v6-core auto-v6-python-core">
+<strong>PYTHON</strong>
+<small>scripts sur mesure</small>
+</div>
+<div aria-hidden="true" class="auto-v6-branch-lines"></div>
+<div class="auto-v6-python-branches">
+<div class="auto-v6-branch">
+<div class="auto-v6-branch-title">Config automation</div>
+<div class="auto-v6-vertical-flow">
+<div class="auto-v6-node"><strong>Configuration</strong><small>source</small></div>
+<span aria-hidden="true" class="auto-v6-v-arrow"></span>
+<div class="auto-v6-node auto-v6-core"><strong>Génération</strong><small>automatisée</small></div>
+<span aria-hidden="true" class="auto-v6-v-arrow"></span>
+<div class="auto-v6-node"><strong>Version prête</strong><small>à utiliser</small></div>
+</div>
+</div>
+<div class="auto-v6-branch">
+<div class="auto-v6-branch-title">Data processing</div>
+<div class="auto-v6-vertical-flow">
+<div class="auto-v6-node"><strong>Dataset</strong><small>données brutes</small></div>
+<span aria-hidden="true" class="auto-v6-v-arrow"></span>
+<div class="auto-v6-node auto-v6-core"><strong>Clean · Transform</strong><small>préparation</small></div>
+<span aria-hidden="true" class="auto-v6-v-arrow"></span>
+<div class="auto-v6-node"><strong>Ready</strong><small>données exploitables</small></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section aria-label="Ansible" class="auto-v6-card">
+<div class="auto-v6-head">
+<div class="auto-v6-mark">A</div>
+<div>
+<div class="auto-v6-eyebrow">Orchestration</div>
+<div class="auto-v6-name">Ansible</div>
+<div class="auto-v6-caption">Roles · Inventories · Playbooks</div>
+</div>
+</div>
+<div class="auto-v8-ansible-map">
+<div class="auto-v8-source-row">
+<div class="auto-v8-source">
+<strong>ROLE</strong>
+<div class="auto-v8-source-grid">
+<span>tasks</span>
+<span>handlers</span>
+<span>vars</span>
+<span>templates</span>
+</div>
+</div>
+<div class="auto-v8-source">
+<strong>INVENTORY</strong>
+<div class="auto-v8-source-grid">
+<span>hosts</span>
+<span>groups</span>
+<span>host vars</span>
+<span>group vars</span>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="auto-v8-merge"></div>
+<div class="auto-v8-playbook">
+<strong>PLAYBOOK</strong>
+<small>roles + tâches → cibles inventory</small>
+</div>
+<div aria-hidden="true" class="auto-v8-down"></div>
+<div class="auto-v8-exec">
+<div class="auto-v8-exec-node">
+<strong>SSH / FLOW CHECK</strong>
+<small>exécution sur les hosts</small>
+</div>
+<span aria-hidden="true" class="auto-v8-h-arrow"></span>
+<div class="auto-v8-exec-node">
+<strong>OK / KO → REPORT</strong>
+<small>résultats consolidés</small>
+</div>
+</div>
+</div>
+</section>
+<section aria-label="Ansible Tower" class="auto-v6-card">
+<div class="auto-v6-head">
+<div class="auto-v6-mark">AT</div>
+<div>
+<div class="auto-v6-eyebrow">Pilotage centralisé</div>
+<div class="auto-v6-name">Ansible Tower</div>
+<div class="auto-v6-caption">Templates · Jobs · Inventories · multi-env</div>
+</div>
+</div>
+<div class="auto-v7-tower-map">
+<div class="auto-v7-inputs">
+<div class="auto-v7-input project-with-roles"><strong>PROJECT</strong><div class="auto-v8-project-mini"><span>playbooks</span><span>roles</span></div></div>
+<div class="auto-v7-input"><strong>INVENTORY</strong><div class="auto-v8-project-mini"><span>hosts</span><span>groups</span></div></div>
+<div class="auto-v7-input">
+<strong>CREDENTIALS</strong>
+<small>accès · SSH</small>
+</div>
+</div>
+<div aria-hidden="true" class="auto-v7-converge"></div>
+<div class="auto-v7-template">
+<strong>JOB TEMPLATE</strong>
+<small>playbook + inventory + credentials + paramètres</small>
+</div>
+<div class="auto-v7-launch">
+<div class="auto-v7-launch-node">
+<strong>LAUNCH</strong>
+<small>déclenchement</small>
+</div>
+<span aria-hidden="true" class="auto-v7-arrow"></span>
+<div class="auto-v7-launch-node is-job">
+<strong>JOB</strong>
+<small>exécution suivie</small>
+</div>
+</div>
+<div aria-hidden="true" class="auto-v7-distribute"></div>
+<div class="auto-v7-envs">
+<div class="auto-v7-env">
+<strong>DEV</strong>
+<small>target</small>
+</div>
+<div class="auto-v7-env">
+<strong>QUAL</strong>
+<small>target</small>
+</div>
+<div class="auto-v7-env">
+<strong>PROD</strong>
+<small>target</small>
+</div>
+</div>
+<div class="auto-v7-status">
+<span>RUNNING</span>
+<span>SUCCESS / FAILED</span>
+<span>RESULTS</span>
+</div>
+</div>
+</section>
+</div>
+</article></div>
 </div>
 </section><section class="card timeline-card-v2" id="timeline">
 <div class="card-header">
@@ -3834,7 +10027,6 @@
 </ul>
 </section>
 </div>
-<div class="timeline-v2-detail-count">7 axes de mission détaillés</div>
 <div class="pill-tech-row">
 <span class="pill-tech">Elastic Stack</span><span class="pill-tech">Kafka · AKHQ</span><span class="pill-tech">Logstash</span><span class="pill-tech">Kibana</span><span class="pill-tech">Python</span><span class="pill-tech">Ansible · Tower</span><span class="pill-tech">IBM Cloud · Cloud Logs</span><span class="pill-tech">RUN · Incidents</span>
 </div>
@@ -3871,7 +10063,6 @@
 </ul>
 </section>
 </div>
-<div class="timeline-v2-detail-count">Mission + 2 réalisations détaillées</div>
 <div class="pill-tech-row"><span class="pill-tech">Python</span><span class="pill-tech">Streamlit</span><span class="pill-tech">Data Lake</span><span class="pill-tech">Automatisation</span></div>
 </div>
 </div>
@@ -3921,7 +10112,6 @@
 </ul>
 </section>
 </div>
-<div class="timeline-v2-detail-count">Relation client · Priorisation · Gestion du rush</div>
 <div class="pill-tech-row">
 <span class="pill-tech">Relation client</span>
 <span class="pill-tech">Gestion des priorités</span>
@@ -3976,7 +10166,6 @@
 <div class="timeline-project-techs"><span>Python</span><span>Électronique</span><span>Vue.js</span><span>IoT</span></div>
 </article>
 </div>
-<div class="timeline-v2-detail-count">5 projets académiques détaillés</div>
 </div>
 </div>
 </details>
@@ -4009,26 +10198,58 @@
 </div>
 <div class="project-list">
 <details class="project-item project-accordion">
-<summary class="project-summary"><div class="project-summary-top"><div class="project-summary-title"><div class="project-title">Trésorière · Associations EFREI</div><div class="project-tag">2025 – 2026</div></div></div><div class="project-meta"><span>💰 Trésorerie</span><span>🤝 Travail d’équipe</span><span>📋 Gestion de projets</span></div><div class="project-summary-footer"><span class="project-summary-hint"></span><span aria-hidden="true" class="project-toggle-icon"></span></div></summary>
-<div class="project-details"><div class="project-desc">Responsabilités de trésorerie au sein d’associations étudiantes EFREI.</div></div>
-</details>
-<details class="project-item project-accordion">
-<summary class="project-summary"><div class="project-summary-top"><div class="project-summary-title"><div class="project-title">Hopeland Dog Sanctuary (Grèce) · Bénévolat</div><div class="project-tag">Sept. 2025</div></div></div><div class="project-meta"><span>🐕 Bien-être animal</span><span>🌍 International</span><span>✨ Autonomie</span></div><div class="project-summary-footer"><span class="project-summary-hint"></span><span aria-hidden="true" class="project-toggle-icon"></span></div></summary>
-<div class="project-details"><div class="project-desc">Quatre semaines de prise en charge des chiens et d’aide au quotidien dans le refuge : nourrissage, soins, sorties, surveillance et entretien des espaces.</div></div>
-</details>
-<details class="project-item project-accordion">
-<summary class="project-summary"><div class="project-summary-top"><div class="project-summary-title"><div class="project-title">Quarks Football Américain · Service civique</div><div class="project-tag">2024 – 2025</div></div></div><div class="project-meta"><span>🌐 WordPress</span><span>🎨 Création de contenu</span><span>📱 Réseaux sociaux</span><span>📝 Événementiel</span></div><div class="project-summary-footer"><span class="project-summary-hint"></span><span aria-hidden="true" class="project-toggle-icon"></span></div></summary>
-<div class="project-details"><div class="project-desc">Implication dans le développement du club et la vie associative : site WordPress, création de contenu, communication sur les réseaux sociaux et soutien aux événements.</div></div>
-</details>
-<details class="project-item project-accordion">
-<summary class="project-summary"><div class="project-summary-top"><div class="project-summary-title"><div class="project-title">Responsable Communication · Associations EFREI</div><div class="project-tag">2022 – 2024</div></div></div><div class="project-meta"><span>🎨 Communication</span><span>🧩 Organisation</span><span>👥 Leadership</span></div><div class="project-summary-footer"><span class="project-summary-hint"></span><span aria-hidden="true" class="project-toggle-icon"></span></div></summary>
-<div class="project-details"><div class="project-desc">Responsabilité communication au sein d’associations étudiantes EFREI.</div></div>
-</details>
-<details class="project-item project-accordion">
-<summary class="project-summary"><div class="project-summary-top"><div class="project-summary-title"><div class="project-title">Secours Populaire · Bénévolat</div><div class="project-tag">2019 – 2021</div></div></div><div class="project-meta"><span>🫂 Contact humain</span><span>🤝 Solidarité</span></div><div class="project-summary-footer"><span class="project-summary-hint"></span><span aria-hidden="true" class="project-toggle-icon"></span></div></summary>
-<div class="project-details"><div class="project-desc">Aide à la collecte, au tri, au rangement et à la distribution de denrées alimentaires.</div></div>
-</details>
+<summary class="project-summary"><div class="project-summary-top"><div class="project-summary-title"><div class="project-title">Trésorière · Associations EFREI</div><div class="project-tag">2025 – 2026</div></div></div><div class="project-meta"><span>💰 Trésorerie</span><span>🧭 Bureau restreint</span><span>🎟️ Événementiel</span><span>🍷 Millésime · 🍳 Efrei Chefs</span></div><div class="project-summary-footer"><span class="project-summary-hint"></span><span aria-hidden="true" class="project-toggle-icon"></span></div></summary>
+<div class="project-details"><div class="project-desc"><ul class="engagement-bullets"><li><strong>Trésorière de Millésime</strong> (œnologie) et <strong>Efrei Chefs</strong> (cuisine) : gestion et suivi de la trésorerie.</li><li>Membre du <strong>bureau restreint</strong> : responsabilités et participation aux prises de décisions.</li><li>Organisation d’événements et participation au <strong>staff</strong>.</li></ul></div></div>
+</details><details class="project-item project-accordion">
+<summary class="project-summary">
+<div class="project-summary-top">
+<div class="project-summary-title">
+<div class="project-title">Vice-présidente · Make Me Up</div>
+<div class="project-tag">2025 – 2026</div>
 </div>
+</div>
+<div class="project-meta"><span>💄 Make Me Up</span><span>🧭 Bureau restreint</span><span>🎟️ Événementiel</span></div>
+<div class="project-summary-footer">
+<span class="project-summary-hint"></span>
+<span aria-hidden="true" class="project-toggle-icon"></span>
+</div>
+</summary>
+<div class="project-details"><div class="project-desc"><ul class="engagement-bullets"><li><strong>Vice-présidente de Make Me Up</strong>, association de maquillage.</li><li>Membre du <strong>bureau restreint</strong> : responsabilités et participation aux prises de décisions.</li><li>Organisation d’événements et participation au <strong>staff</strong>.</li></ul></div></div>
+</details><details class="project-item project-accordion">
+<summary class="project-summary">
+<div class="project-summary-top">
+<div class="project-summary-title">
+<div class="project-title">Responsable Design · BDE EFREI</div>
+<div class="project-tag">2025 – 2026</div></div>
+</div>
+<div class="project-meta"><span>🎨 Lead design</span><span>📣 Communication événementielle</span><span>🧭 Bureau étendu</span></div>
+<div class="project-summary-footer">
+<span class="project-summary-hint"></span>
+<span aria-hidden="true" class="project-toggle-icon"></span>
+</div>
+</summary>
+<div class="project-details"><div class="project-desc"><ul class="engagement-bullets"><li><strong>Lead de l’équipe design</strong> pour la communication des événements : affiches, contenus Instagram et supports visuels.</li><li>Membre du <strong>bureau étendu du Bureau des Élèves</strong>.</li><li>Participation à l’<strong>organisation des événements</strong> du BDE.</li></ul></div></div>
+</details><details class="project-item project-accordion">
+<summary class="project-summary"><div class="project-summary-top"><div class="project-summary-title"><div class="project-title">Hopeland Dog Sanctuary (Grèce) · Bénévolat</div><div class="project-tag">Sept. 2025</div></div></div><div class="project-meta"><span>🐕 Soins aux chiens</span><span>🧹 Entretien du refuge</span><span>🌍 Thessaloniki · Grèce</span></div><div class="project-summary-footer"><span class="project-summary-hint"></span><span aria-hidden="true" class="project-toggle-icon"></span></div></summary>
+<div class="project-details">
+<div class="project-desc">
+<ul class="engagement-bullets">
+<li>Bénévolat dans un <strong>refuge pour chiens à Thessaloniki</strong>, en Grèce.</li>
+<li>Entretien quotidien du refuge : <strong>ménage et nettoyage plusieurs fois par jour</strong>.</li>
+<li>Prise en charge des chiens : <strong>sorties, nourrissage, surveillance et soins si nécessaire</strong>.</li>
+</ul>
+</div>
+</div>
+</details><details class="project-item project-accordion">
+<summary class="project-summary"><div class="project-summary-top"><div class="project-summary-title"><div class="project-title">Quarks Football Américain · Service civique</div><div class="project-tag">2024 – 2025</div></div></div><div class="project-meta"><span>🌐 Site web</span><span>📱 Instagram</span><span>🎟️ Événementiel</span><span>💳 Buvette &amp; caisse</span></div><div class="project-summary-footer"><span class="project-summary-hint"></span><span aria-hidden="true" class="project-toggle-icon"></span></div></summary>
+<div class="project-details"><div class="project-desc"><ul class="engagement-bullets"><li><strong>Création, déploiement et maintenance du site web officiel</strong> du club.</li><li>Création du <strong>compte Instagram</strong>, gestion et publication régulière de contenus.</li><li>Aide à l’<strong>organisation des événements</strong> et participation au staff.</li><li>Tenue de la <strong>buvette et de la caisse</strong> lors des événements.</li></ul></div></div>
+</details><details class="project-item project-accordion">
+<summary class="project-summary"><div class="project-summary-top"><div class="project-summary-title"><div class="project-title">Responsable Communication · Associations EFREI</div><div class="project-tag">2022 – 2024</div></div></div><div class="project-meta"><span>📣 Communication</span><span>🎨 Design &amp; réseaux</span><span>🧭 Bureau étendu</span><span>🎟️ Événementiel</span></div><div class="project-summary-footer"><span class="project-summary-hint"></span><span aria-hidden="true" class="project-toggle-icon"></span></div></summary>
+<div class="project-details"><div class="project-desc"><ul class="engagement-bullets"><li><strong>Responsable Communication</strong> pour Efrei Chefs et Millésime : messages d’annonce, visuels et contenus pour les réseaux sociaux.</li><li>Membre du <strong>bureau étendu</strong> des deux associations.</li><li>Participation au <strong>staff lors des événements</strong>.</li></ul></div></div>
+</details><details class="project-item project-accordion">
+<summary class="project-summary"><div class="project-summary-top"><div class="project-summary-title"><div class="project-title">Secours Populaire · Bénévolat</div><div class="project-tag">2019 – 2021</div></div></div><div class="project-meta"><span>🤝 Solidarité</span><span>📦 Collecte &amp; tri</span><span>🍽️ Distribution</span></div><div class="project-summary-footer"><span class="project-summary-hint"></span><span aria-hidden="true" class="project-toggle-icon"></span></div></summary>
+<div class="project-details"><div class="project-desc"><ul class="engagement-bullets"><li>Collecte et tri de <strong>denrées alimentaires</strong>.</li><li>Distribution aux <strong>personnes les plus démunies</strong>.</li></ul></div></div>
+</details></div>
 </section>
 </section>
 <section class="grid-2 cloud-soft-block profile-lower-grid">
@@ -4078,53 +10299,23 @@
 <div class="card certif-section">
 <div class="card-header">
 <div>
-<div class="card-title">Formation</div>
-<div class="card-subtitle">Cursus académique &amp; certifications</div>
-</div>
-<div class="chip-small">2021 – 2026</div>
-</div>
-<div class="formation-grid">
-<div class="formation-item">
-<div class="formation-meta">
-<div class="formation-name">Diplôme d’ingénieur informatique · Majeure Data Engineering</div>
-<div class="formation-school">EFREI Paris</div>
-<div class="formation-date">2021 – 2026</div>
-<span aria-disabled="true" class="pill pdf-placeholder" title="Ajoutez ici le lien vers votre PDF de formation">
-📄 PDF à ajouter
-</span>
+<div class="card-title">Formations &amp; certifications</div>
+<div class="card-subtitle">Formations techniques &amp; certifications complémentaires</div>
 </div>
 </div>
-<div class="formation-item">
-<div class="formation-meta">
-<div class="formation-name">Erasmus · Semestre académique international (L3)</div>
-<div class="formation-school">ESSCA Budapest · Hongrie</div>
-<div class="formation-date">Août – Déc. 2023</div>
-<span aria-disabled="true" class="pill pdf-placeholder" title="Ajoutez ici le lien vers votre PDF de formation">
-📄 PDF à ajouter
-</span>
+<div class="certif-groups-clean"><section class="certif-group-clean"><div class="certif-group-heading"><span>Formations techniques</span><i></i></div><div class="certif-row-clean"><div class="certif-item">
+<div class="certif-info">
+<div class="certif-name">Elastic Analyst</div>
+<div class="certif-date">Formation technique Elastic</div>
+<span aria-disabled="true" class="pill pdf-placeholder" title="Ajoutez ici le justificatif PDF">📄 PDF à ajouter</span>
 </div>
+</div><div class="certif-item">
+<div class="certif-info">
+<div class="certif-name">Elastic Observability</div>
+<div class="certif-date">Formation technique Elastic</div>
+<span aria-disabled="true" class="pill pdf-placeholder" title="Ajoutez ici le justificatif PDF">📄 PDF à ajouter</span>
 </div>
-</div>
-<div class="formation-divider">
-<div class="formation-divider-title">Certifications</div>
-</div>
-<div class="certif-grid">
-<div class="certif-item"><div class="certif-info"><div class="certif-name">Parcours de formation Elastic · Kibana</div><div class="certif-date">Formation technique</div><span aria-disabled="true" class="pill pdf-placeholder" title="Ajoutez ici le justificatif PDF">📄 PDF à ajouter</span></div></div>
-<div class="certif-item"><div class="certif-info"><div class="certif-name">Microsoft Azure AI-900 (AI Fundamentals)</div><div class="certif-date">2025</div><a class="pill" href="img/Certifs/AzureAI-900.pdf" rel="noopener noreferrer" target="_blank">📄 Voir la certification</a></div></div>
-<div class="certif-item"><div class="certif-info"><div class="certif-name">PSC — Premiers Secours</div><div class="certif-date">2025</div><a class="pill" href="img/Certifs/PSC-LE-BRUN-Alicia.pdf" rel="noopener noreferrer" target="_blank">📄 Voir la certification</a></div></div>
-</div>
-</div><div class="card" id="cv-download">
-<div class="card-header">
-<div>
-<div class="card-title">Curriculum Vitae</div>
-<div class="card-subtitle">Version PDF téléchargeable</div>
-</div>
-<div class="chip-small">PDF</div>
-</div>
-<div class="cv-download-content">
-<p class="cv-download-text">Dernière version de mon CV, mise à jour avec mon expérience BNP Paribas et mon positionnement Data Engineering.</p>
-<a class="pill cv-download-btn" href="CV - Alicia LE BRUN (3).pdf" rel="noopener noreferrer" target="_blank">📄 Télécharger mon CV (PDF)</a>
-</div>
+</div></div></section><section class="certif-group-clean"><div class="certif-group-heading"><span>Certifications</span><i></i></div><div class="certif-row-clean"><div class="certif-item"><div class="certif-info"><div class="certif-name">Microsoft Azure AI-900 (AI Fundamentals)</div><div class="certif-date">2025</div><a class="pill" href="img/Certifs/AzureAI-900.pdf" rel="noopener noreferrer" target="_blank">📄 Voir la certification</a></div></div><div class="certif-item"><div class="certif-info"><div class="certif-name">PSC — Premiers Secours</div><div class="certif-date">2025</div><a class="pill" href="img/Certifs/PSC-LE-BRUN-Alicia.pdf" rel="noopener noreferrer" target="_blank">📄 Voir la certification</a></div></div></div></section></div>
 </div></div></section>
 <!-- CONTACT / FOOTER -->
 <section class="card" id="contact">
@@ -4138,7 +10329,19 @@
 <p style="font-size: 13px; color: var(--muted); margin-bottom: 10px;">Pour échanger autour de mon profil, de la Data Engineering, des environnements Elastic / RUN ou de l’automatisation, vous pouvez me contacter directement.</p>
 <div class="contact-block" style="margin-top: 10px;"><div>📧 <a href="mailto:alicia.lebrun.contact@gmail.com">alicia.lebrun.contact@gmail.com</a></div><div>📱 <a href="tel:+33766528979">+33 7 66 52 89 79</a></div><div>📍 Paris · Île-de-France</div><div>🔗 <a href="https://www.linkedin.com/in/alicia-le-brun-457315218/" rel="noopener noreferrer" target="_blank">LinkedIn</a></div></div>
 <div class="footer-note">CV interactif — Août 2026</div>
-</section>
+</section><div class="card cv-download-centered" id="cv-download">
+<div class="card-header">
+<div>
+<div class="card-title">Curriculum Vitae</div>
+<div class="card-subtitle">Version PDF téléchargeable</div>
+</div>
+<div class="chip-small">PDF</div>
+</div>
+<div class="cv-download-content">
+<p class="cv-download-text">Dernière version de mon CV, mise à jour avec mon expérience BNP Paribas et mon positionnement Data Engineering.</p>
+<a class="pill cv-download-btn" href="CV - Alicia LE BRUN (3).pdf" rel="noopener noreferrer" target="_blank">📄 Télécharger mon CV (PDF)</a>
+</div>
+</div>
 </main>
 </div>
 <!-- Chart.js -->
