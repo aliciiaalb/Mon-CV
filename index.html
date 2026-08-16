@@ -4511,7 +4511,7 @@
   display:flex;
   align-items:center;
   justify-content:center;
-  min-height:34px;
+  min-height:40px;
   border-radius:10px;
   border:1px solid rgba(248,187,208,.17);
   background:linear-gradient(145deg,rgba(76,29,149,.28),rgba(236,72,153,.09));
@@ -5748,7 +5748,7 @@
   border:1px solid rgba(248,187,208,.10);
   background:rgba(10,2,16,.32);
   color:#deb0c9;
-  font-size:5.5px;
+  font-size:6.7px;
 }
 
 @media(max-width:980px){
@@ -6140,7 +6140,7 @@
 .tech-lane-automation .auto-v8-playbook small{
   margin-top:3px;
   color:#e9b9d5;
-  font-size:5.5px;
+  font-size:6.7px;
 }
 
 .tech-lane-automation .auto-v8-down{
@@ -6646,7 +6646,7 @@
   border:1px solid rgba(248,187,208,.10);
   background:rgba(76,29,149,.16);
   color:#f0cfe0;
-  font-size:5.5px;
+  font-size:6.7px;
   font-weight:700;
   text-align:center;
 }
@@ -6984,7 +6984,7 @@
   border:1px solid rgba(248,187,208,.09);
   background:rgba(76,29,149,.15);
   color:#f0cfe0;
-  font-size:5.5px;
+  font-size:6.7px;
   text-align:center;
 }
 
@@ -7092,7 +7092,7 @@
 }
 
 .tech-lane-elastic .elastic-v3-alert-flow span{
-  min-height:34px;
+  min-height:40px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -7216,7 +7216,7 @@
 }
 
 .tech-lane-elastic .elastic-v4-rules-flow span{
-  min-height:34px;
+  min-height:40px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -7438,7 +7438,7 @@
 }
 .tech-lane-elastic .elastic-v5-alert-node{
   min-width:0;
-  min-height:34px;
+  min-height:40px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -8367,7 +8367,7 @@
 }
 .tech-lane-elastic .elastic-final-troubleshoot span,
 .tech-lane-elastic .elastic-final-support-row span{
-  min-height:34px;
+  min-height:40px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -8376,7 +8376,7 @@
   border:1px solid rgba(248,187,208,.09);
   background:rgba(76,29,149,.14);
   color:#eec4da;
-  font-size:5.5px;
+  font-size:6.7px;
   text-align:center;
 }
 
@@ -9517,6 +9517,723 @@
     animation:none !important;
   }
 }
+
+/* ============================================================
+   CV PDF · CTA dans la sidebar verticale
+   ============================================================ */
+.sidebar-cv-zone{
+  margin-top:2px;
+}
+
+.sidebar-cv-zone .sidebar-profile-separator{
+  margin:14px 0 13px;
+}
+
+.sidebar-cv-card{
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  grid-template-columns:32px minmax(0,1fr);
+  gap:9px 10px;
+  align-items:center;
+  padding:14px;
+  border-radius:13px;
+  border:1px solid rgba(248,187,208,.15);
+  background:
+    radial-gradient(circle at 95% 0%,rgba(236,72,153,.11),transparent 46%),
+    linear-gradient(145deg,rgba(41,10,55,.62),rgba(18,4,27,.66));
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.025),
+    0 10px 24px rgba(0,0,0,.10);
+  transition:
+    transform .24s ease,
+    border-color .24s ease,
+    box-shadow .24s ease;
+}
+
+.sidebar-cv-card::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-55%;
+  width:34%;
+  height:100%;
+  pointer-events:none;
+  background:linear-gradient(
+    105deg,
+    transparent,
+    rgba(255,241,247,.07),
+    transparent
+  );
+  transform:skewX(-15deg);
+  transition:left .55s ease;
+}
+
+.sidebar-cv-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(249,168,212,.31);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.035),
+    0 14px 28px rgba(0,0,0,.16),
+    0 0 22px rgba(236,72,153,.045);
+}
+
+.sidebar-cv-card:hover::after{
+  left:120%;
+}
+
+.sidebar-cv-icon{
+  width:32px;
+  height:32px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  border:1px solid rgba(249,168,212,.20);
+  background:rgba(236,72,153,.10);
+  color:#f9a8d4;
+  font-size:7px;
+  font-weight:850;
+  letter-spacing:.04em;
+}
+
+.sidebar-cv-copy{
+  min-width:0;
+}
+
+.sidebar-cv-kicker{
+  margin-bottom:1px;
+  color:#b78ca6;
+  font-size:6px;
+  font-weight:750;
+  letter-spacing:.12em;
+}
+
+.sidebar-cv-title{
+  color:#fff1f7;
+  font-size:10px;
+  font-weight:760;
+  line-height:1.2;
+}
+
+.sidebar-cv-subtitle{
+  margin-top:2px;
+  color:#d6a9c3;
+  font-size:6.7px;
+}
+
+.sidebar-cv-btn{
+  grid-column:1 / -1;
+  min-height:40px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:7px;
+  padding:9px 10px;
+  border-radius:9px;
+  border:1px solid rgba(249,168,212,.15);
+  background:rgba(76,29,149,.16);
+  color:#fce7f3;
+  text-decoration:none;
+  transition:
+    background .22s ease,
+    border-color .22s ease,
+    transform .22s ease;
+}
+
+.sidebar-cv-btn span{
+  padding:3px 5px;
+  border-radius:6px;
+  background:rgba(236,72,153,.12);
+  color:#f9a8d4;
+  font-size:5.8px;
+  font-weight:800;
+}
+
+.sidebar-cv-btn strong{
+  font-size:7.6px;
+  font-weight:720;
+}
+
+.sidebar-cv-btn b{
+  color:#f9a8d4;
+  font-size:8px;
+  transition:transform .22s ease;
+}
+
+.sidebar-cv-btn:hover{
+  transform:translateY(-1px);
+  border-color:rgba(249,168,212,.28);
+  background:rgba(124,58,237,.20);
+}
+
+.sidebar-cv-btn:hover b{
+  transform:translate(2px,-2px);
+}
+
+.sidebar-cv-btn:focus-visible{
+  outline:2px solid rgba(249,168,212,.50);
+  outline-offset:2px;
+}
+
+@media(max-width:840px){
+  .sidebar-cv-card{
+    max-width:none;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  .sidebar-cv-card,
+  .sidebar-cv-card::after,
+  .sidebar-cv-btn,
+  .sidebar-cv-btn b{
+    transition:none !important;
+  }
+}
+
+/* ============================================================
+   ELASTICSEARCH · LIFECYCLE / TIME SERIES
+   Data Streams séparé conceptuellement de l'ILM,
+   Rollover rattaché à la phase HOT.
+   ============================================================ */
+
+/* 3 concepts compacts au-dessus + lifecycle pleine largeur */
+.tech-lane-elastic .elastic-core-es-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+}
+
+.tech-lane-elastic .elastic-core-lifecycle{
+  grid-column:1 / -1;
+  min-height:0;
+}
+
+.tech-lane-elastic .elastic-lifecycle-layout{
+  display:grid;
+  grid-template-columns:minmax(160px,.55fr) minmax(0,1.45fr);
+  gap:8px;
+}
+
+.tech-lane-elastic .elastic-lifecycle-stream,
+.tech-lane-elastic .elastic-lifecycle-ilm{
+  min-width:0;
+  padding:9px;
+  border-radius:10px;
+  border:1px solid rgba(248,187,208,.09);
+  background:rgba(76,29,149,.10);
+}
+
+.tech-lane-elastic .elastic-lifecycle-subtitle{
+  margin-bottom:7px;
+  color:#f9a8d4;
+  font-size:5.5px;
+  font-weight:780;
+  letter-spacing:.05em;
+}
+
+/* Data Streams */
+.tech-lane-elastic .elastic-stream-visual{
+  display:grid;
+  gap:6px;
+}
+
+.tech-lane-elastic .elastic-stream-main{
+  min-height:42px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:2px;
+  padding:6px;
+  border-radius:8px;
+  border:1px solid rgba(249,168,212,.14);
+  background:rgba(10,2,16,.28);
+  text-align:center;
+}
+
+.tech-lane-elastic .elastic-stream-main strong{
+  color:#fff1f7;
+  font-size:6px;
+}
+
+.tech-lane-elastic .elastic-stream-main small{
+  color:#dca9c7;
+  font-size:4.7px;
+}
+
+.tech-lane-elastic .elastic-stream-indices{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:4px;
+}
+
+.tech-lane-elastic .elastic-stream-indices span{
+  min-height:27px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:4px;
+  border-radius:7px;
+  border:1px solid rgba(248,187,208,.07);
+  background:rgba(10,2,16,.22);
+  color:#d9afc6;
+  font-size:4.4px;
+  line-height:1.15;
+  text-align:center;
+}
+
+.tech-lane-elastic .elastic-stream-indices .is-write{
+  border-color:rgba(249,168,212,.22);
+  background:rgba(236,72,153,.09);
+  color:#fff1f7;
+}
+
+/* ILM */
+.tech-lane-elastic .elastic-ilm-flow{
+  display:grid;
+  grid-template-columns:
+    minmax(58px,1fr) 14px
+    minmax(58px,1fr) 14px
+    minmax(58px,1fr) 14px
+    minmax(58px,1fr) 14px
+    minmax(58px,1fr);
+  align-items:center;
+  gap:3px;
+}
+
+.tech-lane-elastic .elastic-ilm-phase{
+  min-width:0;
+  min-height:47px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  padding:6px 4px;
+  border-radius:8px;
+  border:1px solid rgba(248,187,208,.10);
+  background:rgba(10,2,16,.28);
+  text-align:center;
+  transition:
+    transform .22s ease,
+    border-color .22s ease,
+    box-shadow .22s ease,
+    background .22s ease;
+}
+
+.tech-lane-elastic .elastic-ilm-phase strong{
+  font-size:5.6px;
+  letter-spacing:.04em;
+}
+
+.tech-lane-elastic .elastic-ilm-phase small{
+  color:#d8afc6;
+  font-size:4.3px;
+  line-height:1.1;
+}
+
+/* Couleurs progressives, sans casser la palette du CV */
+.tech-lane-elastic .elastic-ilm-phase.hot strong{color:#f9a8d4}
+.tech-lane-elastic .elastic-ilm-phase.warm strong{color:#efb6d7}
+.tech-lane-elastic .elastic-ilm-phase.cold strong{color:#d8b9ec}
+.tech-lane-elastic .elastic-ilm-phase.frozen strong{color:#bfc8f5}
+.tech-lane-elastic .elastic-ilm-phase.delete strong{color:#f2a6b2}
+
+.tech-lane-elastic .elastic-ilm-flow > i{
+  position:relative;
+  height:1px;
+  background:rgba(249,168,212,.24);
+}
+
+.tech-lane-elastic .elastic-ilm-flow > i::after{
+  content:"";
+  position:absolute;
+  right:0;
+  top:50%;
+  width:3px;
+  height:3px;
+  border-right:1px solid rgba(249,168,212,.66);
+  border-top:1px solid rgba(249,168,212,.66);
+  transform:translateY(-50%) rotate(45deg);
+}
+
+/* Cohérent avec le reste du cockpit : vie au survol, pas au repos */
+#technologies-pratique .elastic-core-lifecycle:hover .elastic-ilm-flow > i{
+  background-image:linear-gradient(
+    90deg,
+    rgba(249,168,212,.08),
+    rgba(249,168,212,.26),
+    rgba(255,241,247,.92),
+    rgba(249,168,212,.26),
+    rgba(249,168,212,.08)
+  );
+  background-size:240% 100%;
+  animation:flowForwardX 3.4s linear infinite;
+}
+
+#technologies-pratique .elastic-ilm-phase:hover{
+  transform:translateY(-2px);
+  border-color:rgba(249,168,212,.25);
+  background:rgba(76,29,149,.17);
+  box-shadow:0 8px 18px rgba(0,0,0,.13);
+}
+
+@media(max-width:850px){
+  .tech-lane-elastic .elastic-core-es-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+
+  .tech-lane-elastic .elastic-core-lifecycle{
+    grid-column:1 / -1;
+  }
+
+  .tech-lane-elastic .elastic-lifecycle-layout{
+    grid-template-columns:minmax(0,1fr);
+  }
+}
+
+@media(max-width:620px){
+  .tech-lane-elastic .elastic-core-es-grid{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+
+  .tech-lane-elastic .elastic-ilm-flow,
+  .tech-lane-elastic .elastic-stream-indices{
+    grid-template-columns:minmax(0,1fr);
+  }
+
+  .tech-lane-elastic .elastic-ilm-flow > i{
+    width:1px;
+    height:10px;
+    justify-self:center;
+  }
+
+  .tech-lane-elastic .elastic-ilm-flow > i::after{
+    display:none;
+  }
+}
+
+/* ============================================================
+   ELASTIC STACK · PREMIUM READABLE LAYOUT
+   Réagencement : on donne l'espace au contenu, on ne réduit plus le texte.
+   ============================================================ */
+
+/* 1. STRUCTURE GLOBALE : les trois périmètres respirent enfin */
+.tech-lane-elastic .elastic-core-layout{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) !important;
+  grid-template-areas:
+    "logstash"
+    "es"
+    "kibana" !important;
+  gap:12px !important;
+}
+
+.tech-lane-elastic .elastic-core-card{
+  padding:16px !important;
+  border-radius:17px !important;
+}
+
+/* 2. HEADER DES CARTES : vraie hiérarchie lisible */
+.tech-lane-elastic .elastic-core-head{
+  gap:11px !important;
+  margin-bottom:14px !important;
+  padding-bottom:12px !important;
+}
+
+.tech-lane-elastic .elastic-core-mark{
+  width:36px !important;
+  height:36px !important;
+  flex-basis:36px !important;
+  border-radius:11px !important;
+  font-size:10px !important;
+}
+
+.tech-lane-elastic .elastic-core-head strong{
+  font-size:13px !important;
+  line-height:1.15 !important;
+}
+
+.tech-lane-elastic .elastic-core-head small{
+  margin-top:4px !important;
+  font-size:9px !important;
+  line-height:1.2 !important;
+}
+
+/* 3. ARCHITECTURE : plus grande et plus nette */
+.tech-lane-elastic .elastic-core-architecture{
+  grid-template-columns:minmax(0,.8fr) 32px minmax(0,1fr) 32px minmax(0,1.12fr) 32px minmax(0,1fr) !important;
+  gap:8px !important;
+}
+
+.tech-lane-elastic .elastic-core-arch-node{
+  min-height:86px !important;
+  gap:8px !important;
+  padding:12px !important;
+  border-radius:15px !important;
+}
+
+.tech-lane-elastic .elastic-core-arch-node > span{
+  width:36px !important;
+  height:36px !important;
+  border-radius:11px !important;
+  font-size:11px !important;
+}
+
+.tech-lane-elastic .elastic-core-arch-node strong{
+  font-size:11px !important;
+  line-height:1.15 !important;
+}
+
+/* 4. LOGSTASH : même contenu, mais en bande compacte horizontale */
+.tech-lane-elastic .elastic-core-logstash{
+  display:grid !important;
+  grid-template-columns:minmax(180px,.72fr) minmax(0,2fr) auto !important;
+  align-items:center !important;
+  gap:14px !important;
+  min-height:0 !important;
+}
+
+.tech-lane-elastic .elastic-core-logstash .elastic-core-head{
+  margin:0 !important;
+  padding:0 15px 0 0 !important;
+  border-bottom:0 !important;
+  border-right:1px solid rgba(248,187,208,.10) !important;
+}
+
+.tech-lane-elastic .elastic-core-pipelines{
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  gap:9px !important;
+}
+
+.tech-lane-elastic .elastic-core-pipeline{
+  min-height:58px !important;
+  grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr) !important;
+  padding:9px 12px !important;
+  border-radius:11px !important;
+}
+
+.tech-lane-elastic .elastic-core-pipeline span,
+.tech-lane-elastic .elastic-core-pipeline b{
+  font-size:9px !important;
+  line-height:1.2 !important;
+}
+
+.tech-lane-elastic .elastic-core-caption{
+  margin:0 !important;
+  padding:8px 10px !important;
+  border-radius:999px !important;
+  border:1px solid rgba(249,168,212,.12) !important;
+  background:rgba(236,72,153,.07) !important;
+  white-space:nowrap !important;
+  font-size:7px !important;
+  letter-spacing:.06em !important;
+}
+
+/* 5. ELASTICSEARCH : toute la largeur, 3 concepts + lifecycle pleine largeur */
+.tech-lane-elastic .elastic-core-es-grid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:11px !important;
+}
+
+.tech-lane-elastic .elastic-core-topic{
+  min-height:132px !important;
+  padding:14px !important;
+  border-radius:13px !important;
+}
+
+.tech-lane-elastic .elastic-core-topic-icon{
+  width:31px !important;
+  height:25px !important;
+  margin-bottom:10px !important;
+  border-radius:8px !important;
+  font-size:7px !important;
+}
+
+.tech-lane-elastic .elastic-core-topic-name{
+  margin-bottom:11px !important;
+  font-size:11px !important;
+  line-height:1.2 !important;
+}
+
+.tech-lane-elastic .elastic-core-topic-items{
+  gap:7px !important;
+}
+
+.tech-lane-elastic .elastic-core-topic-items span{
+  padding:7px 9px !important;
+  border-radius:8px !important;
+  font-size:8px !important;
+  line-height:1.2 !important;
+}
+
+/* Lifecycle reste la grande pièce technique de la fiche */
+.tech-lane-elastic .elastic-core-lifecycle{
+  grid-column:1 / -1 !important;
+  min-height:0 !important;
+  padding:15px !important;
+}
+
+.tech-lane-elastic .elastic-lifecycle-layout{
+  display:grid !important;
+  grid-template-columns:minmax(250px,.78fr) minmax(0,2.22fr) !important;
+  gap:12px !important;
+}
+
+.tech-lane-elastic .elastic-lifecycle-stream,
+.tech-lane-elastic .elastic-lifecycle-ilm{
+  padding:12px !important;
+  border-radius:12px !important;
+}
+
+.tech-lane-elastic .elastic-lifecycle-subtitle{
+  margin-bottom:10px !important;
+  font-size:8px !important;
+  line-height:1.2 !important;
+}
+
+.tech-lane-elastic .elastic-stream-main{
+  min-height:58px !important;
+  gap:3px !important;
+  padding:9px !important;
+  border-radius:10px !important;
+}
+
+.tech-lane-elastic .elastic-stream-main strong{
+  font-size:9px !important;
+}
+
+.tech-lane-elastic .elastic-stream-main small{
+  font-size:7px !important;
+}
+
+.tech-lane-elastic .elastic-stream-indices{
+  gap:6px !important;
+}
+
+.tech-lane-elastic .elastic-stream-indices span{
+  min-height:34px !important;
+  padding:6px !important;
+  border-radius:8px !important;
+  font-size:6.5px !important;
+}
+
+.tech-lane-elastic .elastic-ilm-flow{
+  grid-template-columns:
+    minmax(72px,1fr) 18px
+    minmax(72px,1fr) 18px
+    minmax(72px,1fr) 18px
+    minmax(72px,1fr) 18px
+    minmax(72px,1fr) !important;
+  gap:5px !important;
+}
+
+.tech-lane-elastic .elastic-ilm-phase{
+  min-height:61px !important;
+  gap:4px !important;
+  padding:8px 6px !important;
+  border-radius:10px !important;
+}
+
+.tech-lane-elastic .elastic-ilm-phase strong{
+  font-size:8px !important;
+}
+
+.tech-lane-elastic .elastic-ilm-phase small{
+  font-size:6.5px !important;
+  line-height:1.2 !important;
+}
+
+/* 6. KIBANA : 5 cartes lisibles sans rajouter de hauteur inutile */
+.tech-lane-elastic .elastic-core-kibana-grid{
+  display:grid !important;
+  grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+  gap:10px !important;
+}
+
+.tech-lane-elastic .elastic-core-k-topic{
+  min-height:156px !important;
+  padding:13px 10px !important;
+  border-radius:13px !important;
+}
+
+.tech-lane-elastic .elastic-core-k-icon{
+  width:36px !important;
+  height:36px !important;
+  margin-bottom:10px !important;
+  border-radius:10px !important;
+  font-size:10px !important;
+}
+
+.tech-lane-elastic .elastic-core-k-topic > strong{
+  margin-bottom:10px !important;
+  font-size:10px !important;
+  line-height:1.2 !important;
+}
+
+.tech-lane-elastic .elastic-core-k-items{
+  gap:6px !important;
+}
+
+.tech-lane-elastic .elastic-core-k-items span{
+  min-height:32px !important;
+  padding:6px !important;
+  border-radius:8px !important;
+  font-size:7px !important;
+  line-height:1.2 !important;
+}
+
+/* Hover : un peu plus de relief maintenant que les cartes sont grandes */
+#technologies-pratique .elastic-core-topic:hover,
+#technologies-pratique .elastic-core-k-topic:hover{
+  transform:translateY(-5px) !important;
+}
+
+/* Responsive : conserver la lisibilité plutôt que forcer 5 colonnes */
+@media(max-width:1050px){
+  .tech-lane-elastic .elastic-core-kibana-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  }
+  .tech-lane-elastic .elastic-core-k-topic:nth-child(4),
+  .tech-lane-elastic .elastic-core-k-topic:nth-child(5){
+    min-height:140px !important;
+  }
+}
+
+@media(max-width:900px){
+  .tech-lane-elastic .elastic-core-logstash{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+  .tech-lane-elastic .elastic-core-logstash .elastic-core-head{
+    padding:0 0 10px !important;
+    border-right:0 !important;
+    border-bottom:1px solid rgba(248,187,208,.10) !important;
+  }
+  .tech-lane-elastic .elastic-core-caption{
+    justify-self:start !important;
+  }
+  .tech-lane-elastic .elastic-lifecycle-layout{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+}
+
+@media(max-width:720px){
+  .tech-lane-elastic .elastic-core-es-grid,
+  .tech-lane-elastic .elastic-core-kibana-grid,
+  .tech-lane-elastic .elastic-core-pipelines{
+    grid-template-columns:minmax(0,1fr) !important;
+  }
+}
+
+/* Formations Elastic : PDF temporaire en attendant les justificatifs */
+.elastic-training-temp-pdf{
+  border-style:dashed !important;
+  opacity:.88;
+}
+.elastic-training-temp-pdf:hover{
+  opacity:1;
+}
 </style>
 <link href="img/logo.png" rel="icon" type="image/png"/>
 </head>
@@ -9543,14 +10260,14 @@
 </div>
 </div>
 <div class="tech-stack tech-stack-categorized">
-<div class="tech-group"><div class="tech-title">Bases de données</div><div class="pill-list"><span class="pill">SQL</span><span class="pill">PL/SQL</span></div></div>
-<div class="tech-group"><div class="tech-title">Python</div><div class="pill-list"><span class="pill">Python</span></div></div>
-<div class="tech-group"><div class="tech-title">Data apps &amp; BI</div><div class="pill-list"><span class="pill">Streamlit</span><span class="pill">Dash</span><span class="pill">Power BI</span></div></div>
+<div class="tech-group"><div class="tech-title">Bases de données</div><div class="pill-list"><span class="pill">SQL</span><span class="pill">PL/SQL</span><span class="pill">MySQL</span></div></div>
+<div class="tech-group"><div class="tech-title">Programmation</div><div class="pill-list"><span class="pill">Python</span><span class="pill">C</span></div></div>
+<div class="tech-group"><div class="tech-title">Data apps &amp; BI</div><div class="pill-list"><span class="pill">Streamlit</span><span class="pill">Dash</span><span class="pill">Power BI</span><span class="pill">Looker Studio</span></div></div>
 <div class="tech-group"><div class="tech-title">Web &amp; API</div><div class="pill-list"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span><span class="pill">API REST</span></div></div>
 <div class="tech-group"><div class="tech-title">Mobile</div><div class="pill-list"><span class="pill">SwiftUI</span></div></div>
 <div class="tech-group"><div class="tech-title">Systèmes</div><div class="pill-list"><span class="pill">Linux</span><span class="pill">Shell</span></div></div>
-<div class="tech-group"><div class="tech-title">Versioning &amp; CI/CD</div><div class="pill-list"><span class="pill">Git</span><span class="pill">GitHub Actions</span></div></div>
-<div class="tech-group"><div class="tech-title">Conteneurs</div><div class="pill-list"><span class="pill">Docker</span><span class="pill">Kubernetes</span></div></div>
+<div class="tech-group"><div class="tech-title">Versioning &amp; CI/CD</div><div class="pill-list"><span class="pill">Git</span><span class="pill">GitHub Actions</span><span class="pill">GitLab CI/CD</span></div></div>
+<div class="tech-group"><div class="tech-title">Conteneurs &amp; orchestration</div><div class="pill-list"><span class="pill">Docker</span><span class="pill">Kubernetes</span><span class="pill">Helm</span></div></div>
 </div>
 </section>
 <div class="sidebar-personal-zone">
@@ -9587,6 +10304,22 @@
 <div class="interest-item"><span>💃</span><small>Danse</small></div>
 <div class="interest-item"><span>🎮</span><small>Jeux vidéo</small></div>
 <div class="interest-item"><span>🏈</span><small>Football US</small></div></div>
+</section>
+</div>
+<div class="sidebar-cv-zone">
+<div aria-hidden="true" class="sidebar-profile-separator"></div>
+<section aria-labelledby="sidebar-cv-title" class="sidebar-cv-card">
+<div aria-hidden="true" class="sidebar-cv-icon">CV</div>
+<div class="sidebar-cv-copy">
+<div class="sidebar-cv-kicker">DOCUMENT</div>
+<div class="sidebar-cv-title" id="sidebar-cv-title">Curriculum Vitae</div>
+<div class="sidebar-cv-subtitle">Version PDF</div>
+</div>
+<a class="sidebar-cv-btn" href="CV - Alicia LE BRUN (3).pdf" rel="noopener noreferrer" target="_blank">
+<span>PDF</span>
+<strong>Télécharger</strong>
+<b aria-hidden="true">↗</b>
+</a>
 </section>
 </div>
 </aside>
@@ -9731,8 +10464,7 @@
 <span>Index Templates</span>
 <span>Component Templates</span>
 </div>
-</div>
-<div class="elastic-core-topic">
+</div><div class="elastic-core-topic">
 <div class="elastic-core-topic-icon">02</div>
 <div class="elastic-core-topic-name">Cluster &amp; Resilience</div>
 <div class="elastic-core-topic-items">
@@ -9740,26 +10472,63 @@
 <span>Shards</span>
 <span>Replicas</span>
 </div>
-</div>
-<div class="elastic-core-topic">
+</div><div class="elastic-core-topic">
 <div class="elastic-core-topic-icon">03</div>
-<div class="elastic-core-topic-name">Lifecycle &amp; Time Series</div>
-<div class="elastic-core-topic-items">
-<span>Data Streams</span>
-<span>ILM</span>
-<span>Rollover</span>
-</div>
-</div>
-<div class="elastic-core-topic">
-<div class="elastic-core-topic-icon">04</div>
 <div class="elastic-core-topic-name">Search &amp; Analytics</div>
 <div class="elastic-core-topic-items">
 <span>Query DSL</span>
 <span>Filters</span>
 <span>Aggregations</span>
 </div>
+</div><div class="elastic-core-topic elastic-core-lifecycle">
+<div class="elastic-core-topic-icon">04</div>
+<div class="elastic-core-topic-name">Lifecycle &amp; Time Series</div>
+<div class="elastic-lifecycle-layout">
+<div class="elastic-lifecycle-stream">
+<div class="elastic-lifecycle-subtitle">Data Streams</div>
+<div class="elastic-stream-visual">
+<div class="elastic-stream-main">
+<strong>Data Stream</strong>
+<small>données time-series</small>
+</div>
+<div class="elastic-stream-indices">
+<span>Backing index</span>
+<span>Backing index</span>
+<span class="is-write">Write index</span>
 </div>
 </div>
+</div>
+<div class="elastic-lifecycle-ilm">
+<div class="elastic-lifecycle-subtitle">ILM · Index Lifecycle Management</div>
+<div aria-label="Cycle de vie ILM" class="elastic-ilm-flow">
+<div class="elastic-ilm-phase hot">
+<strong>HOT</strong>
+<small>Rollover</small>
+</div>
+<i aria-hidden="true"></i>
+<div class="elastic-ilm-phase warm">
+<strong>WARM</strong>
+<small>moins sollicité</small>
+</div>
+<i aria-hidden="true"></i>
+<div class="elastic-ilm-phase cold">
+<strong>COLD</strong>
+<small>accès rare</small>
+</div>
+<i aria-hidden="true"></i>
+<div class="elastic-ilm-phase frozen">
+<strong>FROZEN</strong>
+<small>très rare</small>
+</div>
+<i aria-hidden="true"></i>
+<div class="elastic-ilm-phase delete">
+<strong>DELETE</strong>
+<small>fin de rétention</small>
+</div>
+</div>
+</div>
+</div>
+</div></div>
 </section>
 <!-- Kibana : outils de travail et d'analyse -->
 <section class="elastic-core-card elastic-core-kibana">
@@ -10305,16 +11074,16 @@
 </div>
 <div class="certif-groups-clean"><section class="certif-group-clean"><div class="certif-group-heading"><span>Formations techniques</span><i></i></div><div class="certif-row-clean"><div class="certif-item">
 <div class="certif-info">
-<div class="certif-name">Elastic Analyst</div>
-<div class="certif-date">Formation technique Elastic</div>
-<span aria-disabled="true" class="pill pdf-placeholder" title="Ajoutez ici le justificatif PDF">📄 PDF à ajouter</span>
-</div>
+<div class="certif-name">Data Analysis with Kibana</div>
+<div class="certif-date">Formation officielle Elastic</div>
+
+<a class="pill elastic-training-temp-pdf" href="CV - Alicia LE BRUN (3).pdf" rel="noopener noreferrer" target="_blank" title="PDF temporaire : CV utilisé en attendant le justificatif de formation">📄 PDF temporaire · CV</a></div>
 </div><div class="certif-item">
 <div class="certif-info">
-<div class="certif-name">Elastic Observability</div>
-<div class="certif-date">Formation technique Elastic</div>
-<span aria-disabled="true" class="pill pdf-placeholder" title="Ajoutez ici le justificatif PDF">📄 PDF à ajouter</span>
-</div>
+<div class="certif-name">Elastic Observability Engineer</div>
+<div class="certif-date">Formation officielle Elastic</div>
+
+<a class="pill elastic-training-temp-pdf" href="CV - Alicia LE BRUN (3).pdf" rel="noopener noreferrer" target="_blank" title="PDF temporaire : CV utilisé en attendant le justificatif de formation">📄 PDF temporaire · CV</a></div>
 </div></div></section><section class="certif-group-clean"><div class="certif-group-heading"><span>Certifications</span><i></i></div><div class="certif-row-clean"><div class="certif-item"><div class="certif-info"><div class="certif-name">Microsoft Azure AI-900 (AI Fundamentals)</div><div class="certif-date">2025</div><a class="pill" href="img/Certifs/AzureAI-900.pdf" rel="noopener noreferrer" target="_blank">📄 Voir la certification</a></div></div><div class="certif-item"><div class="certif-info"><div class="certif-name">PSC — Premiers Secours</div><div class="certif-date">2025</div><a class="pill" href="img/Certifs/PSC-LE-BRUN-Alicia.pdf" rel="noopener noreferrer" target="_blank">📄 Voir la certification</a></div></div></div></section></div>
 </div></div></section>
 <!-- CONTACT / FOOTER -->
@@ -10329,19 +11098,7 @@
 <p style="font-size: 13px; color: var(--muted); margin-bottom: 10px;">Pour échanger autour de mon profil, de la Data Engineering, des environnements Elastic / RUN ou de l’automatisation, vous pouvez me contacter directement.</p>
 <div class="contact-block" style="margin-top: 10px;"><div>📧 <a href="mailto:alicia.lebrun.contact@gmail.com">alicia.lebrun.contact@gmail.com</a></div><div>📱 <a href="tel:+33766528979">+33 7 66 52 89 79</a></div><div>📍 Paris · Île-de-France</div><div>🔗 <a href="https://www.linkedin.com/in/alicia-le-brun-457315218/" rel="noopener noreferrer" target="_blank">LinkedIn</a></div></div>
 <div class="footer-note">CV interactif — Août 2026</div>
-</section><div class="card cv-download-centered" id="cv-download">
-<div class="card-header">
-<div>
-<div class="card-title">Curriculum Vitae</div>
-<div class="card-subtitle">Version PDF téléchargeable</div>
-</div>
-<div class="chip-small">PDF</div>
-</div>
-<div class="cv-download-content">
-<p class="cv-download-text">Dernière version de mon CV, mise à jour avec mon expérience BNP Paribas et mon positionnement Data Engineering.</p>
-<a class="pill cv-download-btn" href="CV - Alicia LE BRUN (3).pdf" rel="noopener noreferrer" target="_blank">📄 Télécharger mon CV (PDF)</a>
-</div>
-</div>
+</section>
 </main>
 </div>
 <!-- Chart.js -->
